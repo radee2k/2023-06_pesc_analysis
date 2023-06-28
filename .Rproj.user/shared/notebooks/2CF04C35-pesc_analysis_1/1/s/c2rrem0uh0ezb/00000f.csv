@@ -1,0 +1,13 @@
+"0","ds_c <- CreateSeuratObject(count = d_c, min.cells = 0, min.features = 1, project = ""cells"")"
+"2","Warning:"
+"2"," Non-unique features (rownames) present in the input matrix, making unique
+"
+"2","Warning:"
+"2"," Feature names cannot have underscores ('_'), replacing with dashes ('-')
+"
+"0","ds_c <- PercentageFeatureSet(ds_c, pattern = ""^MT-"", col.name = ""percent_mt"")"
+"0","ds_c <- PercentageFeatureSet(ds_c, ""^RP[SL]"", col.name = ""percent_ribo"")"
+"0",""
+"0","#ds_c <- PercentageFeatureSet(ds_c, ""^HB[^(P)]"", col.name = ""percent_hb"")"
+"0","#ds_c <- PercentageFeatureSet(ds_c, ""PECAM1|PF4"", col.name = ""percent_plat"")"
+"0",""

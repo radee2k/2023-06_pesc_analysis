@@ -1,0 +1,38 @@
+ensembl_gene_id	external_gene_name	description	entrezgene_id
+ENSG00000198695	MT-ND6	mitochondrially encoded NADH:ubiquinone oxidoreductase core subunit 6 [Source:HGNC Symbol;Acc:HGNC:7462]	4541
+ENSG00000198712	MT-CO2	mitochondrially encoded cytochrome c oxidase II [Source:HGNC Symbol;Acc:HGNC:7421]	4513
+ENSG00000198727	MT-CYB	mitochondrially encoded cytochrome b [Source:HGNC Symbol;Acc:HGNC:7427]	4519
+ENSG00000198763	MT-ND2	mitochondrially encoded NADH:ubiquinone oxidoreductase core subunit 2 [Source:HGNC Symbol;Acc:HGNC:7456]	4536
+ENSG00000198786	MT-ND5	mitochondrially encoded NADH:ubiquinone oxidoreductase core subunit 5 [Source:HGNC Symbol;Acc:HGNC:7461]	4540
+ENSG00000198804	MT-CO1	mitochondrially encoded cytochrome c oxidase I [Source:HGNC Symbol;Acc:HGNC:7419]	4512
+ENSG00000198840	MT-ND3	mitochondrially encoded NADH:ubiquinone oxidoreductase core subunit 3 [Source:HGNC Symbol;Acc:HGNC:7458]	4537
+ENSG00000198886	MT-ND4	mitochondrially encoded NADH:ubiquinone oxidoreductase core subunit 4 [Source:HGNC Symbol;Acc:HGNC:7459]	4538
+ENSG00000198888	MT-ND1	mitochondrially encoded NADH:ubiquinone oxidoreductase core subunit 1 [Source:HGNC Symbol;Acc:HGNC:7455]	4535
+ENSG00000198899	MT-ATP6	mitochondrially encoded ATP synthase membrane subunit 6 [Source:HGNC Symbol;Acc:HGNC:7414]	4508
+ENSG00000198938	MT-CO3	mitochondrially encoded cytochrome c oxidase III [Source:HGNC Symbol;Acc:HGNC:7422]	4514
+ENSG00000209082	MT-TL1	mitochondrially encoded tRNA-Leu (UUA/G) 1 [Source:HGNC Symbol;Acc:HGNC:7490]	NA
+ENSG00000210049	MT-TF	mitochondrially encoded tRNA-Phe (UUU/C) [Source:HGNC Symbol;Acc:HGNC:7481]	NA
+ENSG00000210077	MT-TV	mitochondrially encoded tRNA-Val (GUN) [Source:HGNC Symbol;Acc:HGNC:7500]	NA
+ENSG00000210082	MT-RNR2	mitochondrially encoded 16S rRNA [Source:HGNC Symbol;Acc:HGNC:7471]	NA
+ENSG00000210100	MT-TI	mitochondrially encoded tRNA-Ile (AUU/C) [Source:HGNC Symbol;Acc:HGNC:7488]	NA
+ENSG00000210107	MT-TQ	mitochondrially encoded tRNA-Gln (CAA/G) [Source:HGNC Symbol;Acc:HGNC:7495]	NA
+ENSG00000210112	MT-TM	mitochondrially encoded tRNA-Met (AUA/G) [Source:HGNC Symbol;Acc:HGNC:7492]	NA
+ENSG00000210117	MT-TW	mitochondrially encoded tRNA-Trp (UGA/G) [Source:HGNC Symbol;Acc:HGNC:7501]	NA
+ENSG00000210127	MT-TA	mitochondrially encoded tRNA-Ala (GCN) [Source:HGNC Symbol;Acc:HGNC:7475]	NA
+ENSG00000210135	MT-TN	mitochondrially encoded tRNA-Asn (AAU/C) [Source:HGNC Symbol;Acc:HGNC:7493]	NA
+ENSG00000210140	MT-TC	mitochondrially encoded tRNA-Cys (UGU/C) [Source:HGNC Symbol;Acc:HGNC:7477]	NA
+ENSG00000210144	MT-TY	mitochondrially encoded tRNA-Tyr (UAU/C) [Source:HGNC Symbol;Acc:HGNC:7502]	NA
+ENSG00000210151	MT-TS1	mitochondrially encoded tRNA-Ser (UCN) 1 [Source:HGNC Symbol;Acc:HGNC:7497]	NA
+ENSG00000210154	MT-TD	mitochondrially encoded tRNA-Asp (GAU/C) [Source:HGNC Symbol;Acc:HGNC:7478]	NA
+ENSG00000210156	MT-TK	mitochondrially encoded tRNA-Lys (AAA/G) [Source:HGNC Symbol;Acc:HGNC:7489]	NA
+ENSG00000210164	MT-TG	mitochondrially encoded tRNA-Gly (GGN) [Source:HGNC Symbol;Acc:HGNC:7486]	NA
+ENSG00000210174	MT-TR	mitochondrially encoded tRNA-Arg (CGN) [Source:HGNC Symbol;Acc:HGNC:7496]	NA
+ENSG00000210176	MT-TH	mitochondrially encoded tRNA-His (CAU/C) [Source:HGNC Symbol;Acc:HGNC:7487]	NA
+ENSG00000210184	MT-TS2	mitochondrially encoded tRNA-Ser (AGU/C) 2 [Source:HGNC Symbol;Acc:HGNC:7498]	NA
+ENSG00000210191	MT-TL2	mitochondrially encoded tRNA-Leu (CUN) 2 [Source:HGNC Symbol;Acc:HGNC:7491]	NA
+ENSG00000210194	MT-TE	mitochondrially encoded tRNA-Glu (GAA/G) [Source:HGNC Symbol;Acc:HGNC:7479]	NA
+ENSG00000210195	MT-TT	mitochondrially encoded tRNA-Thr (ACN) [Source:HGNC Symbol;Acc:HGNC:7499]	NA
+ENSG00000210196	MT-TP	mitochondrially encoded tRNA-Pro (CCN) [Source:HGNC Symbol;Acc:HGNC:7494]	NA
+ENSG00000211459	MT-RNR1	mitochondrially encoded 12S rRNA [Source:HGNC Symbol;Acc:HGNC:7470]	NA
+ENSG00000212907	MT-ND4L	mitochondrially encoded NADH:ubiquinone oxidoreductase core subunit 4L [Source:HGNC Symbol;Acc:HGNC:7460]	4539
+ENSG00000228253	MT-ATP8	mitochondrially encoded ATP synthase membrane subunit 8 [Source:HGNC Symbol;Acc:HGNC:7415]	4509

@@ -1,0 +1,36 @@
+ensembl_gene_id	external_gene_name	description	entrezgene_id
+ENSMUSG00000064336	mt-Tf	mitochondrially encoded tRNA phenylalanine [Source:MGI Symbol;Acc:MGI:102487]	NA
+ENSMUSG00000064337	mt-Rnr1	mitochondrially encoded 12S rRNA [Source:MGI Symbol;Acc:MGI:102493]	NA
+ENSMUSG00000064338	mt-Tv	mitochondrially encoded tRNA valine [Source:MGI Symbol;Acc:MGI:102472]	NA
+ENSMUSG00000064339	mt-Rnr2	mitochondrially encoded 16S rRNA [Source:MGI Symbol;Acc:MGI:102492]	NA
+ENSMUSG00000064340	mt-Tl1	mitochondrially encoded tRNA leucine 1 [Source:MGI Symbol;Acc:MGI:102482]	NA
+ENSMUSG00000064341	mt-Nd1	mitochondrially encoded NADH dehydrogenase 1 [Source:MGI Symbol;Acc:MGI:101787]	17716
+ENSMUSG00000064342	mt-Ti	mitochondrially encoded tRNA isoleucine [Source:MGI Symbol;Acc:MGI:102484]	NA
+ENSMUSG00000064343	mt-Tq	mitochondrially encoded tRNA glutamine [Source:MGI Symbol;Acc:MGI:102477]	NA
+ENSMUSG00000064344	mt-Tm	mitochondrially encoded tRNA methionine [Source:MGI Symbol;Acc:MGI:102480]	NA
+ENSMUSG00000064345	mt-Nd2	mitochondrially encoded NADH dehydrogenase 2 [Source:MGI Symbol;Acc:MGI:102500]	17717
+ENSMUSG00000064346	mt-Tw	mitochondrially encoded tRNA tryptophan [Source:MGI Symbol;Acc:MGI:102471]	NA
+ENSMUSG00000064347	mt-Ta	mitochondrially encoded tRNA alanine [Source:MGI Symbol;Acc:MGI:102491]	NA
+ENSMUSG00000064348	mt-Tn	mitochondrially encoded tRNA asparagine [Source:MGI Symbol;Acc:MGI:102479]	NA
+ENSMUSG00000064349	mt-Tc	mitochondrially encoded tRNA cysteine [Source:MGI Symbol;Acc:MGI:102490]	NA
+ENSMUSG00000064350	mt-Ty	mitochondrially encoded tRNA tyrosine [Source:MGI Symbol;Acc:MGI:102470]	NA
+ENSMUSG00000064351	mt-Co1	mitochondrially encoded cytochrome c oxidase I [Source:MGI Symbol;Acc:MGI:102504]	17708
+ENSMUSG00000064352	mt-Ts1	mitochondrially encoded tRNA serine 1 [Source:MGI Symbol;Acc:MGI:102475]	NA
+ENSMUSG00000064353	mt-Td	mitochondrially encoded tRNA aspartic acid [Source:MGI Symbol;Acc:MGI:102489]	NA
+ENSMUSG00000064354	mt-Co2	mitochondrially encoded cytochrome c oxidase II [Source:MGI Symbol;Acc:MGI:102503]	17709
+ENSMUSG00000064355	mt-Tk	mitochondrially encoded tRNA lysine [Source:MGI Symbol;Acc:MGI:102483]	NA
+ENSMUSG00000064356	mt-Atp8	mitochondrially encoded ATP synthase 8 [Source:MGI Symbol;Acc:MGI:99926]	17706
+ENSMUSG00000064357	mt-Atp6	mitochondrially encoded ATP synthase 6 [Source:MGI Symbol;Acc:MGI:99927]	17705
+ENSMUSG00000064358	mt-Co3	mitochondrially encoded cytochrome c oxidase III [Source:MGI Symbol;Acc:MGI:102502]	17710
+ENSMUSG00000064359	mt-Tg	mitochondrially encoded tRNA glycine [Source:MGI Symbol;Acc:MGI:102486]	NA
+ENSMUSG00000064360	mt-Nd3	mitochondrially encoded NADH dehydrogenase 3 [Source:MGI Symbol;Acc:MGI:102499]	17718
+ENSMUSG00000064361	mt-Tr	mitochondrially encoded tRNA arginine [Source:MGI Symbol;Acc:MGI:102476]	NA
+ENSMUSG00000064363	mt-Nd4	mitochondrially encoded NADH dehydrogenase 4 [Source:MGI Symbol;Acc:MGI:102498]	17719
+ENSMUSG00000064364	mt-Th	mitochondrially encoded tRNA histidine [Source:MGI Symbol;Acc:MGI:102485]	NA
+ENSMUSG00000064365	mt-Ts2	mitochondrially encoded tRNA serine 2 [Source:MGI Symbol;Acc:MGI:102474]	NA
+ENSMUSG00000064366	mt-Tl2	mitochondrially encoded tRNA leucine 2 [Source:MGI Symbol;Acc:MGI:102481]	NA
+ENSMUSG00000064367	mt-Nd5	mitochondrially encoded NADH dehydrogenase 5 [Source:MGI Symbol;Acc:MGI:102496]	17721
+ENSMUSG00000064369	mt-Te	mitochondrially encoded tRNA glutamic acid [Source:MGI Symbol;Acc:MGI:102488]	NA
+ENSMUSG00000064371	mt-Tt	mitochondrially encoded tRNA threonine [Source:MGI Symbol;Acc:MGI:102473]	NA
+ENSMUSG00000064372	mt-Tp	mitochondrially encoded tRNA proline [Source:MGI Symbol;Acc:MGI:102478]	NA
+ENSMUSG00000065947	mt-Nd4l	mitochondrially encoded NADH dehydrogenase 4L [Source:MGI Symbol;Acc:MGI:102497]	17720
