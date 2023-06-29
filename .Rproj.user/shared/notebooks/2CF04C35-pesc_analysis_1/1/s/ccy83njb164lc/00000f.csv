@@ -1,0 +1,5 @@
+"0","unf <- VlnPlot(ds_c, features = c('percent_mt', ""percent_ribo"")) # unfiltered"
+"0","unf_l <- VlnPlot(ds_c, features = c('nFeature_RNA','nCount_RNA'), log = T) ## UGLY"
+"0",""
+"0","ggsave('qc_pesc_perc_unf.png', unf, device = 'png', dpi = ""retina"", width = 16, height = 9, bg = ""white"")"
+"0","ggsave('qc_pesc_counts_unf.png', unf_l, device = 'png', dpi = ""retina"", width = 16, height = 9, bg = ""white"")"

@@ -1,17 +1,18 @@
 ---
-  title: "06-23_pesc_ev_analysis"
+title: "06-23_pesc_ev_analysis"
 output:
   html_document:
   theme:
   bg: "#121212"
-fg: "#E4E4E4"
+  fg: "#E4E4E4"
 
 date: '2023-06-22'
 ---
 
-This script looks for the lineage of EVs among cells, both from pleural effusion samples.
+This script identifies lineages of EVs among cells from pleural effusion samples.
 
-------------------------------------------------------------------------
+
+___
 
 # Prepare the workign enviornment:
 
@@ -21,7 +22,7 @@ This script looks for the lineage of EVs among cells, both from pleural effusion
 -   set the working directory
 -   set a plan for multithreading
 
-```{r, setup, results='hide'}
+```{r, setup, message=FALSE, warning=FALSE}
 #install.packages("Seurat")
 #install.packages("remotes")
 #BiocManager::install("glmGamPoi")
@@ -76,7 +77,7 @@ s1-s2
 
 # Load and prepare the data and metadata.
 
-```{r, Load and prepare the data}
+```{r, Load and prepare the data, cache=TRUE}
 # for EVs
 d_dc <- as.sparse(read.csv("data/DC_matrix.txt", sep = "\t"))
 
@@ -110,26 +111,28 @@ rownames(d_c) <- gt_sym
 rownames(d_dc) <- gt_sym
 ```
 
-# QC and plotting for cells.
+# QC and filtering of cells.
 
-```{r create Seurat objects}
+```{r create Seurat objects, cache=TRUE}
 ds_c <- CreateSeuratObject(count = d_c, min.cells = 0, min.features = 1, project = "cells")
+rm(d_c)
+suppressMessages(gc())
 
 ds_c <- PercentageFeatureSet(ds_c, pattern = "^MT-", col.name = "percent_mt")
 ds_c <- PercentageFeatureSet(ds_c, "^RP[SL]", col.name = "percent_ribo")
-
-#ds_c <- PercentageFeatureSet(ds_c, "^HB[^(P)]", col.name = "percent_hb")
-#ds_c <- PercentageFeatureSet(ds_c, "PECAM1|PF4", col.name = "percent_plat")
+ds_c <- PercentageFeatureSet(ds_c, "^HB[^(P)]", col.name = "percent_hb")
+ds_c <- PercentageFeatureSet(ds_c, "PECAM1|PF4", col.name = "percent_plat")
 
 ```
 
 ## Plotting
 
-```{r }
-VlnPlot(ds_c, features = c('percent_mt', "percent_ribo")) # unfiltered
+### Main QC plots
+
+```{r Main QC plots, cache=TRUE, fig.width=10}
+VlnPlot(ds_c, features = c('percent_mt', 'percent_hb', "percent_ribo", "percent_plat"), ncol = 4) # unfiltered
 VlnPlot(ds_c, features = c('nFeature_RNA','nCount_RNA'), log = T) # UGLY
 ```
-### Main QC plots
 
 ```{r, eval = FALSE }
 unf <- VlnPlot(ds_c, features = c('percent_mt', "percent_ribo")) # unfiltered
@@ -141,7 +144,7 @@ ggsave('qc_pesc_counts_unf.png', unf_l, device = 'png', dpi = "retina", width = 
 
 ### Other QC plots
 
-```{r }
+```{r, cache=TRUE}
 FeatureScatter(ds_c, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = F) + scale_x_continuous(labels = scales::scientific)
 ```
 
@@ -150,53 +153,51 @@ CF <- FeatureScatter(ds_c, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor =
 ggsave("counts-features_unf.png", CF, device = 'png', dpi = "retina", width = 15, height = 12, bg = "white") 
 ```
 
-Filtering ----
+___
+## Filtering 
 
-```{r }
+How many cells have more than 800 RNAs or more than 1000 RNAs and genes found.
+```{r, cache=TRUE}
 length(WhichCells(ds_c, expression = nCount_RNA > 800))
-length(WhichCells(ds_c, expression = nFeature_RNA > 1000 & nCount_RNA > 1000))
-
-rownames(ds_c)[Matrix::rowSums(ds_c) > 100000]
+length(WhichCells(ds_c, expression = nCount_RNA > 1000 & nFeature_RNA > 600))
 ```
 
-## filter out cells that have \>1000 features and UMIs as they are the only ones You can work with (subsetting on the percentages of different transcript types can be done later)
+Filter out cells that have \<=1000 features and UMIs as they are the only ones You can work with (subsetting on the percentages of different transcript types can be done later).
 
-the percent of ribosomal genes might be low due to low transcriptional activity of the cells (5%, which was used before removes too many cells)
+The percent of ribosomal genes might be low due to low transcriptional activity of the cells (5%, which was a threshold used before removes too many cells).
 
-```{r }
-ds_cf <- subset(x = ds_c, subset = nCount_RNA > 1000 & nFeature_RNA > 600 & percent_mt < 25 & percent_ribo > .5)
+```{r subset cells, cache = T}
+ds_cf <- subset(x = ds_c, subset = nCount_RNA > 1000 & nFeature_RNA > 600 & percent_mt < 25 & percent_ribo > .5
+                & percent_hb < 5)
+rm(ds_c)
+suppressMessages(gc())
 ```
 
-Find which genes contribute to the nCount_RNA the most
+### Find which genes contribute to the nCount_RNA the most
 
-```{r }
+```{r most expressed, cache = T}
 C <- ds_cf@assays$RNA@counts
 C <- Matrix::t(Matrix::t(C)/Matrix::colSums(C)) * 100
 most_expressed <- order(apply(C, 1, median), decreasing = T)[20:1]
 
-png("most_expr_filt.png", width = 15, height = 12, bg = "white", units = "in", res = 320)
+#png("most_expr_filt.png", width = 15, height = 12, bg = "white", units = "in", res = 320)
 boxplot(as.matrix(t(C[most_expressed,])), cex = 1, las = 1, xlab = "% total count per cell",
         col = (scales::hue_pal())(20)[20:1], horizontal = TRUE)
 
-dev.off()
+#dev.off()
 ```
 
-QC plotting of filtered reads - LEAVE THE GGPLOT APPROACH FOR LATER ----
+### QC plotting of filtered reads
 
-```{r }
-filt <- VlnPlot(ds_cf, features = c('percent_mt', "percent_ribo")) # unfiltered
-filt_l <- VlnPlot(ds_cf, features = c('nFeature_RNA','nCount_RNA'), log = T) ## UGLY
+```{r, cache = T}
+VlnPlot(ds_cf, features = c('percent_mt', "percent_ribo"))
+VlnPlot(ds_cf, features = c('nFeature_RNA','nCount_RNA'), log = T) ## UGLY
 ```
 
-ggsave('test.png', unf)
+### QC plotting of filtered reads with ggplot
 
-```{r }
-ggsave('qc_pesc_perc_filt.png', filt, device = 'png', dpi = "retina", width = 16, height = 9, bg = "white")
-ggsave('qc_pesc_counts_filt.png', filt_l, device = 'png', dpi = "retina", width = 16, height = 9, bg = "white")
-
-
-
-p1 <- ggplot(as.data.table(p3gf$nFeature_RNA)) +
+```{r, fig.width= 15, cache = T}
+p1 <- ggplot(as.data.table(ds_cf$nFeature_RNA)) +
   geom_violin(aes(x = "BM", y = V1)) +
   geom_jitter(aes(x = "BM", y = V1), size = .9, alpha = .4) + 
   scale_y_log10() +
@@ -204,7 +205,7 @@ p1 <- ggplot(as.data.table(p3gf$nFeature_RNA)) +
   xlab("") +
   ylab("count")
 
-p2 <- ggplot(as.data.table(p3gf$nCount_RNA)) +
+p2 <- ggplot(as.data.table(ds_cf$nCount_RNA)) +
   geom_violin(aes(x = "BM", y = V1)) +
   geom_jitter(aes(x = "BM", y = V1), size = .9, alpha = .4) + 
   scale_y_log10() +
@@ -212,65 +213,57 @@ p2 <- ggplot(as.data.table(p3gf$nCount_RNA)) +
   xlab("") +
   ylab("")
 
-p3 <- ggplot(as.data.table(p3gf$percent_mt)) +
+p3 <- ggplot(as.data.table(ds_cf$percent_mt)) +
   geom_violin(aes(x = "BM", y = V1)) +
   geom_jitter(aes(x = "BM", y = V1), size = .9, alpha = .4) + 
   ggtitle('Percent of mitochondrial') +
   xlab("") +
   ylab("percent")
 
-p4 <- ggplot(as.data.table(p3gf$percent_ribo)) +
+p4 <- ggplot(as.data.table(ds_cf$percent_ribo)) +
   geom_violin(aes(x = "BM", y = V1)) +
   geom_jitter(aes(x = "BM", y = V1), size = .9, alpha = .4) + 
   ggtitle('Percent of ribosomal') +
   xlab("") +
   ylab("")
 
-p5 <- ggplot(as.data.table(p3gf$percent_hb)) +
+p5 <- ggplot(as.data.table(ds_cf$percent_hb)) +
   geom_violin(aes(x = "BM", y = V1)) +
   geom_jitter(aes(x = "BM", y = V1), size = .9, alpha = .4) + 
   ggtitle('Percent of hemoglobin') +
   xlab("") +
   ylab("")
 
-p6 <- ggplot(as.data.table(p3gf$percent_plat)) +
+p6 <- ggplot(as.data.table(ds_cf$percent_plat)) +
   geom_violin(aes(x = "BM", y = V1)) +
   geom_jitter(aes(x = "BM", y = V1), size = .9, alpha = .4) + 
   ggtitle('Percent of platelet') +
   xlab("") +
   ylab("")
 
-qcplots <- ggarrange(p1, p2, p3, p4, p5, p6, nrow = 1)
-ggsave("qc_violins_filt_p3.png", qcplots, device = 'png', dpi = "retina", width = 21, height = 12, bg = "white")
+ggarrange(p1, p2, p3, p4, p5, p6, nrow = 1)
+#ggsave("qc_violins_filt_p3.png", qcplots, device = 'png', dpi = "retina", width = 21, height = 12, bg = "white")
 ```
+___
+# QC and filtering of EVs.
 
-## EVs! ----
-
-```{r }
+```{r, cache = T}
 ds_dc <- CreateSeuratObject(count = d_dc, min.cells = 0, min.features = 1, project = "ev")
-
-ds_dc <- PercentageFeatureSet(ds_dc, pattern = "^MT-", col.name = "percent_mt")
-ds_dc <- PercentageFeatureSet(ds_dc, "^RP[SL]", col.name = "percent_ribo")
+rm(d_dc)
+suppressMessages(gc())
+```
+```{r, eval=FALSE}
+#ds_dc <- PercentageFeatureSet(ds_dc, pattern = "^MT-", col.name = "percent_mt")
+#ds_dc <- PercentageFeatureSet(ds_dc, "^RP[SL]", col.name = "percent_ribo")
+#ds_c <- PercentageFeatureSet(ds_c, "\^HB[\^(P)]", col.name = "percent_hb") 
+#ds_c <- PercentageFeatureSet(ds_c, "PECAM1\|PF4", col.name = "percent_plat")
 ```
 
-ds_c \<- PercentageFeatureSet(ds_c, "\^HB[\^(P)]", col.name = "percent_hb") ds_c \<- PercentageFeatureSet(ds_c, "PECAM1\|PF4", col.name = "percent_plat") \# plotting ----
-
-```{r }
-unf_ev <- VlnPlot(ds_dc, features = c('percent_mt', "percent_ribo")) # unfiltered
+```{r, cache = T, fig.width=15, fig.height=10}
+VlnPlot(ds_dc, features = c('nFeature_RNA','nCount_RNA'), ncol = 1)
 ```
 
-unf_l\_ev \<- VlnPlot(ds_dc, features = c('nFeature_RNA','nCount_RNA'), log = T)
 
-```{r }
-unf_ev_2 <- VlnPlot(ds_dc, features = c('nFeature_RNA','nCount_RNA'))
-```
-
-ggsave('test.png', unf)
-
-```{r }
-ggsave('qc_pesc_ev_perc_unf.png', unf_ev, device = 'png', dpi = "retina", width = 16, height = 9, bg = "white")
-ggsave('qc_pesc_ev_counts_unf.png', unf_ev_2, device = 'png', dpi = "retina", width = 16, height = 9, bg = "white")
-```
 
 # separate ----
 
@@ -998,3 +991,4 @@ save.image(file = "fiskesund_hsc_10x.RData")
 p4fp <- ProjectUMAP(p4fp )
 p4fp <- FindClusters(p4fp, reduction.type='pca', dims.use=1:9, resolution=c(0.6,0.7,0.8,0.9,1,0.5), print.output=0, save.SNN=TRUE)
 ```
+
