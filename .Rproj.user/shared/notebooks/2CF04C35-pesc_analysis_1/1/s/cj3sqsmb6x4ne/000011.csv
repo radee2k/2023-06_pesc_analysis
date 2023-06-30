@@ -1,4 +1,0 @@
-"0","unf_ev <- VlnPlot(ds_dc, features = c('percent_mt', ""percent_ribo"")) # unfiltered"
-"2","Error in FetchData.Seurat(object = object, vars = features, slot = slot) : 
-  None of the requested variables were found: percent_mt, percent_ribo
-"

@@ -1,2 +1,0 @@
-"0","gt_join <- gt_s[gt, on = .(Geneid), mult = 'first'][symbol %in% NA | symbol == """", symbol := Geneid]"
-"0","gt_sym <- gt_join[, symbol]"

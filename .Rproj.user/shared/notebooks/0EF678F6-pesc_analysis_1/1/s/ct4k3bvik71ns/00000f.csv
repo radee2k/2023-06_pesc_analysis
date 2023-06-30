@@ -1,4 +1,0 @@
-"0","VlnPlot(ds_dc, features = 'percent_mt', pt.size = 1.3) +  NoLegend()"
-"2","Error in FetchData.Seurat(object = object, vars = features, slot = slot) : 
-  None of the requested variables were found: percent_mt
-"
