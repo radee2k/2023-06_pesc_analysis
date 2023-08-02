@@ -1,10 +1,14 @@
 ---
 title: "06-23_pesc_ev_analysis"
+author:
+- name: Radoslaw Grochowski
+  affiliation: Karolinska Institutet, Department of Laboratory Medicine
 output:
   html_document:
     theme:
       bg: "#444444"
       fg: "#d6d6d6"
+
 
 date: '2023-06-22'
 ---
@@ -966,3 +970,6 @@ p4fp <- ProjectUMAP(p4fp )
 p4fp <- FindClusters(p4fp, reduction.type='pca', dims.use=1:9, resolution=c(0.6,0.7,0.8,0.9,1,0.5), print.output=0, save.SNN=TRUE)
 ```
 
+```{r sessionInfo, echo=FALSE}
+sessionInfo()
+```
