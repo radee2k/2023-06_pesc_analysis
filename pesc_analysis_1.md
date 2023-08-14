@@ -1,14 +1,9 @@
-06-23_pesc_ev_analysis
-================
-true
-2023-06-22
-
 This script identifies lineages of EVs among cells from pleural effusion
 samples.
 
 ------------------------------------------------------------------------
 
-# Prepare the workign enviornment:
+## Prepare the workign enviornment:
 
 -   install and load packages
 -   set %notin% and %notlike%
@@ -19,6 +14,7 @@ samples.
 ``` r
 #install.packages("Seurat")
 #install.packages("remotes")
+#BiocManager::install(version = '3.16')
 #BiocManager::install("glmGamPoi")
 #remotes::install_github("stephenturner/annotables")
 
@@ -31,7 +27,7 @@ library(ggpubr)
 library(future)
 library(annotables) # for turning Ensembl ID to symbol
 library(sctransform) # for normalization
-library(glmGamPoi) # for normalization
+#library(glmGamPoi) # for normalization
 
 "%notin%" <- Negate("%in%")
 "%notlike%" <- Negate("%like%")
@@ -49,19 +45,14 @@ legend.key.size = unit(2, 'line'),
 legend.title = element_text(size = 20)
 )
 
-wd <- "~/OneDrive - Karolinska Institutet/Dokument/nord_lab/seq/06-23_pesc/"
+wd <- "/disk2/user/radgro/projects/2023-06_pesc_analysis"
 
 knitr::opts_knit$set(root.dir = wd)
 
 
-plan("multicore", workers = 8)
-plan()
+# plan("multicore", workers = 8)
+# plan()
 ```
-
-    ## multicore:
-    ## - args: function (..., workers = 8, envir = parent.frame())
-    ## - tweaked: TRUE
-    ## - call: plan("multicore", workers = 8)
 
 ``` r
 # A demonstration of advantages of a sparse matrix ("d" for data).
@@ -72,7 +63,7 @@ s2 <- object.size(d_dc)
 s1-s2
 ```
 
-# Load and prepare the data and metadata.
+## Load and prepare the data and metadata.
 
 ``` r
 # for EVs
@@ -123,8 +114,8 @@ suppressMessages(gc())
 ```
 
     ##            used  (Mb) gc trigger   (Mb)  max used   (Mb)
-    ## Ncells  6636428 354.5   11972267  639.4   7525297  401.9
-    ## Vcells 27402135 209.1  241818248 1845.0 302234598 2305.9
+    ## Ncells  3272220 174.8    5028774  268.6   5028774  268.6
+    ## Vcells 21792047 166.3  236431272 1803.9 293687900 2240.7
 
 ``` r
 ds_c <- PercentageFeatureSet(ds_c, pattern = "^MT-", col.name = "percent_mt")
@@ -138,24 +129,18 @@ ds_c <- PercentageFeatureSet(ds_c, "PECAM1|PF4", col.name = "percent_plat")
 ### Main QC plots
 
 ``` r
-VlnPlot(ds_c, features = c('percent_mt', 'percent_hb', "percent_ribo", "percent_plat"), ncol = 4) # unfiltered
+VlnPlot(ds_c, features = c('nCount_RNA','nFeature_RNA', 'percent_mt', 'percent_hb', "percent_ribo", "percent_plat"), pt.size = 1.3, ncol = 1) +  NoLegend()
 ```
 
-![](pesc_analysis_1_files/figure-gfm/Main%20QC%20plots-1.svg)<!-- -->
-
-``` r
-VlnPlot(ds_c, features = c('nFeature_RNA','nCount_RNA'), log = T) # UGLY
-```
-
-![](pesc_analysis_1_files/figure-gfm/Main%20QC%20plots-2.svg)<!-- -->
+![](pesc_analysis_1_files/figure-markdown_github/Main%20QC%20plots-1.svg)
 
 ### Other QC plots
 
 ``` r
-FeatureScatter(ds_c, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = F) + scale_x_continuous(labels = scales::scientific)
+FeatureScatter(ds_c, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = F) + scale_x_continuous(labels = scales::scientific) + NoLegend()
 ```
 
-![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-5-1.svg)<!-- -->
+![](pesc_analysis_1_files/figure-markdown_github/unnamed-chunk-5-1.svg)
 
 ------------------------------------------------------------------------
 
@@ -181,8 +166,8 @@ only ones You can work with (subsetting on the percentages of different
 transcript types can be done later).
 
 The percent of ribosomal genes might be low due to low transcriptional
-activity of the cells (5%, which was a threshold used before removes too
-many cells).
+activity of the cells (5%, which was a threshold used before, removes
+too many cells).
 
 ``` r
 ds_cf <- subset(x = ds_c, subset = nCount_RNA > 1000 & nFeature_RNA > 600 & percent_mt < 25 & percent_ribo > .5
@@ -192,8 +177,8 @@ suppressMessages(gc())
 ```
 
     ##            used  (Mb) gc trigger   (Mb)  max used   (Mb)
-    ## Ncells  6854637 366.1   11972267  639.4  11972267  639.4
-    ## Vcells 35690716 272.3  193454599 1476.0 302234598 2305.9
+    ## Ncells  3483069 186.1    6503105  347.4   5028774  268.6
+    ## Vcells 30065482 229.4  189145018 1443.1 293687900 2240.7
 
 ### Find which genes contribute to the nCount_RNA the most
 
@@ -202,16 +187,12 @@ C <- ds_cf@assays$RNA@counts
 C <- Matrix::t(Matrix::t(C)/Matrix::colSums(C)) * 100
 most_expressed <- order(apply(C, 1, median), decreasing = T)[20:1]
 
-#png("most_expr_filt.png", width = 15, height = 12, bg = "white", units = "in", res = 320)
+par(mar=c(5,10,1,1))
 boxplot(as.matrix(t(C[most_expressed,])), cex = 1, las = 1, xlab = "% total count per cell",
         col = (scales::hue_pal())(20)[20:1], horizontal = TRUE)
 ```
 
-![](pesc_analysis_1_files/figure-gfm/most%20expressed-1.svg)<!-- -->
-
-``` r
-#dev.off()
-```
+![](pesc_analysis_1_files/figure-markdown_github/most%20expressed%20cells-1.svg)
 
 ### QC plotting of filtered reads
 
@@ -219,13 +200,13 @@ boxplot(as.matrix(t(C[most_expressed,])), cex = 1, las = 1, xlab = "% total coun
 VlnPlot(ds_cf, features = c('percent_mt', "percent_ribo"))
 ```
 
-![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-7-1.svg)<!-- -->
+![](pesc_analysis_1_files/figure-markdown_github/unnamed-chunk-7-1.svg)
 
 ``` r
 VlnPlot(ds_cf, features = c('nFeature_RNA','nCount_RNA'), log = T) ## UGLY
 ```
 
-![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-7-2.svg)<!-- -->
+![](pesc_analysis_1_files/figure-markdown_github/unnamed-chunk-7-2.svg)
 
 ### QC plotting of filtered reads with ggplot
 
@@ -235,6 +216,7 @@ p1 <- ggplot(as.data.table(ds_cf$nFeature_RNA)) +
   geom_jitter(aes(x = "BM", y = V1), size = .9, alpha = .4) + 
   scale_y_log10() +
   ggtitle('Genes') +
+  theme(plot.title = element_text(size = 18)) +
   xlab("") +
   ylab("count")
 
@@ -243,43 +225,53 @@ p2 <- ggplot(as.data.table(ds_cf$nCount_RNA)) +
   geom_jitter(aes(x = "BM", y = V1), size = .9, alpha = .4) + 
   scale_y_log10() +
   ggtitle('RNAs') +
+  theme(plot.title = element_text(size = 18)) +
   xlab("") +
   ylab("")
 
 p3 <- ggplot(as.data.table(ds_cf$percent_mt)) +
   geom_violin(aes(x = "BM", y = V1)) +
   geom_jitter(aes(x = "BM", y = V1), size = .9, alpha = .4) + 
-  ggtitle('Percent of mitochondrial') +
+  ggtitle('Percent of\nmitochondrial') +
+  theme(plot.title = element_text(size = 18)) +
   xlab("") +
   ylab("percent")
 
 p4 <- ggplot(as.data.table(ds_cf$percent_ribo)) +
   geom_violin(aes(x = "BM", y = V1)) +
   geom_jitter(aes(x = "BM", y = V1), size = .9, alpha = .4) + 
-  ggtitle('Percent of ribosomal') +
+  ggtitle('Percent of\nribosomal') +
+  theme(plot.title = element_text(size = 18)) +
   xlab("") +
   ylab("")
 
 p5 <- ggplot(as.data.table(ds_cf$percent_hb)) +
   geom_violin(aes(x = "BM", y = V1)) +
   geom_jitter(aes(x = "BM", y = V1), size = .9, alpha = .4) + 
-  ggtitle('Percent of hemoglobin') +
+  ggtitle('Percent of\nhemoglobin') +
+  theme(plot.title = element_text(size = 18)) +
   xlab("") +
   ylab("")
 
 p6 <- ggplot(as.data.table(ds_cf$percent_plat)) +
   geom_violin(aes(x = "BM", y = V1)) +
   geom_jitter(aes(x = "BM", y = V1), size = .9, alpha = .4) + 
-  ggtitle('Percent of platelet') +
+  ggtitle('Percent of\nplatelet') +
+  theme(plot.title = element_text(size = 18)) +
   xlab("") +
   ylab("")
+
 
 ggarrange(p1, p2, p3, p4, p5, p6, nrow = 1)
 ```
 
-![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-8-1.svg)<!-- -->
+![](pesc_analysis_1_files/figure-markdown_github/unnamed-chunk-8-1.svg)
 
 ``` r
+# ggarrange(ggarrange(p1, p2), 
+          # ggarrange(p3, p4, p5, p6, ncol = 2, nrow = 2, widths = 2),
+          # nrow = 2)
+
 #ggsave("qc_violins_filt_p3.png", qcplots, device = 'png', dpi = "retina", width = 21, height = 12, bg = "white")
 ```
 
@@ -303,26 +295,106 @@ suppressMessages(gc())
 ```
 
     ##            used  (Mb) gc trigger   (Mb)  max used   (Mb)
-    ## Ncells  6893971 368.2   11972267  639.4  11972267  639.4
-    ## Vcells 44224620 337.5  261443835 1994.7 326804667 2493.4
+    ## Ncells  3524338 188.3    6503105  347.4   6503105  347.4
+    ## Vcells 38604068 294.6  254963849 1945.3 293687900 2240.7
 
 ``` r
-VlnPlot(ds_dc, features = c('nFeature_RNA','nCount_RNA'), ncol = 1)
+ds_dc <- PercentageFeatureSet(ds_dc, pattern = "^MT-", col.name = "percent_mt")
+ds_dc <- PercentageFeatureSet(ds_dc, "^RP[SL]", col.name = "percent_ribo")
+ds_dc <- PercentageFeatureSet(ds_dc, "^HB[^(P)]", col.name = "percent_hb")
+ds_dc <- PercentageFeatureSet(ds_dc, "PECAM1|PF4", col.name = "percent_plat")
 ```
 
-![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-10-1.svg)<!-- -->
+``` r
+VlnPlot(ds_dc, features = c('nCount_RNA','nFeature_RNA', 'percent_mt', 'percent_hb', "percent_ribo", "percent_plat"), pt.size = 1.3, ncol = 1) +  NoLegend()
+```
+
+![](pesc_analysis_1_files/figure-markdown_github/unnamed-chunk-10-1.svg)
+
+### Other qc plots
+
+``` r
+FeatureScatter(ds_dc, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = F) + 
+  scale_x_continuous(labels = scales::scientific) + 
+  scale_y_continuous(labels = scales::scientific)
+```
+
+![](pesc_analysis_1_files/figure-markdown_github/unnamed-chunk-11-1.svg)
+\_\_\_ ## Filtering
+
+``` r
+length(WhichCells(ds_dc, expression = nFeature_RNA > 100))
+```
+
+    ## [1] 569
+
+``` r
+length(WhichCells(ds_dc, expression = nFeature_RNA > 100 & nCount_RNA > 500))
+```
+
+    ## [1] 541
+
+``` r
+# most common genes for cells:
+sort(Matrix::rowSums(ds_cf), decreasing = T)[1:10]
+```
+
+    ## MT-RNR2  MALAT1    ACTB MT-RNR1    CD74  MT-ND4  MT-CYB     FTL     B2M    PSAP 
+    ## 1142527  795294  738633  664680  579049  568926  517594  490462  480441  432383
+
+``` r
+# most common genes for EVs
+sort(Matrix::rowSums(ds_dc), decreasing = T)[1:10]
+```
+
+    ##         HELLPAR         MT-RNR2 ENSG00000279010 ENSG00000280156 ENSG00000279184 
+    ##           72147           57170           55177           47776           36823 
+    ##         MT-RNR1 ENSG00000279080 ENSG00000279738          MT-ND5          MT-ND4 
+    ##           34482           29941           28346           23232           23109
+
+## filter out EV samples that have x features and UMIs
+
+``` r
+ds_dcf <- subset(x = ds_dc, subset = nCount_RNA > 500 & nFeature_RNA > 100 & percent_mt < 90 & percent_ribo < 90)
+rm(ds_dc)
+suppressMessages(gc())
+```
+
+    ##            used  (Mb) gc trigger   (Mb)  max used   (Mb)
+    ## Ncells  3525613 188.3    6503105  347.4   6503105  347.4
+    ## Vcells 44663805 340.8  203971080 1556.2 293687900 2240.7
+
+## Find which genes contribute to the nCount_RNA the most
+
+``` r
+C <- ds_dcf@assays$RNA@counts
+C <- Matrix::t(Matrix::t(C)/Matrix::colSums(C)) * 100
+most_expressed <- order(apply(C, 1, median), decreasing = T)[20:1]
+
+par(mar=c(5,10,1,1))
+boxplot(as.matrix(t(C[most_expressed,])), cex = 1, las = 1, xlab = "% total count per fraction",
+        col = (scales::hue_pal())(20)[20:1], horizontal = TRUE)
+```
+
+![](pesc_analysis_1_files/figure-markdown_github/most%20expressed-1.svg)
 
 ------------------------------------------------------------------------
 
-# separate
+## QC plotting of filtered reads
 
-percentages
+**Logarithmic axes.**
 
 ``` r
-VlnPlot(ds_dc, features = c('nCount_RNA','nFeature_RNA'), pt.size = 1.3, ncol = 1) +  NoLegend()
+VlnPlot(ds_dcf, features = 'nFeature_RNA', pt.size = 1.3, log = T) +  NoLegend()
 ```
 
-![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-11-1.svg)<!-- -->
+![](pesc_analysis_1_files/figure-markdown_github/unnamed-chunk-14-1.svg)
+
+``` r
+VlnPlot(ds_dcf, features = 'nCount_RNA', pt.size = 1.3, log = T) +  NoLegend()
+```
+
+![](pesc_analysis_1_files/figure-markdown_github/unnamed-chunk-14-2.svg)
 
 # knitr::knit_exit()
 

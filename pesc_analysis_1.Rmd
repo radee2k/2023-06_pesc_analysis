@@ -1,11 +1,13 @@
 ---
-title: "06-23_pesc_ev_analysis_ggplot"
+title: "06-23_pesc_ev_analysis"
 output:
-  html_document:
-    theme:
-      bg: "#444444"
-      fg: "#d6d6d6"
-
+  # html_document:
+  #   theme:
+  #     bg: "#444444"
+  #     fg: "#d6d6d6"
+ md_document:
+    variant: markdown_github
+    
 date: '2023-06-22'
 ---
 
