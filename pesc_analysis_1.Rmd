@@ -24,7 +24,7 @@ ___
 -   set the working directory
 -   set a plan for multithreading
 
-```{r, setup, message=FALSE, warning=FALSE}
+```{r setup, message=FALSE, warning=FALSE}
 #install.packages("Seurat")
 #install.packages("remotes")
 #BiocManager::install(version = '3.16')
@@ -58,8 +58,8 @@ legend.key.size = unit(2, 'line'),
 legend.title = element_text(size = 20)
 )
 
+# That's not necessary (rmarkdown sets its directory as the one the .Rmd file is in.)
 wd <- "/disk2/user/radgro/projects/2023-06_pesc_analysis"
-
 knitr::opts_knit$set(root.dir = wd)
 
 
@@ -132,13 +132,13 @@ ds_c <- PercentageFeatureSet(ds_c, "PECAM1|PF4", col.name = "percent_plat")
 
 ### Main QC plots
 
-```{r Main QC plots, cache=TRUE, fig.width=15, fig.height=25, dev='svg'}
+```{r Main QC plots, cache=TRUE, fig.width=15, fig.height=25, dev='svglite'}
 VlnPlot(ds_c, features = c('nCount_RNA','nFeature_RNA', 'percent_mt', 'percent_hb', "percent_ribo", "percent_plat"), pt.size = 1.3, ncol = 1) +  NoLegend()
 ```
 
 ### Other QC plots
 
-```{r, cache=TRUE, dev='svg'}
+```{r, cache=TRUE, dev='svglite'}
 FeatureScatter(ds_c, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = F) + scale_x_continuous(labels = scales::scientific) + NoLegend()
 ```
 
@@ -164,7 +164,7 @@ suppressMessages(gc())
 
 ### Find which genes contribute to the nCount_RNA the most
 
-```{r most expressed cells, fig.width=10, cache = T, dev='svg'}
+```{r most expressed cells, fig.width=10, cache = T, dev='svglite'}
 C <- ds_cf@assays$RNA@counts
 C <- Matrix::t(Matrix::t(C)/Matrix::colSums(C)) * 100
 most_expressed <- order(apply(C, 1, median), decreasing = T)[20:1]
@@ -176,14 +176,14 @@ boxplot(as.matrix(t(C[most_expressed,])), cex = 1, las = 1, xlab = "% total coun
 
 ### QC plotting of filtered reads
 
-```{r, fig.width=10, cache = T, dev='svg'}
+```{r, fig.width=10, cache = T, dev='svglite'}
 VlnPlot(ds_cf, features = c('percent_mt', "percent_ribo"))
 VlnPlot(ds_cf, features = c('nFeature_RNA','nCount_RNA'), log = T) ## UGLY
 ```
 
 ### QC plotting of filtered reads with ggplot
 
-```{r, fig.width= 15, fig.height=5, cache = T, dev='svg'}
+```{r, fig.width= 15, fig.height=5, cache = T, dev='svglite'}
 p1 <- ggplot(as.data.table(ds_cf$nFeature_RNA)) +
   geom_violin(aes(x = "BM", y = V1)) +
   geom_jitter(aes(x = "BM", y = V1), size = .9, alpha = .4) + 
@@ -259,13 +259,13 @@ ds_dc <- PercentageFeatureSet(ds_dc, "PECAM1|PF4", col.name = "percent_plat")
 
 ```
 
-```{r, fig.width=15, fig.height=25, cache = T, dev='svg'}
+```{r, fig.width=15, fig.height=25, cache = T, dev='svglite'}
 VlnPlot(ds_dc, features = c('nCount_RNA','nFeature_RNA', 'percent_mt', 'percent_hb', "percent_ribo", "percent_plat"), pt.size = 1.3, ncol = 1) +  NoLegend()
 ```
 
 ### Other qc plots 
 
-```{r, fig.width=10, fig.height=5, cache = T, dev='svg'}
+```{r, fig.width=10, fig.height=5, cache = T, dev='svglite'}
 FeatureScatter(ds_dc, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = F) + 
   scale_x_continuous(labels = scales::scientific) + 
   scale_y_continuous(labels = scales::scientific)
@@ -296,7 +296,7 @@ suppressMessages(gc())
 ## Find which genes contribute to the nCount_RNA the most
 
 
-```{r most expressed, fig.width=10, cache = T, dev='svg'}
+```{r most expressed, fig.width=10, cache = T, dev='svglite'}
 C <- ds_dcf@assays$RNA@counts
 C <- Matrix::t(Matrix::t(C)/Matrix::colSums(C)) * 100
 most_expressed <- order(apply(C, 1, median), decreasing = T)[20:1]
@@ -315,26 +315,25 @@ ___
 
 **Logarithmic axes.**
 
-```{r, fig.width=10, cache = T, dev='svg'}
+```{r, fig.width=10, cache = T, dev='svglite'}
 VlnPlot(ds_dcf, features = 'nFeature_RNA', pt.size = 1.3, log = T) +  NoLegend()
 VlnPlot(ds_dcf, features = 'nCount_RNA', pt.size = 1.3, log = T) +  NoLegend()
 ```
 
 
-# knitr::knit_exit()
 ```{r}
 knitr::knit_exit()
 ```
 
 
-Other qc plots ----
+___
+### Other qc plots 
 
 ```{r }
-CF <- FeatureScatter(ds_dcf, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = F) + scale_x_continuous(labels = scales::scientific)
-ggsave("counts-features_ev_filt.png", CF, device = 'png', dpi = "retina", width = 15, height = 12, bg = "white")
+FeatureScatter(ds_dcf, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = F) + scale_x_continuous(labels = scales::scientific)
 ```
 
-Ratio of well annotated genes (with symbols) to the rest ----
+# Ratio of well annotated genes (with symbols) to the rest ----
 
 ```{r }
 ratc <- ds_cf@assays$RNA@counts
