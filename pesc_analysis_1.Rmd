@@ -329,35 +329,24 @@ knitr::knit_exit()
 ___
 ### Other qc plots 
 
-```{r }
-FeatureScatter(ds_dcf, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = F) + scale_x_continuous(labels = scales::scientific)
+```{r, fig.width=10, fig.height=5, cache = T, dev='svglite'}
+FeatureScatter(ds_dcf, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = F) + 
+  scale_x_continuous(labels = scales::scientific) +
+  scale_y_continuous(labels = scales::scientific)
 ```
 
-# Ratio of well annotated genes (with symbols) to the rest ----
+# Ratio of well annotated genes (with symbols) to the rest
 
-```{r }
-ratc <- ds_cf@assays$RNA@counts
-ratev <- ds_dcf@assays$RNA@counts
-```
+**On both graphs there're two dots per cell or EV sample - one for genes with and one for genes without a symbol.**
 
-ratc_s \<- as.data.table(Matrix::rowSums(ratc), keep.rownames = T) ratev_s \<- as.data.table(Matrix::rowSums(ratev), keep.rownames = T)
-
-ratc_s[, "V3" := ifelse(V1 %like% "ENSG", "ens", "symb")] ratev_s[, "V3" := ifelse(V1 %like% "ENSG", "ens", "symb")]
-
-ratc_s[, sum(V2), by = V3][, .SD[V3 == "ens", V1]/.SD[, sum(V1)]] ratev_s[, sum(V2), by = V3][, .SD[V3 == "ens", V1]/.SD[, sum(V1)]] How variable is that between samples?
-
-```{r }
-ratc <- as.data.table(ratc, keep.rownames = T)
+```{r, cache=TRUE, dev='svglite'}
+ratc <- as.data.table(ds_cf@assays$RNA@counts, keep.rownames = T)
 ratc <- melt(ratc, id.vars = "rn")
 
 ratc[, "code_symb" := ifelse(rn %like% "ENSG", "ens", "symb")]
 ratc <- ratc[, sum(value), by = .(variable, code_symb)]
 ratc[, "ratio" := V1/sum(V1), by = .(variable)]
-```
 
-the overall ratio
-
-```{r }
 ratc[code_symb == "ens", mean(ratio)]
 
 ggplot(ratc) +
@@ -365,21 +354,19 @@ ggplot(ratc) +
   guides(color = guide_legend(title = "", size = 19, override.aes = list(size = 5))) +
   xlab("RNA count") +
   ylab("ratio to all genes per cell") +
-  ggtitle("Ratios of RNA counts with and without a symbol - cells")
+  ggtitle("Ratios of RNA counts with and without a symbol - cells") +
+  theme(plot.title = element_text(size = 18), axis.text = element_text(size = 15), axis.title = element_text(size = 17))
+
+```
 
 
-
-ratev <- as.data.table(ratev, keep.rownames = T)
+```{r, cache=TRUE, dev='svglite'}
+ratev <- as.data.table(ds_dcf@assays$RNA@counts, keep.rownames = T)
 ratev <- melt(ratev, id.vars = "rn")
 
 ratev[, "code_symb" := ifelse(rn %like% "ENSG", "ens", "symb")]
 ratev <- ratev[, sum(value), by = .(variable, code_symb)]
 ratev[, "ratio" := V1/sum(V1), by = .(variable)]
-```
-
-the overall ratio
-
-```{r }
 ratev[code_symb == "ens", mean(ratio)]
 
 ggplot(ratev) +
@@ -387,16 +374,17 @@ ggplot(ratev) +
   guides(color = guide_legend(title = "", size = 19, override.aes = list(size = 5))) +
   xlab("RNA count") +
   ylab("ratio to all genes per EV sample") +
-  ggtitle("Ratios of RNA counts with and without a symbol - EVs")
+  ggtitle("Ratios of RNA counts with and without a symbol - EVs") +
+  theme(plot.title = element_text(size = 18), axis.text = element_text(size = 15), axis.title = element_text(size = 17))
 
 rm(list = c('ratev', 'ratc'))
-
-save.image("pesc_analysis.RData")
+suppressMessages(gc())
 ```
 
-## Normalization and scaling -----
+___
+# Normalization and scaling
 
-# Normalization was done using the SC transform described here: <https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1874-1> as it is supposed to be depth-independent, which justifies its use in Smartseq3 EV sequencing.
+**Normalization was done using the SC transform described here: <https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1874-1> as it is supposed to be depth-independent, which justifies its use in Smartseq3 EV sequencing.**
 
 ## Metadata ----
 
