@@ -16,7 +16,7 @@ This script identifies lineages of EVs among cells from pleural effusion samples
 
 ___
 
-## Prepare the workign enviornment:
+# Prepare the workign enviornment:
 
 -   install and load packages
 -   set %notin% and %notlike%
@@ -25,11 +25,13 @@ ___
 -   set a plan for multithreading
 
 ```{r setup, message=FALSE, warning=FALSE}
-#install.packages("Seurat")
-#install.packages("remotes")
-#BiocManager::install(version = '3.16')
-#BiocManager::install("glmGamPoi")
-#remotes::install_github("stephenturner/annotables")
+# install.packages("Seurat")
+# install.packages("remotes")
+# BiocManager::install(version = '3.16')
+# BiocManager::install("glmGamPoi")
+# remotes::install_github("stephenturner/annotables")
+# install.packages("glmGamPoi")
+
 
 library(Seurat)
 library(dplyr)
@@ -39,8 +41,8 @@ library(ggplot2)
 library(ggpubr)
 library(future)
 library(annotables) # for turning Ensembl ID to symbol
-library(sctransform) # for normalization
-#library(glmGamPoi) # for normalization
+library(sctransform) # for normalization  
+library(glmGamPoi) # for normalization
 
 "%notin%" <- Negate("%in%")
 "%notlike%" <- Negate("%like%")
@@ -321,10 +323,6 @@ VlnPlot(ds_dcf, features = 'nCount_RNA', pt.size = 1.3, log = T) +  NoLegend()
 ```
 
 
-```{r}
-knitr::knit_exit()
-```
-
 
 ___
 ### Other qc plots 
@@ -359,7 +357,6 @@ ggplot(ratc) +
 
 ```
 
-
 ```{r, cache=TRUE, dev='svglite'}
 ratev <- as.data.table(ds_dcf@assays$RNA@counts, keep.rownames = T)
 ratev <- melt(ratev, id.vars = "rn")
@@ -380,38 +377,30 @@ ggplot(ratev) +
 rm(list = c('ratev', 'ratc'))
 suppressMessages(gc())
 ```
-
 ___
-# Normalization and scaling
+# Metadata 
 
-**Normalization was done using the SC transform described here: <https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1874-1> as it is supposed to be depth-independent, which justifies its use in Smartseq3 EV sequencing.**
+## Cells
+Assign cells to the patient,...    
 
-## Metadata ----
-
-```{r }
-save.image("pesc_analysis.RData")
-```
-
-Assign cells to the patient...
-
-```{r }
+```{r, assign metadata, cache = T}
 full_names <- colnames(ds_cf)
 reg.pat <- regmatches(full_names, regexpr("PEsc[0-9]{1,6}", full_names))
 reg.pat <- gsub("PEsc", "", reg.pat)
 ds_cf@meta.data$pat <- reg.pat
 ```
 
-...and the replicate...
+...the replicate...
 
-```{r }
+```{r, cache = T}
 reg.rep <- regmatches(full_names, regexpr("PEsc[0-9]{1,6}(.|_)[0-9]", full_names))
 reg.rep <- gsub("PEsc[0-9]{1,6}(.|_)", "", reg.rep)
 ds_cf@meta.data$rep <- reg.rep
 ```
 
-...and diagnosis and type.
+...and diagnosis and type of biopsy.
 
-```{r }
+```{r, cache = T}
 metd <- fread("PEpatients_sorted.csv")
 metd[, c("type", "diag") := lapply(.SD, factor), .SDcols = c("type", 'diag')]
 metd[, pat_numb := regmatches(metd[, pat_numb], regexpr("[0-9]{3,5}", metd[, pat_numb]))]
@@ -422,28 +411,28 @@ met.full <- metd[patd, on = .(pat_numb)]
 
 ds_cf@meta.data$type <- met.full[, type]
 ds_cf@meta.data$diag <- met.full[, diag]
+
+rm(list = c("reg.rep", "reg.pat"))
 ```
 
+## EVs
 Assign EVs to the fraction they're from,...
 
-```{r }
+```{r, cache = T}
 full_names <- colnames(ds_dcf)
 reg.frac <- regmatches(full_names, regexpr("_[A-Z]{1,2}_", full_names))
 reg.frac <- gsub("_", "", reg.frac)
 ds_dcf@meta.data$frac <- reg.frac
 ```
 
-...their patient...
+...the patient and the type of biopsy.
 
-```{r }
+```{r, cache = T}
 reg.pat <- regmatches(full_names, regexpr("X[0-9]{1,6}", full_names))
 reg.pat <- gsub("X", "", reg.pat)
+reg.pat[reg.pat == 804] <- 604 # a patient number correction
 ds_dcf@meta.data$pat <- reg.pat
-```
 
-metd[pat_numb %in% reg.pat]
-
-```{r }
 patd <- as.data.table(reg.pat)
 colnames(patd) <- "pat_numb"
 met.full <- metd[patd, on = .(pat_numb)]
@@ -452,46 +441,95 @@ ds_dcf@meta.data$type <- met.full[, type]
 ds_dcf@meta.data$diag <- met.full[, diag]
 ```
 
-## DimRed ----
+___
+# Clustering analysis
 
-# Cells
+## Cells
 
-```{r }
+
+### Normalization and scaling
+**Normalization was done using the SC transform described here: <https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1874-1> as it is supposed to be depth-independent, which justifies its use in Smartseq3 EV sequencing.**
+
+### Dimensionality reduction
+
+```{r, cache = T}
 ds_cf <- SCTransform(ds_cf, vst.flavor = "v2", verbose = FALSE) %>%
   RunPCA(npcs = 30, verbose = FALSE) %>%
   RunUMAP(reduction = "pca", dims = 1:30, verbose = FALSE)
-
-table(ds_cf@meta.data[c("pat", "diag", "type")])
+# table(ds_cf@meta.data[c("pat", "diag", "type")])
 ```
 
-VariableFeaturePlot(ds_cf)
+Data allows to correctly stratify cells, accordingly to their origin and diagnosis.
 
-```{r }
+```{r, cache = T, fig.width= 15, fig.height= 5, dev='svglite'}
+DimPlot(ds_cf, group.by = c("pat", "diag", "type"))
+```
+
+
+**Inspect PCs - Jackstraw doesn't work with SCTransformed data.** 
+
+
+**JackStraw plots doesn't work on SCtransformed data**
+```{r, cache = T, fig.width= 7, fig.height= 5, dev='svglite', eval = F}
+ds_cf <- JackStraw(ds_cf, num.replicate = 100) 
+ds_cf <- ScoreJackStraw(ds_cf, dims = 1:20) 
+
+JackStrawPlot(ds_cf, dims = 1:15)
+```
+
+**Elbow Plot**
+Around 10 top PCAs should be enough to obtain proper clustering.
+```{r, cache = T, fig.width= 7, fig.height= 5, dev='svglite'}
+ElbowPlot(ds_cf)
+```
+
+
+### Variable features plots.
+
+Top 10 variable genes are annotated.
+
+```{r, cache = T, fig.width= 10, fig.height= 5, dev='svglite'}
+top10_c <- head(VariableFeatures(ds_cf), 10)
+
+p_var_c <- VariableFeaturePlot(ds_cf)
+LabelPoints(p_var_c, points = top10_c, repel = T)
+```
+
+Top 10 variable genes and 
+
+```{r, cache = T, fig.width= 15, fig.height= 10, dev='svglite'}
+FeaturePlot(ds_cf, features = c('nFeature_RNA','nCount_RNA', top10_c), pt.size = 2, reduction = 'umap')
+```
+
+
+### Feature plot - Umap
+
+**RNA and gene counts seem to not influence the clustering outcome**
+```{r, cache = T, fig.width= 10, fig.height= 5, dev='svglite'}
 FeaturePlot(ds_cf, features = c("nCount_RNA", "nFeature_RNA"), pt.size = 2, reduction = 'umap')
+```
 
+
+### Find cell clusters 
+```{r, cache = T, fig.width= 10, fig.height= 10, dev='svglite'}
 ds_cf <- FindNeighbors(ds_cf, reduction = "pca", dims = 1:10, verbose = FALSE) %>%
   FindClusters(resolution = 0.7, verbose = FALSE)
 
-p1 <- DimPlot(ds_cf, group.by = c("pat", "diag", "type"), pt.size = 2)
-p2 <- DimPlot(ds_cf, pt.size = 2)
+p1 <- DimPlot(ds_cf, group.by = c("pat", "diag", "type"), pt.size = 1.5)
+p2 <- DimPlot(ds_cf, pt.size = 2,) + labs(title = "clusters") + theme(plot.title = element_text(hjust = .5))
 
 p1 + p2
+
 ```
 
-Inspect PCs - Jackstraw doesn't work with SCTransformed data ds_cf \<- JackStraw(ds_cf, num.replicate = 100) ds_cf \<- ScoreJackStraw(ds_cf, dims = 1:20) JackStrawPlot(ds_cf, dims = 1:15)
 
-```{r }
-ElbowPlot(ds_cf)
 
-top10 <- head(VariableFeatures(ds_cf), 10)
-plot1 <- VariableFeaturePlot(ds_cf)
-plot2 <- LabelPoints(plot = plot1, points = top10, repel = TRUE)
-
-FeaturePlot(ds_cf, features = c('nFeature_RNA','nCount_RNA', top10), pt.size = 2, reduction = 'umap')
-
-clust_cell <- DimPlot(ds_cf, group.by = c("seurat_clusters", "pat", "diag", "type"))
-ggsave("clust_cell_1.png", clust_cell, device = 'png', dpi = "retina", width = 15, height = 12, bg = "white")
+```{r}
+knitr::knit_exit()
 ```
+
+
+
 
 Differential expression analysis - cells ----
 

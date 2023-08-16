@@ -3,7 +3,7 @@ samples.
 
 ------------------------------------------------------------------------
 
-## Prepare the workign enviornment:
+# Prepare the workign enviornment:
 
 -   install and load packages
 -   set %notin% and %notlike%
@@ -12,11 +12,13 @@ samples.
 -   set a plan for multithreading
 
 ``` r
-#install.packages("Seurat")
-#install.packages("remotes")
-#BiocManager::install(version = '3.16')
-#BiocManager::install("glmGamPoi")
-#remotes::install_github("stephenturner/annotables")
+# install.packages("Seurat")
+# install.packages("remotes")
+# BiocManager::install(version = '3.16')
+# BiocManager::install("glmGamPoi")
+# remotes::install_github("stephenturner/annotables")
+# install.packages("glmGamPoi")
+
 
 library(Seurat)
 library(dplyr)
@@ -26,8 +28,8 @@ library(ggplot2)
 library(ggpubr)
 library(future)
 library(annotables) # for turning Ensembl ID to symbol
-library(sctransform) # for normalization
-#library(glmGamPoi) # for normalization
+library(sctransform) # for normalization  
+library(glmGamPoi) # for normalization
 
 "%notin%" <- Negate("%in%")
 "%notlike%" <- Negate("%like%")
@@ -45,8 +47,8 @@ legend.key.size = unit(2, 'line'),
 legend.title = element_text(size = 20)
 )
 
+# That's not necessary (rmarkdown sets its directory as the one the .Rmd file is in.)
 wd <- "/disk2/user/radgro/projects/2023-06_pesc_analysis"
-
 knitr::opts_knit$set(root.dir = wd)
 
 
@@ -396,7 +398,324 @@ VlnPlot(ds_dcf, features = 'nCount_RNA', pt.size = 1.3, log = T) +  NoLegend()
 
 ![](pesc_analysis_1_files/figure-markdown_github/unnamed-chunk-14-2.svg)
 
-# knitr::knit_exit()
+------------------------------------------------------------------------
+
+### Other qc plots
+
+``` r
+FeatureScatter(ds_dcf, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = F) + 
+  scale_x_continuous(labels = scales::scientific) +
+  scale_y_continuous(labels = scales::scientific)
+```
+
+![](pesc_analysis_1_files/figure-markdown_github/unnamed-chunk-15-1.svg)
+
+# Ratio of well annotated genes (with symbols) to the rest
+
+**On both graphs there’re two dots per cell or EV sample - one for genes
+with and one for genes without a symbol.**
+
+``` r
+ratc <- as.data.table(ds_cf@assays$RNA@counts, keep.rownames = T)
+ratc <- melt(ratc, id.vars = "rn")
+
+ratc[, "code_symb" := ifelse(rn %like% "ENSG", "ens", "symb")]
+ratc <- ratc[, sum(value), by = .(variable, code_symb)]
+ratc[, "ratio" := V1/sum(V1), by = .(variable)]
+
+ratc[code_symb == "ens", mean(ratio)]
+```
+
+    ## [1] 0.06367352
+
+``` r
+ggplot(ratc) +
+  geom_point(aes(x = V1, y = ratio, color = code_symb)) +
+  guides(color = guide_legend(title = "", size = 19, override.aes = list(size = 5))) +
+  xlab("RNA count") +
+  ylab("ratio to all genes per cell") +
+  ggtitle("Ratios of RNA counts with and without a symbol - cells") +
+  theme(plot.title = element_text(size = 18), axis.text = element_text(size = 15), axis.title = element_text(size = 17))
+```
+
+![](pesc_analysis_1_files/figure-markdown_github/unnamed-chunk-16-1.svg)
+
+``` r
+ratev <- as.data.table(ds_dcf@assays$RNA@counts, keep.rownames = T)
+ratev <- melt(ratev, id.vars = "rn")
+
+ratev[, "code_symb" := ifelse(rn %like% "ENSG", "ens", "symb")]
+ratev <- ratev[, sum(value), by = .(variable, code_symb)]
+ratev[, "ratio" := V1/sum(V1), by = .(variable)]
+ratev[code_symb == "ens", mean(ratio)]
+```
+
+    ## [1] 0.1342733
+
+``` r
+ggplot(ratev) +
+  geom_point(aes(x = V1, y = ratio, color = code_symb)) +
+  guides(color = guide_legend(title = "", size = 19, override.aes = list(size = 5))) +
+  xlab("RNA count") +
+  ylab("ratio to all genes per EV sample") +
+  ggtitle("Ratios of RNA counts with and without a symbol - EVs") +
+  theme(plot.title = element_text(size = 18), axis.text = element_text(size = 15), axis.title = element_text(size = 17))
+```
+
+![](pesc_analysis_1_files/figure-markdown_github/unnamed-chunk-17-1.svg)
+
+``` r
+rm(list = c('ratev', 'ratc'))
+suppressMessages(gc())
+```
+
+    ##            used  (Mb) gc trigger   (Mb)  max used   (Mb)
+    ## Ncells  6859939 366.4   12611582  673.6  12611582  673.6
+    ## Vcells 92500270 705.8  734952940 5607.3 918683094 7009.0
+
+------------------------------------------------------------------------
+
+# Metadata
+
+## Cells
+
+Assign cells to the patient,…
+
+``` r
+full_names <- colnames(ds_cf)
+reg.pat <- regmatches(full_names, regexpr("PEsc[0-9]{1,6}", full_names))
+reg.pat <- gsub("PEsc", "", reg.pat)
+ds_cf@meta.data$pat <- reg.pat
+```
+
+…the replicate…
+
+``` r
+reg.rep <- regmatches(full_names, regexpr("PEsc[0-9]{1,6}(.|_)[0-9]", full_names))
+reg.rep <- gsub("PEsc[0-9]{1,6}(.|_)", "", reg.rep)
+ds_cf@meta.data$rep <- reg.rep
+```
+
+…and diagnosis and type of biopsy.
+
+``` r
+metd <- fread("PEpatients_sorted.csv")
+metd[, c("type", "diag") := lapply(.SD, factor), .SDcols = c("type", 'diag')]
+metd[, pat_numb := regmatches(metd[, pat_numb], regexpr("[0-9]{3,5}", metd[, pat_numb]))]
+
+patd <- as.data.table(reg.pat)
+colnames(patd) <- "pat_numb"
+met.full <- metd[patd, on = .(pat_numb)]
+
+ds_cf@meta.data$type <- met.full[, type]
+ds_cf@meta.data$diag <- met.full[, diag]
+
+rm(list = c("reg.rep", "reg.pat"))
+```
+
+## EVs
+
+Assign EVs to the fraction they’re from,…
+
+``` r
+full_names <- colnames(ds_dcf)
+reg.frac <- regmatches(full_names, regexpr("_[A-Z]{1,2}_", full_names))
+reg.frac <- gsub("_", "", reg.frac)
+ds_dcf@meta.data$frac <- reg.frac
+```
+
+…the patient and the type of biopsy.
+
+``` r
+reg.pat <- regmatches(full_names, regexpr("X[0-9]{1,6}", full_names))
+reg.pat <- gsub("X", "", reg.pat)
+reg.pat[reg.pat == 804] <- 604 # a patient number correction
+ds_dcf@meta.data$pat <- reg.pat
+
+patd <- as.data.table(reg.pat)
+colnames(patd) <- "pat_numb"
+met.full <- metd[patd, on = .(pat_numb)]
+
+ds_dcf@meta.data$type <- met.full[, type]
+ds_dcf@meta.data$diag <- met.full[, diag]
+```
+
+------------------------------------------------------------------------
+
+# Clustering analysis
+
+## Cells
+
+### Normalization and scaling
+
+**Normalization was done using the SC transform described here:
+<https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1874-1>
+as it is supposed to be depth-independent, which justifies its use in
+Smartseq3 EV sequencing.**
+
+### Dimensionality reduction
+
+``` r
+ds_cf <- SCTransform(ds_cf, vst.flavor = "v2", verbose = FALSE) %>%
+  RunPCA(npcs = 30, verbose = FALSE) %>%
+  RunUMAP(reduction = "pca", dims = 1:30, verbose = FALSE)
+```
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: The default method for RunUMAP has changed from calling Python UMAP via reticulate to the R-native UWOT using the cosine metric
+    ## To use Python UMAP via reticulate, set umap.method to 'umap-learn' and metric to 'correlation'
+    ## This message will be shown once per session
+
+``` r
+# table(ds_cf@meta.data[c("pat", "diag", "type")])
+```
+
+Data allows to correctly stratify cells, accordingly to their origin and
+diagnosis.
+
+``` r
+DimPlot(ds_cf, group.by = c("pat", "diag", "type"))
+```
+
+![](pesc_analysis_1_files/figure-markdown_github/unnamed-chunk-23-1.svg)
+
+**Inspect PCs - Jackstraw doesn’t work with SCTransformed data.**
+
+**JackStraw plots doesn’t work on SCtransformed data**
+
+``` r
+ds_cf <- JackStraw(ds_cf, num.replicate = 100) 
+ds_cf <- ScoreJackStraw(ds_cf, dims = 1:20) 
+
+JackStrawPlot(ds_cf, dims = 1:15)
+```
+
+**Elbow Plot** Around 10 top PCAs should be enough to obtain proper
+clustering.
+
+``` r
+ElbowPlot(ds_cf)
+```
+
+![](pesc_analysis_1_files/figure-markdown_github/unnamed-chunk-25-1.svg)
+
+### Variable features plots.
+
+Top 10 variable genes are annotated.
+
+``` r
+top10_c <- head(VariableFeatures(ds_cf), 10)
+
+p_var_c <- VariableFeaturePlot(ds_cf)
+LabelPoints(p_var_c, points = top10_c, repel = T)
+```
+
+    ## When using repel, set xnudge and ynudge to 0 for optimal results
+
+![](pesc_analysis_1_files/figure-markdown_github/unnamed-chunk-26-1.svg)
+
+Top 10 variable genes and
+
+``` r
+FeaturePlot(ds_cf, features = c('nFeature_RNA','nCount_RNA', top10_c), pt.size = 2, reduction = 'umap')
+```
+
+![](pesc_analysis_1_files/figure-markdown_github/unnamed-chunk-27-1.svg)
+
+### Feature plot - Umap
+
+**RNA and gene counts seem to not influence the clustering outcome**
+
+``` r
+FeaturePlot(ds_cf, features = c("nCount_RNA", "nFeature_RNA"), pt.size = 2, reduction = 'umap')
+```
+
+![](pesc_analysis_1_files/figure-markdown_github/unnamed-chunk-28-1.svg)
+
+### Find cell clusters
+
+``` r
+ds_cf <- FindNeighbors(ds_cf, reduction = "pca", dims = 1:10, verbose = FALSE) %>%
+  FindClusters(resolution = 0.7, verbose = FALSE)
+
+p1 <- DimPlot(ds_cf, group.by = c("pat", "diag", "type"), pt.size = 1.5)
+p2 <- DimPlot(ds_cf, pt.size = 2,) + labs(title = "clusters") + theme(plot.title = element_text(hjust = .5))
+
+p1 + p2
+```
+
+![](pesc_analysis_1_files/figure-markdown_github/unnamed-chunk-29-1.svg)
 
 ``` r
 knitr::knit_exit()
