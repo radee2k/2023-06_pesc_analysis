@@ -1,0 +1,67 @@
+pat_numb,type,diag,DC,SingleCell,missing RNA,cDNA
+A4455-19,,benign,x,,-,+
+A4310-19,,benign,x,,-,+
+A4343-19,breast,adca,x,,-,+
+A4462-19,,benign,x,,-,+
+A4311-19,lung,adca,x,,-,+
+A4449-19,breast,adca,x,,-,+
+A4498-19,,benign,x,,-,+
+A4110-19,,benign,x,,-,+
+A4664-19,pleura,mesothelioma,x,,-,+
+A4168-19,pleura,mesothelioma,x,,-,+
+A4456-19,pleura,mesothelioma,x,,-,+
+A4860-19,colon,adca,x,,-,+
+A4921-19,pancreas,adca,x,,-,+
+A8522-19,lung,adca,x,,-,+
+A8613-19,lung,adca,x,,-,+
+A8687-19,lung,adca,,,,
+A8844-19 ,pleura,mesothelioma,x,,-,+
+A9082-19,pleura,mesothelioma,x,,-,+
+A9053-19,lung,adca,x,,-,+
+A8128-19,pleura,mesothelioma,,,,
+A8323-19,pleura,mesothelioma,,,,
+A4803-19,,benign,,,,
+A4855-19,Lung - Low amount of tumor cells,adca,,,,
+A4882-19,,benign,,,,
+A4911-19,,benign,,,,
+A4948-19,,mesothelioma,x,,-,+
+A5012-19,,benign,,,,
+A5047-19,,benign,,,,
+A577-20,,benign,x,3,-,+
+A1827-20,,benign,x,,-,+
+A305-20,pleura,mesothelioma,x,3,-,+
+A822-20,lung,adca,x,3,-,+
+A8/604-20,,benign,x,3,-,+
+A425-20,lung,adca,x,3,-,+
+A420-20,pleura,mesothelioma,,3,,
+A2934-20,pleura,mesothelioma,x,1,-,+
+A3157-20,lung,adca,x,,-,+
+A3416-20,lung,adca,x,,-,+
+A371-20,pleura,mesothelioma,x,,-,+
+A1543-20,lung,adca,x,,-,+
+A1638-20,lung,adca,x,,-,+
+A1784-20,lung,adca,x,,-,+
+A1653-20,lung,adca,x,,-,+
+A358-20,ventricel,adca,x,,-,+
+A247-20,lung,adca,,,,
+A226-20,breast,adca,x,,-,+
+A5921-20,pleura,mesothelioma,x,3,-,+
+A6008-20,lung,adca,x,2,-,+
+A5960-20,pleura,mesothelioma,x,2,-,+
+A5073-20,lung,adca,x,,-,+
+A5824-20,,benign,x,,-,+
+A5168-20,"Wrong number, not pleural effusion",x,x,,-,+
+A5841-20,,benign,x,,C,+
+A5835-20,Considered benign but another sample same day was adca (lung),x,x,,-,+
+A3133-20,lung,adca,x,3,-,+
+A3256-20,pleura,benign,x,2,-,+
+A5462-20,,x,x,,-,+
+A5476-20,,x,x,,-,+
+A5470-20,,x,x,,-,+
+A399-20,,x,x,,-,+
+A232-20,,x,x,,-,+
+A5068-20,,x,x,,-,+
+A3517-20,,x,x,,-,+
+A3554-20,,x,x,,-,+
+A3543-20,,x,x,,-,+
+A3560-20,,x,x,,-,+
