@@ -44,12 +44,13 @@ library(future)
 library(annotables) # for turning Ensembl ID to symbol
 library(sctransform) # for normalization  
 library(glmGamPoi) # for normalization
-library(svglite) # for vectorized, lightweight plotting
+# library(svglite) # for vectorized, lightweight plotting
 
 "%notin%" <- Negate("%in%")
 "%notlike%" <- Negate("%like%")
 
 
+# set the theme for plotting (Seurat uses ggplot's themes)
 theme_set(new = theme_classic())
 theme_update(
   axis.text.x = element_text(vjust = 0.5),
@@ -67,7 +68,7 @@ theme_update(
 wd <- "/disk2/user/radgro/projects/2023-06_pesc_analysis"
 knitr::opts_knit$set(root.dir = wd)
 
-
+# set svglite as a default for all the plots
 options(knitr.chunk.dev = 'svglite')
 
 
@@ -149,9 +150,6 @@ VlnPlot(ds_c, features = c('nCount_RNA','nFeature_RNA', 'percent_mt', 'percent_h
 ```
 
 
-```{r}
-knitr::knit_exit()
-```
 
 
 
@@ -480,13 +478,14 @@ ___
 ds_cf <- SCTransform(ds_cf, vst.flavor = "v2", verbose = FALSE) %>%
   RunPCA(npcs = 30, verbose = FALSE) %>%
   RunUMAP(reduction = "pca", dims = 1:30, verbose = FALSE)
+  # RunUMAP(reduction = "pca", dims = 1:30, verbose = FALSE, n.components = 2)
 # table(ds_cf@meta.data[c("pat", "diag", "type")])
 ```
 
 Data allows to correctly stratify cells, accordingly to their origin and diagnosis.
 
-```{r, cache = T, fig.width= 15, fig.height= 5}
-DimPlot(ds_cf, group.by = c("pat", "diag", "type"))
+```{r, cache = T, fig.width= 15, fig.height= 10}
+DimPlot(ds_cf, group.by = c("pat", "diag", "type", "rep"))
 ```
 
 
@@ -536,15 +535,18 @@ FeaturePlot(ds_cf, features = c("nCount_RNA", "nFeature_RNA"), pt.size = 2, redu
 
 ### Find cell clusters 
 ```{r, cache = T, fig.width= 15, fig.height= 10}
-ds_cf <- FindNeighbors(ds_cf, reduction = "pca", dims = 1:8, verbose = FALSE) %>%
-  FindClusters(resolution = 0.7, verbose = FALSE)
 
-p1 <- DimPlot(ds_cf, group.by = c("pat", "diag", "type"), pt.size = 1.5)
+ds_cf <- FindNeighbors(ds_cf, reduction = "umap", verbose = FALSE, dims = 1:2) %>%
+  FindClusters(resolution = 0.5, verbose = FALSE)
 
 
-alpha_colors <- hue_pal()(12) #  number of colors equal to number of clusters - required to change the alpha
 
-p2 <- DimPlot(ds_cf, pt.size = 2, label = T, cols = alpha(alpha_colors, .6)) + 
+p1 <- DimPlot(ds_cf, group.by = c("pat", "diag", "type"), pt.size = 1.5, reduction = "umap")
+
+
+alpha_colors <- hue_pal()(27) #  number of colors equal to number of clusters - required to change the alpha
+
+p2 <- DimPlot(ds_cf, pt.size = 2, label = T, cols = alpha(alpha_colors, .6), reduction = "umap") + 
   labs(title = "clusters") + 
   theme(plot.title = element_text(hjust = .5))
 
@@ -552,6 +554,26 @@ p2 <- DimPlot(ds_cf, pt.size = 2, label = T, cols = alpha(alpha_colors, .6)) +
 p1 + p2
 
 ```
+
+**If clusters are found using PCA:**
+```{r, cache = T, fig.width= 15, fig.height= 10}
+ds_cf <- FindNeighbors(ds_cf, reduction = "pca", dims = 1:10, verbose = FALSE) %>%
+  FindClusters(resolution = 0.7, verbose = FALSE)
+
+p1 <- DimPlot(ds_cf, group.by = c("pat", "diag", "type"), pt.size = 1.5, reduction = "umap")
+
+
+alpha_colors <- hue_pal()(14) #  number of colors equal to number of clusters - required to change the alpha
+
+p2 <- DimPlot(ds_cf, pt.size = 2, label = T, cols = alpha(alpha_colors, .6), reduction = "umap") + 
+  labs(title = "clusters") + 
+  theme(plot.title = element_text(hjust = .5))
+
+
+p1 + p2
+
+```
+
 
 
 
@@ -566,11 +588,6 @@ Differential expression analysis - cells ----
 
 ```{r }
 ds_cf <- PrepSCTFindMarkers(ds_cf)
-
-
-
-
-
 
 ## EVs
 
