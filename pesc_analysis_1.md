@@ -1,3 +1,7 @@
+06-23_pesc_ev_analysis
+================
+2023-06-22
+
 This script identifies lineages of EVs among cells from pleural effusion
 samples.
 
@@ -56,7 +60,8 @@ wd <- "/disk2/user/radgro/projects/2023-06_pesc_analysis"
 knitr::opts_knit$set(root.dir = wd)
 
 # set svglite as a default for all the plots
-options(knitr.chunk.dev = 'svglite')
+# knitr::opts_chunk$set(knitr.chunk.dev = 'svglite')
+knitr::opts_chunk$set(dev = 'svglite')
 
 
 # svglite(system_fonts = )
@@ -107,6 +112,8 @@ Insert joined gene names and symbols into datasets.
 ``` r
 rownames(d_c) <- gt_sym
 rownames(d_dc) <- gt_sym
+
+rm(list = c("gt", "gt_s", "gt_sym"))
 ```
 
 # QC and filtering of cells.
@@ -127,8 +134,8 @@ suppressMessages(gc())
 ```
 
     ##            used  (Mb) gc trigger   (Mb)  max used   (Mb)
-    ## Ncells  3272220 174.8    5028774  268.6   5028774  268.6
-    ## Vcells 21792047 166.3  236431272 1803.9 293687900 2240.7
+    ## Ncells  6676524 356.6   12132684  648.0   7479277  399.5
+    ## Vcells 27631321 210.9  242104132 1847.2 302629726 2308.9
 
 ``` r
 ds_c <- PercentageFeatureSet(ds_c, pattern = "^MT-", col.name = "percent_mt")
@@ -145,15 +152,33 @@ ds_c <- PercentageFeatureSet(ds_c, "PECAM1|PF4", col.name = "percent_plat")
 VlnPlot(ds_c, features = c('nCount_RNA','nFeature_RNA', 'percent_mt', 'percent_hb', "percent_ribo", "percent_plat"), pt.size = 1.3, ncol = 1) +  NoLegend()
 ```
 
-![](pesc_analysis_1_files/figure-markdown_github/Main%20QC%20plots-1.png)
+![](pesc_analysis_1_files/figure-gfm/Main%20QC%20plots-1.svg)<!-- -->
 
-### Other QC plots
+### UMI-gene count correlation
 
 ``` r
-FeatureScatter(ds_c, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = F) + scale_x_continuous(labels = scales::scientific) + NoLegend()
+FeatureScatter(ds_c, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = T) + scale_x_continuous(labels = scales::scientific) + NoLegend()
 ```
 
-![](pesc_analysis_1_files/figure-markdown_github/unnamed-chunk-5-1.png)
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-5-1.svg)<!-- -->
+
+### Hemoglobin content
+
+``` r
+c_hemo <- ds_c[[c("orig.ident", "nFeature_RNA", "percent_hb")]]
+
+ggplot(c_hemo) +
+  geom_jitter(aes(x = orig.ident, y = nFeature_RNA, size = percent_hb, color = percent_hb)) +
+  scale_color_gradient2(midpoint = 30, mid = "orange", low="blue", high="red", ) +
+  theme(axis.text.x = element_text(angle = 50)) +
+  geom_hline(yintercept = 500)
+```
+
+![](pesc_analysis_1_files/figure-gfm/hemoglobin_content_cells-1.svg)<!-- -->
+
+``` r
+rm(c_hemo)
+```
 
 ------------------------------------------------------------------------
 
@@ -169,29 +194,29 @@ length(WhichCells(ds_c, expression = nCount_RNA > 800))
     ## [1] 1765
 
 ``` r
-length(WhichCells(ds_c, expression = nCount_RNA > 1000 & nFeature_RNA > 600))
+length(WhichCells(ds_c, expression = nCount_RNA > 800 & nFeature_RNA > 500 & nCount_RNA > 1000 & nFeature_RNA > 600 & percent_mt < 25 & percent_ribo > 1.5
+                & percent_hb < 1))
 ```
 
-    ## [1] 1622
+    ## [1] 1292
 
-Filter out cells that have \<=1000 features and UMIs as they are the
-only ones You can work with (subsetting on the percentages of different
-transcript types can be done later).
+Filter out cells that have \<=800 features and 500 UMIs (subsetting on
+the percentages of different transcript types can be done later).
 
 The percent of ribosomal genes might be low due to low transcriptional
 activity of the cells (5%, which was a threshold used before, removes
 too many cells).
 
 ``` r
-ds_cf <- subset(x = ds_c, subset = nCount_RNA > 1000 & nFeature_RNA > 600 & percent_mt < 25 & percent_ribo > .5
-                & percent_hb < 5)
+ds_cf <- subset(x = ds_c, subset = nCount_RNA > 1000 & nFeature_RNA > 600 & percent_mt < 20 & percent_ribo > 1.5
+                & percent_hb < 1)
 rm(ds_c)
 suppressMessages(gc())
 ```
 
     ##            used  (Mb) gc trigger   (Mb)  max used   (Mb)
-    ## Ncells  3483069 186.1    6503105  347.4   5028774  268.6
-    ## Vcells 30065482 229.4  189145018 1443.1 293687900 2240.7
+    ## Ncells  6907579 369.0   12132684  648.0  12132684  648.0
+    ## Vcells 34064064 259.9  193683306 1477.7 302629726 2308.9
 
 ### Find which genes contribute to the nCount_RNA the most
 
@@ -205,28 +230,28 @@ boxplot(as.matrix(t(C[most_expressed,])), cex = 1, las = 1, xlab = "% total coun
         col = (scales::hue_pal())(20)[20:1], horizontal = TRUE)
 ```
 
-![](pesc_analysis_1_files/figure-markdown_github/most%20expressed%20cells-1.png)
+![](pesc_analysis_1_files/figure-gfm/most_expressed_cells_filtered-1.svg)<!-- -->
 
 ### QC plotting of filtered reads
-
-``` r
-VlnPlot(ds_cf, features = c('percent_mt', "percent_ribo"))
-```
-
-![](pesc_analysis_1_files/figure-markdown_github/unnamed-chunk-7-1.png)
 
 ``` r
 VlnPlot(ds_cf, features = c('nFeature_RNA','nCount_RNA'), log = T) ## UGLY
 ```
 
-![](pesc_analysis_1_files/figure-markdown_github/unnamed-chunk-7-2.png)
+![](pesc_analysis_1_files/figure-gfm/qc_plots_cells_filtered-1.svg)<!-- -->
+
+``` r
+VlnPlot(ds_cf, features = c('percent_mt', "percent_ribo"))
+```
+
+![](pesc_analysis_1_files/figure-gfm/qc_plots_cells_filtered-2.svg)<!-- -->
 
 ### QC plotting of filtered reads with ggplot
 
 ``` r
 p1 <- ggplot(as.data.table(ds_cf$nFeature_RNA)) +
-  geom_violin(aes(x = "BM", y = V1)) +
-  geom_jitter(aes(x = "BM", y = V1), size = .9, alpha = .4) + 
+  geom_violin(aes(x = "", y = V1)) +
+  geom_jitter(aes(x = "", y = V1), size = .9, alpha = .4) + 
   scale_y_log10() +
   ggtitle('Genes') +
   theme(plot.title = element_text(size = 18)) +
@@ -234,8 +259,8 @@ p1 <- ggplot(as.data.table(ds_cf$nFeature_RNA)) +
   ylab("count")
 
 p2 <- ggplot(as.data.table(ds_cf$nCount_RNA)) +
-  geom_violin(aes(x = "BM", y = V1)) +
-  geom_jitter(aes(x = "BM", y = V1), size = .9, alpha = .4) + 
+  geom_violin(aes(x = "", y = V1)) +
+  geom_jitter(aes(x = "", y = V1), size = .9, alpha = .4) + 
   scale_y_log10() +
   ggtitle('RNAs') +
   theme(plot.title = element_text(size = 18)) +
@@ -243,32 +268,32 @@ p2 <- ggplot(as.data.table(ds_cf$nCount_RNA)) +
   ylab("")
 
 p3 <- ggplot(as.data.table(ds_cf$percent_mt)) +
-  geom_violin(aes(x = "BM", y = V1)) +
-  geom_jitter(aes(x = "BM", y = V1), size = .9, alpha = .4) + 
+  geom_violin(aes(x = "", y = V1)) +
+  geom_jitter(aes(x = "", y = V1), size = .9, alpha = .4) + 
   ggtitle('Percent of\nmitochondrial') +
   theme(plot.title = element_text(size = 18)) +
   xlab("") +
   ylab("percent")
 
 p4 <- ggplot(as.data.table(ds_cf$percent_ribo)) +
-  geom_violin(aes(x = "BM", y = V1)) +
-  geom_jitter(aes(x = "BM", y = V1), size = .9, alpha = .4) + 
+  geom_violin(aes(x = "", y = V1)) +
+  geom_jitter(aes(x = "", y = V1), size = .9, alpha = .4) + 
   ggtitle('Percent of\nribosomal') +
   theme(plot.title = element_text(size = 18)) +
   xlab("") +
   ylab("")
 
 p5 <- ggplot(as.data.table(ds_cf$percent_hb)) +
-  geom_violin(aes(x = "BM", y = V1)) +
-  geom_jitter(aes(x = "BM", y = V1), size = .9, alpha = .4) + 
+  geom_violin(aes(x = "", y = V1)) +
+  geom_jitter(aes(x = "", y = V1), size = .9, alpha = .4) + 
   ggtitle('Percent of\nhemoglobin') +
   theme(plot.title = element_text(size = 18)) +
   xlab("") +
   ylab("")
 
 p6 <- ggplot(as.data.table(ds_cf$percent_plat)) +
-  geom_violin(aes(x = "BM", y = V1)) +
-  geom_jitter(aes(x = "BM", y = V1), size = .9, alpha = .4) + 
+  geom_violin(aes(x = "", y = V1)) +
+  geom_jitter(aes(x = "", y = V1), size = .9, alpha = .4) + 
   ggtitle('Percent of\nplatelet') +
   theme(plot.title = element_text(size = 18)) +
   xlab("") +
@@ -278,7 +303,7 @@ p6 <- ggplot(as.data.table(ds_cf$percent_plat)) +
 ggarrange(p1, p2, p3, p4, p5, p6, nrow = 1)
 ```
 
-![](pesc_analysis_1_files/figure-markdown_github/unnamed-chunk-8-1.png)
+![](pesc_analysis_1_files/figure-gfm/qc_plots_cells_filtered_ggplot-1.svg)<!-- -->
 
 ``` r
 # ggarrange(ggarrange(p1, p2), 
@@ -286,6 +311,31 @@ ggarrange(p1, p2, p3, p4, p5, p6, nrow = 1)
           # nrow = 2)
 
 #ggsave("qc_violins_filt_p3.png", qcplots, device = 'png', dpi = "retina", width = 21, height = 12, bg = "white")
+```
+
+### UMI-gene count correlation
+
+``` r
+FeatureScatter(ds_cf, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = T) + scale_x_continuous(labels = scales::scientific) + NoLegend()
+```
+
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-7-1.svg)<!-- -->
+
+### Hemoglobin content
+
+``` r
+cf_hemo <- ds_cf[[c("orig.ident", "nFeature_RNA", "percent_hb")]]
+
+ggplot(cf_hemo) +
+  geom_jitter(aes(x = orig.ident, y = nFeature_RNA, size = percent_hb, color = percent_hb)) +
+  scale_color_gradient2(midpoint = .5, mid = "orange", low="blue", high="red", ) +
+  theme(axis.text.x = element_text(angle = 50))
+```
+
+![](pesc_analysis_1_files/figure-gfm/hemoglobin_content_cells_filtered-1.svg)<!-- -->
+
+``` r
+rm(cf_hemo)
 ```
 
 ------------------------------------------------------------------------
@@ -307,9 +357,9 @@ rm(d_dc)
 suppressMessages(gc())
 ```
 
-    ##            used  (Mb) gc trigger   (Mb)  max used   (Mb)
-    ## Ncells  3524338 188.3    6503105  347.4   6503105  347.4
-    ## Vcells 38604068 294.6  254963849 1945.3 293687900 2240.7
+    ##            used  (Mb) gc trigger (Mb)  max used   (Mb)
+    ## Ncells  6933199 370.3   12132684  648  12132684  648.0
+    ## Vcells 41486342 316.6  180745163 1379 302629726 2308.9
 
 ``` r
 ds_dc <- PercentageFeatureSet(ds_dc, pattern = "^MT-", col.name = "percent_mt")
@@ -322,7 +372,7 @@ ds_dc <- PercentageFeatureSet(ds_dc, "PECAM1|PF4", col.name = "percent_plat")
 VlnPlot(ds_dc, features = c('nCount_RNA','nFeature_RNA', 'percent_mt', 'percent_hb', "percent_ribo", "percent_plat"), pt.size = 1.3, ncol = 1) +  NoLegend()
 ```
 
-![](pesc_analysis_1_files/figure-markdown_github/unnamed-chunk-10-1.png)
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-9-1.svg)<!-- -->
 
 ### Other qc plots
 
@@ -332,7 +382,7 @@ FeatureScatter(ds_dc, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = F) +
   scale_y_continuous(labels = scales::scientific)
 ```
 
-![](pesc_analysis_1_files/figure-markdown_github/unnamed-chunk-11-1.png)
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-10-1.svg)<!-- -->
 \_\_\_ ## Filtering
 
 ``` r
@@ -353,7 +403,7 @@ sort(Matrix::rowSums(ds_cf), decreasing = T)[1:10]
 ```
 
     ## MT-RNR2  MALAT1    ACTB MT-RNR1    CD74  MT-ND4  MT-CYB     FTL     B2M    PSAP 
-    ## 1142527  795294  738633  664680  579049  568926  517594  490462  480441  432383
+    ## 1020525  734223  713029  585686  554177  512719  463503  460913  459010  416967
 
 ``` r
 # most common genes for EVs
@@ -374,8 +424,8 @@ suppressMessages(gc())
 ```
 
     ##            used  (Mb) gc trigger   (Mb)  max used   (Mb)
-    ## Ncells  3525613 188.3    6503105  347.4   6503105  347.4
-    ## Vcells 44663805 340.8  203971080 1556.2 293687900 2240.7
+    ## Ncells  6934932 370.4   12132684  648.0  12132684  648.0
+    ## Vcells 47623499 363.4  144596131 1103.2 302629726 2308.9
 
 ## Find which genes contribute to the nCount_RNA the most
 
@@ -389,7 +439,7 @@ boxplot(as.matrix(t(C[most_expressed,])), cex = 1, las = 1, xlab = "% total coun
         col = (scales::hue_pal())(20)[20:1], horizontal = TRUE)
 ```
 
-![](pesc_analysis_1_files/figure-markdown_github/most%20expressed-1.png)
+![](pesc_analysis_1_files/figure-gfm/most_expressed_evs_filtered-1.svg)<!-- -->
 
 ------------------------------------------------------------------------
 
@@ -401,13 +451,13 @@ boxplot(as.matrix(t(C[most_expressed,])), cex = 1, las = 1, xlab = "% total coun
 VlnPlot(ds_dcf, features = 'nFeature_RNA', pt.size = 1.3, log = T) +  NoLegend()
 ```
 
-![](pesc_analysis_1_files/figure-markdown_github/unnamed-chunk-14-1.png)
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-13-1.svg)<!-- -->
 
 ``` r
 VlnPlot(ds_dcf, features = 'nCount_RNA', pt.size = 1.3, log = T) +  NoLegend()
 ```
 
-![](pesc_analysis_1_files/figure-markdown_github/unnamed-chunk-14-2.png)
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-13-2.svg)<!-- -->
 
 ------------------------------------------------------------------------
 
@@ -419,7 +469,7 @@ FeatureScatter(ds_dcf, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = F) 
   scale_y_continuous(labels = scales::scientific)
 ```
 
-![](pesc_analysis_1_files/figure-markdown_github/unnamed-chunk-15-1.png)
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-14-1.svg)<!-- -->
 
 # Ratio of well annotated genes (with symbols) to the rest
 
@@ -437,7 +487,7 @@ ratc[, "ratio" := V1/sum(V1), by = .(variable)]
 ratc[code_symb == "ens", mean(ratio)]
 ```
 
-    ## [1] 0.06367352
+    ## [1] 0.06248185
 
 ``` r
 ggplot(ratc) +
@@ -449,7 +499,7 @@ ggplot(ratc) +
   theme(plot.title = element_text(size = 18), axis.text = element_text(size = 15), axis.title = element_text(size = 17))
 ```
 
-![](pesc_analysis_1_files/figure-markdown_github/unnamed-chunk-16-1.png)
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-15-1.svg)<!-- -->
 
 ``` r
 ratev <- as.data.table(ds_dcf@assays$RNA@counts, keep.rownames = T)
@@ -473,7 +523,7 @@ ggplot(ratev) +
   theme(plot.title = element_text(size = 18), axis.text = element_text(size = 15), axis.title = element_text(size = 17))
 ```
 
-![](pesc_analysis_1_files/figure-markdown_github/unnamed-chunk-17-1.png)
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-16-1.svg)<!-- -->
 
 ``` r
 rm(list = c('ratev', 'ratc'))
@@ -481,8 +531,8 @@ suppressMessages(gc())
 ```
 
     ##            used  (Mb) gc trigger   (Mb)  max used   (Mb)
-    ## Ncells  6857949 366.3   12612308  673.6  12612308  673.6
-    ## Vcells 92496232 705.7  734947335 5607.3 918674467 7009.0
+    ## Ncells  6966128 372.1   12132684  648.0  12132684  648.0
+    ## Vcells 46529273 355.0  560185746 4273.9 700222560 5342.3
 
 ------------------------------------------------------------------------
 
@@ -490,7 +540,7 @@ suppressMessages(gc())
 
 ## Cells
 
-Assign cells to the patient,…
+Assign cells to the patient, …
 
 ``` r
 full_names <- colnames(ds_cf)
@@ -562,14 +612,12 @@ ds_dcf@meta.data$diag <- met.full[, diag]
 
 ## Cells
 
-### Normalization and scaling
+### Normalization, scaling and dimensionality reduction
 
 **Normalization was done using the SC transform described here:
 <https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1874-1>
 as it is supposed to be depth-independent, which justifies its use in
 Smartseq3 EV sequencing.**
-
-### Dimensionality reduction
 
 **During the analysis a change in mapping occurred, without
 significantly affecting its overall profile, possibly due to package
@@ -669,13 +717,218 @@ diagnosis.
 DimPlot(ds_cf, group.by = c("pat", "diag", "type", "rep"))
 ```
 
-![](pesc_analysis_1_files/figure-markdown_github/unnamed-chunk-23-1.png)
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-22-1.svg)<!-- -->
+
+FOLLOWING CHUNKS ARE OBSOLETE - but still useful.
 
 ``` r
-DimPlot(ds_cf, split.by = "pat", group.by = "rep")
+rep_plot <- list()
+
+# Appending to the list doesn't work, otherwise really cool.
+# for (i in unique(ds_cf$pat)) {
+#   
+#   print(i)
+#   rep_plot_single <- paste0("rep_plot_single_", i)
+#   
+#   assign(rep_plot_single, DimPlot(subset(ds_cf, pat == i)) +
+#                                     labs(title = i) +
+#                                     theme(plot.title = element_text(hjust = .5))
+#   )
+#   
+#   print(rep_plot_single)
+#   
+#   rep_plot[i] <- get(rep_plot_single)
+#   rm(list = rep_plot_single)
+#   
+# }
+
+
+plot_data_column = function (data, column) {
+    ggplot(data, aes_string(x = column)) +
+        geom_histogram(fill = "lightgreen") +
+        xlab(column)
+}
+
+# how to remove bad plots
+# rm(list = ls()[ls() %like% "rep_plot"])
 ```
 
-![](pesc_analysis_1_files/figure-markdown_github/check%20inter-replicate%20variance-1.png)
+``` r
+rep_plot <- list()
+
+plot_reps <- function (data, patient) {
+  
+  DimPlot(subset(data, pat == patient), group.by = "rep") +
+    scale_x_continuous(limits = c(-18, 12)) +
+    scale_y_continuous(limits = c(-12, 12)) +
+    labs(title = patient) +
+    theme(plot.title = element_text(hjust = .5))
+  
+}
+
+rep_plot <- lapply(unique(ds_cf$pat), plot_reps, data = ds_cf)
+
+ggarrange(plotlist  = rep_plot)
+```
+
+**Inspect PCs - Jackstraw doesn’t work with SCTransformed data.**
+
+**JackStraw plots doesn’t work on SCtransformed data**
+
+``` r
+ds_cf <- JackStraw(ds_cf, num.replicate = 100) 
+ds_cf <- ScoreJackStraw(ds_cf, dims = 1:20) 
+
+JackStrawPlot(ds_cf, dims = 1:15)
+```
+
+**Elbow Plot** Around 10 top PCAs should be enough to obtain proper
+clustering.
+
+``` r
+ElbowPlot(ds_cf)
+```
+
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-26-1.svg)<!-- -->
+
+### Variable features plots.
+
+Top 10 variable genes are annotated.
+
+``` r
+top10_c <- head(VariableFeatures(ds_cf), 10)
+
+p_var_c <- VariableFeaturePlot(ds_cf)
+LabelPoints(p_var_c, points = top10_c, repel = T)
+```
+
+    ## When using repel, set xnudge and ynudge to 0 for optimal results
+
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-27-1.svg)<!-- -->
+
+Top 10 variable genes and
+
+``` r
+FeaturePlot(ds_cf, features = c('nFeature_RNA','nCount_RNA', top10_c), pt.size = 2, reduction = 'umap')
+```
+
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-28-1.svg)<!-- -->
+
+### Feature plot - Umap
+
+**RNA and gene counts seem to not influence the clustering outcome**
+
+``` r
+FeaturePlot(ds_cf, features = c("nCount_RNA", "nFeature_RNA"), pt.size = 2, reduction = 'umap')
+```
+
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-29-1.svg)<!-- -->
+
+### Find cell clusters
+
+``` r
+ds_cf <- FindNeighbors(ds_cf, reduction = "umap", verbose = FALSE, dims = 1:2) %>%
+  FindClusters(resolution = 0.5, verbose = FALSE)
+
+
+
+p1 <- DimPlot(ds_cf, group.by = c("pat", "diag", "type"), pt.size = 1.5, reduction = "umap")
+
+
+alpha_colors <- hue_pal()(27) #  number of colors equal to number of clusters - required to change the alpha
+
+p2 <- DimPlot(ds_cf, pt.size = 2, label = T, cols = alpha(alpha_colors, .6), reduction = "umap") + 
+  labs(title = "clusters") + 
+  theme(plot.title = element_text(hjust = .5))
+
+
+p1 + p2
+```
+
+![](pesc_analysis_1_files/figure-gfm/clustering_cells_umap-1.svg)<!-- -->
+
+**If clusters are found using PCA:**
+
+``` r
+ds_cf <- FindNeighbors(ds_cf, reduction = "pca", dims = 1:10, verbose = FALSE) %>%
+  FindClusters(resolution = 0.7, verbose = FALSE)
+
+p1 <- DimPlot(ds_cf, group.by = c("pat", "diag", "type"), pt.size = 1.5, reduction = "umap")
+
+
+alpha_colors <- hue_pal()(14) #  number of colors equal to number of clusters - required to change the alpha
+
+p2 <- DimPlot(ds_cf, pt.size = 2, label = T, cols = alpha(alpha_colors, .6), reduction = "umap") + 
+  labs(title = "clusters") + 
+  theme(plot.title = element_text(hjust = .5))
+
+
+p1 + p2
+```
+
+![](pesc_analysis_1_files/figure-gfm/clustering_cells_pca-1.svg)<!-- -->
+
+**Clustering doesn’t seem to provide any useful information - data is
+further explored to exclude possible confounding effects in data
+quality**
+
+## Cells - post-clustering QC
+
+### Inter-replicate variance
+
+``` r
+p1 <- DimPlot(ds_cf, split.by = "pat", group.by = "rep", reduction = "pca")
+p2 <- DimPlot(ds_cf, split.by = "pat", group.by = "rep")
+
+p1 + p2
+```
+
+![](pesc_analysis_1_files/figure-gfm/check%20inter-replicate%20variance-1.svg)<!-- -->
+
+### Per-patient heatmaps of most expressed genes.
+
+#### All patients.
+
+``` r
+DimHeatmap(ds_cf, dims = 1:6, balanced = TRUE, reduction = "pca")
+```
+
+![](pesc_analysis_1_files/figure-gfm/dim_heatmap_cells-1.svg)<!-- -->
+
+#### PC1 of each patient
+
+``` r
+plot_pat_dim_heat <- function (data, patient) {
+  
+  DimHeatmap(subset(data, subset = pat == patient), nfeatures = 30,  dims = 1, balanced = TRUE, fast = F) +
+    theme(legend.position = "none", axis.text.y = element_text(size = 11),
+          plot.title = element_text(size = 14)) +
+    ggtitle(label = patient)
+  
+  }
+
+pat_dim_heat <- lapply(unique(ds_cf$pat), plot_pat_dim_heat, data = ds_cf)
+ggarrange(plotlist  = pat_dim_heat)
+```
+
+![](pesc_analysis_1_files/figure-gfm/dim_heatmap_cells_patients-1.svg)<!-- -->
+
+#### Patients 3133 and 3256.
+
+**Cells of patients 3133, 3256 have nearly identical expression profile
+despite different diagnoses - Both patients will be removed from the
+analysis.**
+
+``` r
+DimHeatmap(subset(ds_cf, subset = pat %in% c(3133, 3256)), dims = 1:6, balanced = TRUE)
+```
+
+![](pesc_analysis_1_files/figure-gfm/dim_heatmap_cells_3133_3256-1.svg)<!-- -->
+
+``` r
+# pat_3133_3256 <- DimHeatmap(subset(ds_cf, subset = pat %in% c(3133, 3256)), dims = 1:6, balanced = TRUE)
+#ggsave("pat_3133_3256_dimheatmap.png", pat_3133_3256,  device = "png")
+```
 
 ``` r
 knitr::knit_exit()

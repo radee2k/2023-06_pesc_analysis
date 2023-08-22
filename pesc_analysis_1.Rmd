@@ -1,12 +1,10 @@
 ---
 title: "06-23_pesc_ev_analysis"
-output:
+output: github_document
   # html_document:
   #   theme:
   #     bg: "#444444"
   #     fg: "#d6d6d6"
- md_document:
-    variant: markdown_github
     
 date: '2023-06-22'
 ---
@@ -69,7 +67,8 @@ wd <- "/disk2/user/radgro/projects/2023-06_pesc_analysis"
 knitr::opts_knit$set(root.dir = wd)
 
 # set svglite as a default for all the plots
-options(knitr.chunk.dev = 'svglite')
+# knitr::opts_chunk$set(knitr.chunk.dev = 'svglite')
+knitr::opts_chunk$set(dev = 'svglite')
 
 
 # svglite(system_fonts = )
@@ -125,11 +124,13 @@ Insert joined gene names and symbols into datasets.
 ```{r }
 rownames(d_c) <- gt_sym
 rownames(d_dc) <- gt_sym
+
+rm(list = c("gt", "gt_s", "gt_sym"))
 ```
 
 # QC and filtering of cells.
 
-```{r create Seurat objects, cache=TRUE}
+```{r create_seurat_objects, cache=TRUE}
 ds_c <- CreateSeuratObject(count = d_c, min.cells = 0, min.features = 1, project = "cells")
 rm(d_c)
 suppressMessages(gc())
@@ -150,16 +151,26 @@ VlnPlot(ds_c, features = c('nCount_RNA','nFeature_RNA', 'percent_mt', 'percent_h
 ```
 
 
-
-
-
-
-
-### Other QC plots
+### UMI-gene count correlation
 
 ```{r, cache=TRUE}
-FeatureScatter(ds_c, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = F) + scale_x_continuous(labels = scales::scientific) + NoLegend()
+FeatureScatter(ds_c, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = T) + scale_x_continuous(labels = scales::scientific) + NoLegend()
 ```
+
+### Hemoglobin content
+```{r hemoglobin_content_cells, fig.width=10, fig.height=8, cache = T}
+
+c_hemo <- ds_c[[c("orig.ident", "nFeature_RNA", "percent_hb")]]
+
+ggplot(c_hemo) +
+  geom_jitter(aes(x = orig.ident, y = nFeature_RNA, size = percent_hb, color = percent_hb)) +
+  scale_color_gradient2(midpoint = 30, mid = "orange", low="blue", high="red", ) +
+  theme(axis.text.x = element_text(angle = 50)) +
+  geom_hline(yintercept = 500)
+
+rm(c_hemo)
+```
+
 
 ___
 ## Filtering 
@@ -167,23 +178,24 @@ ___
 How many cells have more than 800 RNAs or more than 1000 RNAs and genes found.
 ```{r cache=TRUE}
 length(WhichCells(ds_c, expression = nCount_RNA > 800))
-length(WhichCells(ds_c, expression = nCount_RNA > 1000 & nFeature_RNA > 600))
+length(WhichCells(ds_c, expression = nCount_RNA > 800 & nFeature_RNA > 500 & nCount_RNA > 1000 & nFeature_RNA > 600 & percent_mt < 25 & percent_ribo > 1.5
+                & percent_hb < 1))
 ```
 
-Filter out cells that have \<=1000 features and UMIs as they are the only ones You can work with (subsetting on the percentages of different transcript types can be done later).
+Filter out cells that have \<=800 features and 500 UMIs (subsetting on the percentages of different transcript types can be done later).
 
 The percent of ribosomal genes might be low due to low transcriptional activity of the cells (5%, which was a threshold used before, removes too many cells).
 
 ```{r subset cells, cache = T}
-ds_cf <- subset(x = ds_c, subset = nCount_RNA > 1000 & nFeature_RNA > 600 & percent_mt < 25 & percent_ribo > .5
-                & percent_hb < 5)
+ds_cf <- subset(x = ds_c, subset = nCount_RNA > 1000 & nFeature_RNA > 600 & percent_mt < 20 & percent_ribo > 1.5
+                & percent_hb < 1)
 rm(ds_c)
 suppressMessages(gc())
 ```
 
 ### Find which genes contribute to the nCount_RNA the most
 
-```{r most expressed cells, fig.width=10, cache = T}
+```{r most_expressed_cells_filtered, fig.width=10, cache = T}
 C <- ds_cf@assays$RNA@counts
 C <- Matrix::t(Matrix::t(C)/Matrix::colSums(C)) * 100
 most_expressed <- order(apply(C, 1, median), decreasing = T)[20:1]
@@ -195,17 +207,17 @@ boxplot(as.matrix(t(C[most_expressed,])), cex = 1, las = 1, xlab = "% total coun
 
 ### QC plotting of filtered reads
 
-```{r, fig.width=10, cache = T}
-VlnPlot(ds_cf, features = c('percent_mt', "percent_ribo"))
+```{r qc_plots_cells_filtered, fig.width=10, cache = T}
 VlnPlot(ds_cf, features = c('nFeature_RNA','nCount_RNA'), log = T) ## UGLY
+VlnPlot(ds_cf, features = c('percent_mt', "percent_ribo"))
 ```
 
 ### QC plotting of filtered reads with ggplot
 
-```{r, fig.width= 15, fig.height=5, cache = T}
+```{r qc_plots_cells_filtered_ggplot, fig.width= 15, fig.height=5, cache = T}
 p1 <- ggplot(as.data.table(ds_cf$nFeature_RNA)) +
-  geom_violin(aes(x = "BM", y = V1)) +
-  geom_jitter(aes(x = "BM", y = V1), size = .9, alpha = .4) + 
+  geom_violin(aes(x = "", y = V1)) +
+  geom_jitter(aes(x = "", y = V1), size = .9, alpha = .4) + 
   scale_y_log10() +
   ggtitle('Genes') +
   theme(plot.title = element_text(size = 18)) +
@@ -213,8 +225,8 @@ p1 <- ggplot(as.data.table(ds_cf$nFeature_RNA)) +
   ylab("count")
 
 p2 <- ggplot(as.data.table(ds_cf$nCount_RNA)) +
-  geom_violin(aes(x = "BM", y = V1)) +
-  geom_jitter(aes(x = "BM", y = V1), size = .9, alpha = .4) + 
+  geom_violin(aes(x = "", y = V1)) +
+  geom_jitter(aes(x = "", y = V1), size = .9, alpha = .4) + 
   scale_y_log10() +
   ggtitle('RNAs') +
   theme(plot.title = element_text(size = 18)) +
@@ -222,32 +234,32 @@ p2 <- ggplot(as.data.table(ds_cf$nCount_RNA)) +
   ylab("")
 
 p3 <- ggplot(as.data.table(ds_cf$percent_mt)) +
-  geom_violin(aes(x = "BM", y = V1)) +
-  geom_jitter(aes(x = "BM", y = V1), size = .9, alpha = .4) + 
+  geom_violin(aes(x = "", y = V1)) +
+  geom_jitter(aes(x = "", y = V1), size = .9, alpha = .4) + 
   ggtitle('Percent of\nmitochondrial') +
   theme(plot.title = element_text(size = 18)) +
   xlab("") +
   ylab("percent")
 
 p4 <- ggplot(as.data.table(ds_cf$percent_ribo)) +
-  geom_violin(aes(x = "BM", y = V1)) +
-  geom_jitter(aes(x = "BM", y = V1), size = .9, alpha = .4) + 
+  geom_violin(aes(x = "", y = V1)) +
+  geom_jitter(aes(x = "", y = V1), size = .9, alpha = .4) + 
   ggtitle('Percent of\nribosomal') +
   theme(plot.title = element_text(size = 18)) +
   xlab("") +
   ylab("")
 
 p5 <- ggplot(as.data.table(ds_cf$percent_hb)) +
-  geom_violin(aes(x = "BM", y = V1)) +
-  geom_jitter(aes(x = "BM", y = V1), size = .9, alpha = .4) + 
+  geom_violin(aes(x = "", y = V1)) +
+  geom_jitter(aes(x = "", y = V1), size = .9, alpha = .4) + 
   ggtitle('Percent of\nhemoglobin') +
   theme(plot.title = element_text(size = 18)) +
   xlab("") +
   ylab("")
 
 p6 <- ggplot(as.data.table(ds_cf$percent_plat)) +
-  geom_violin(aes(x = "BM", y = V1)) +
-  geom_jitter(aes(x = "BM", y = V1), size = .9, alpha = .4) + 
+  geom_violin(aes(x = "", y = V1)) +
+  geom_jitter(aes(x = "", y = V1), size = .9, alpha = .4) + 
   ggtitle('Percent of\nplatelet') +
   theme(plot.title = element_text(size = 18)) +
   xlab("") +
@@ -262,6 +274,31 @@ ggarrange(p1, p2, p3, p4, p5, p6, nrow = 1)
 
 #ggsave("qc_violins_filt_p3.png", qcplots, device = 'png', dpi = "retina", width = 21, height = 12, bg = "white")
 ```
+
+
+
+### UMI-gene count correlation
+
+```{r, cache=TRUE}
+FeatureScatter(ds_cf, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = T) + scale_x_continuous(labels = scales::scientific) + NoLegend()
+```
+
+
+
+### Hemoglobin content
+```{r hemoglobin_content_cells_filtered, fig.width=10, fig.height=8}
+
+cf_hemo <- ds_cf[[c("orig.ident", "nFeature_RNA", "percent_hb")]]
+
+ggplot(cf_hemo) +
+  geom_jitter(aes(x = orig.ident, y = nFeature_RNA, size = percent_hb, color = percent_hb)) +
+  scale_color_gradient2(midpoint = .5, mid = "orange", low="blue", high="red", ) +
+  theme(axis.text.x = element_text(angle = 50))
+
+rm(cf_hemo)
+```
+
+
 ___
 # QC and filtering of EVs.
 
@@ -315,7 +352,7 @@ suppressMessages(gc())
 ## Find which genes contribute to the nCount_RNA the most
 
 
-```{r most expressed, fig.width=10, cache = T}
+```{r most_expressed_evs_filtered, fig.width=10, cache = T}
 C <- ds_dcf@assays$RNA@counts
 C <- Matrix::t(Matrix::t(C)/Matrix::colSums(C)) * 100
 most_expressed <- order(apply(C, 1, median), decreasing = T)[20:1]
@@ -398,7 +435,7 @@ ___
 # Metadata 
 
 ## Cells
-Assign cells to the patient,...    
+Assign cells to the patient, ...    
 
 ```{r, assign metadata, cache = T}
 full_names <- colnames(ds_cf)
@@ -469,10 +506,8 @@ ___
 ## Cells
 
 
-### Normalization and scaling
+### Normalization, scaling and dimensionality reduction
 **Normalization was done using the SC transform described here: <https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1874-1> as it is supposed to be depth-independent, which justifies its use in Smartseq3 EV sequencing.**
-
-### Dimensionality reduction
 
 **During the analysis a change in mapping occurred, without significantly affecting its overall profile, possibly due to package update.**
 
@@ -492,25 +527,7 @@ DimPlot(ds_cf, group.by = c("pat", "diag", "type", "rep"))
 
 
 
-
-
-```{r, check inter-replicate variance, cache = T, fig.width= 15, fig.height= 5}
-
-DimPlot(ds_cf, split.by = "pat", group.by = "rep")
-
-
-```
-
-
-
-
-```{r}
-knitr::knit_exit()
-```
-
-
-THOSE CHUNKS ARE TOO COMPLICATED
-
+FOLLOWING CHUNKS ARE OBSOLETE - but still useful.
 
 ```{r, cache = T, fig.width= 15, fig.height= 10, eval = F}
 rep_plot <- list()
@@ -544,8 +561,6 @@ plot_data_column = function (data, column) {
 # rm(list = ls()[ls() %like% "rep_plot"])
 
 ```
-
-
 ```{r, cache = T, fig.width= 15, fig.height= 10, eval = F}
 rep_plot <- list()
 
@@ -564,13 +579,7 @@ rep_plot <- lapply(unique(ds_cf$pat), plot_reps, data = ds_cf)
 ggarrange(plotlist  = rep_plot)
 ```
 
-
-
-GET HEATMAPS HERE AND EXPLORE TOP GENES
-
-
 **Inspect PCs - Jackstraw doesn't work with SCTransformed data.** 
-
 
 **JackStraw plots doesn't work on SCtransformed data**
 ```{r, cache = T, fig.width= 7, fig.height= 5, , eval = F}
@@ -614,7 +623,7 @@ FeaturePlot(ds_cf, features = c("nCount_RNA", "nFeature_RNA"), pt.size = 2, redu
 
 
 ### Find cell clusters 
-```{r, cache = T, fig.width= 15, fig.height= 10}
+```{r clustering_cells_umap, fig.height=15, fig.width=15, cache=TRUE}
 
 ds_cf <- FindNeighbors(ds_cf, reduction = "umap", verbose = FALSE, dims = 1:2) %>%
   FindClusters(resolution = 0.5, verbose = FALSE)
@@ -636,7 +645,7 @@ p1 + p2
 ```
 
 **If clusters are found using PCA:**
-```{r, cache = T, fig.width= 15, fig.height= 10}
+```{r clustering_cells_pca, cache = T, fig.width= 15, fig.height= 10}
 ds_cf <- FindNeighbors(ds_cf, reduction = "pca", dims = 1:10, verbose = FALSE) %>%
   FindClusters(resolution = 0.7, verbose = FALSE)
 
@@ -656,7 +665,66 @@ p1 + p2
 
 
 
+**Clustering doesn't seem to provide any useful information - data is further explored to exclude possible confounding effects in data quality**
 
+
+## Cells - post-clustering QC
+### Inter-replicate variance
+```{r, check inter-replicate variance, cache = T, fig.width= 15, fig.height= 5}
+p1 <- DimPlot(ds_cf, split.by = "pat", group.by = "rep", reduction = "pca")
+p2 <- DimPlot(ds_cf, split.by = "pat", group.by = "rep")
+
+p1 + p2
+```
+
+### Per-patient heatmaps of most expressed genes.
+
+#### All patients.
+```{r dim_heatmap_cells, cache = T, fig.width= 15, fig.height= 10}
+DimHeatmap(ds_cf, dims = 1:6, balanced = TRUE, reduction = "pca")
+```
+
+#### PC1 of each patient
+```{r dim_heatmap_cells_patients, cache = T, fig.width= 15, fig.height= 14}
+plot_pat_dim_heat <- function (data, patient) {
+  
+  DimHeatmap(subset(data, subset = pat == patient), nfeatures = 30,  dims = 1, balanced = TRUE, fast = F) +
+    theme(legend.position = "none", axis.text.y = element_text(size = 11),
+          plot.title = element_text(size = 14)) +
+    ggtitle(label = patient)
+  
+  }
+
+pat_dim_heat <- lapply(unique(ds_cf$pat), plot_pat_dim_heat, data = ds_cf)
+ggarrange(plotlist  = pat_dim_heat)
+```
+
+
+
+#### Patients 3133 and 3256.
+**Cells of patients 3133, 3256 have nearly identical expression profile despite different diagnoses - Both patients will be removed from the analysis.**
+```{r dim_heatmap_cells_3133_3256, cache = T, fig.width= 15, fig.height= 10}
+
+DimHeatmap(subset(ds_cf, subset = pat %in% c(3133, 3256)), dims = 1:6, balanced = TRUE)
+# pat_3133_3256 <- DimHeatmap(subset(ds_cf, subset = pat %in% c(3133, 3256)), dims = 1:6, balanced = TRUE)
+#ggsave("pat_3133_3256_dimheatmap.png", pat_3133_3256,  device = "png")
+
+```
+
+
+```{r}
+knitr::knit_exit()
+```
+
+
+
+```{r cell_selector}
+DimPlot(ds_cf, group.by = c("pat", "diag", "type", "rep"))
+
+```
+
+
+###
 
 Differential expression analysis - cells ----
 
