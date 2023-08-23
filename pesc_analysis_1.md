@@ -51,17 +51,28 @@ theme_update(
   axis.text = element_text(size = 20),
   legend.text = element_text(size = 18),
   legend.key.size = unit(2, 'line'),
-  legend.title = element_text(size = 20) +
-  theme(text=element_text(family="mono"))
+  legend.title = element_text(size = 20),
+  text = element_text(family= "mono")
 )
 
 # That's not necessary (rmarkdown sets its directory as the one the .Rmd file is in.)
 wd <- "/disk2/user/radgro/projects/2023-06_pesc_analysis"
 knitr::opts_knit$set(root.dir = wd)
 
+
+
+  
+  fonts <- list(
+    sans = "Helvetica",
+    mono = "Consolas",
+    `Times New Roman` = "DejaVu Serif"
+  )
+
+
+
 # set svglite as a default for all the plots
 # knitr::opts_chunk$set(knitr.chunk.dev = 'svglite')
-knitr::opts_chunk$set(dev = 'svglite')
+knitr::opts_chunk$set(dev = 'svglite', system_fonts = fonts)
 
 
 # svglite(system_fonts = )
@@ -134,8 +145,8 @@ suppressMessages(gc())
 ```
 
     ##            used  (Mb) gc trigger   (Mb)  max used   (Mb)
-    ## Ncells  6676524 356.6   12132684  648.0   7479277  399.5
-    ## Vcells 27631321 210.9  242104132 1847.2 302629726 2308.9
+    ## Ncells  6677611 356.7   12132112  648.0   7479166  399.5
+    ## Vcells 27634000 210.9  242103746 1847.2 299733793 2286.8
 
 ``` r
 ds_c <- PercentageFeatureSet(ds_c, pattern = "^MT-", col.name = "percent_mt")
@@ -215,8 +226,8 @@ suppressMessages(gc())
 ```
 
     ##            used  (Mb) gc trigger   (Mb)  max used   (Mb)
-    ## Ncells  6907579 369.0   12132684  648.0  12132684  648.0
-    ## Vcells 34064064 259.9  193683306 1477.7 302629726 2308.9
+    ## Ncells  6907406 368.9   12132112  648.0  12132112  648.0
+    ## Vcells 34063716 259.9  193682997 1477.7 299733793 2286.8
 
 ### Find which genes contribute to the nCount_RNA the most
 
@@ -358,8 +369,8 @@ suppressMessages(gc())
 ```
 
     ##            used  (Mb) gc trigger (Mb)  max used   (Mb)
-    ## Ncells  6933199 370.3   12132684  648  12132684  648.0
-    ## Vcells 41486342 316.6  180745163 1379 302629726 2308.9
+    ## Ncells  6933026 370.3   12132112  648  12132112  648.0
+    ## Vcells 41485994 316.6  180744842 1379 299733793 2286.8
 
 ``` r
 ds_dc <- PercentageFeatureSet(ds_dc, pattern = "^MT-", col.name = "percent_mt")
@@ -424,8 +435,8 @@ suppressMessages(gc())
 ```
 
     ##            used  (Mb) gc trigger   (Mb)  max used   (Mb)
-    ## Ncells  6934932 370.4   12132684  648.0  12132684  648.0
-    ## Vcells 47623499 363.4  144596131 1103.2 302629726 2308.9
+    ## Ncells  6934757 370.4   12132112  648.0  12132112  648.0
+    ## Vcells 47623146 363.4  144595874 1103.2 299733793 2286.8
 
 ## Find which genes contribute to the nCount_RNA the most
 
@@ -531,8 +542,8 @@ suppressMessages(gc())
 ```
 
     ##            used  (Mb) gc trigger   (Mb)  max used   (Mb)
-    ## Ncells  6966128 372.1   12132684  648.0  12132684  648.0
-    ## Vcells 46529273 355.0  560185746 4273.9 700222560 5342.3
+    ## Ncells  6965952 372.1   12132112  648.0  12132112  648.0
+    ## Vcells 46528926 355.0  560185407 4273.9 700222865 5342.3
 
 ------------------------------------------------------------------------
 

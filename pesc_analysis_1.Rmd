@@ -43,6 +43,7 @@ library(annotables) # for turning Ensembl ID to symbol
 library(sctransform) # for normalization  
 library(glmGamPoi) # for normalization
 # library(svglite) # for vectorized, lightweight plotting
+library(systemfonts) # to set the font for svg outputs
 
 "%notin%" <- Negate("%in%")
 "%notlike%" <- Negate("%like%")
@@ -58,25 +59,31 @@ theme_update(
   axis.text = element_text(size = 20),
   legend.text = element_text(size = 18),
   legend.key.size = unit(2, 'line'),
-  legend.title = element_text(size = 20) +
-  theme(text=element_text(family="mono"))
+  legend.title = element_text(size = 20)
+  # text = element_text(family= "mono")
 )
 
 # That's not necessary (rmarkdown sets its directory as the one the .Rmd file is in.)
 wd <- "/disk2/user/radgro/projects/2023-06_pesc_analysis"
 knitr::opts_knit$set(root.dir = wd)
 
+
+
+fonts <- list(
+  mono = "Consolas",
+  sans = "Lato"
+)
+
 # set svglite as a default for all the plots
 # knitr::opts_chunk$set(knitr.chunk.dev = 'svglite')
-knitr::opts_chunk$set(dev = 'svglite')
-
-
-# svglite(system_fonts = )
-# mono
+# knitr::opts_chunk$set(dev = 'svglite', system_fonts = fonts)
+knitr::opts_chunk$set(dev = 'svglite', dev.args = list(system_fonts = fonts))
 
 
 # plan("multicore", workers = 8)
 # plan()
+
+
 
 ```
 
@@ -196,13 +203,18 @@ suppressMessages(gc())
 ### Find which genes contribute to the nCount_RNA the most
 
 ```{r most_expressed_cells_filtered, fig.width=10, cache = T}
-C <- ds_cf@assays$RNA@counts
-C <- Matrix::t(Matrix::t(C)/Matrix::colSums(C)) * 100
-most_expressed <- order(apply(C, 1, median), decreasing = T)[20:1]
+counts_cells <- ds_cf@assays$RNA@counts
+counts_cells <- Matrix::t(Matrix::t(counts_cells)/Matrix::colSums(counts_cells)) * 100
+
+most_expr_cells <- order(apply(counts_cells, 1, median), decreasing = T)[20:1]
+most_expr_counts_cells <- as.matrix(t(counts_cells[most_expr_cells,]))
+
+rm(list = c("counts_cells", "most_expressed_cells"))
 
 par(mar=c(5,10,1,1))
-boxplot(as.matrix(t(C[most_expressed,])), cex = 1, las = 1, xlab = "% total count per cell",
+boxplot(most_expr_counts_cells, cex = 1, las = 1, xlab = "% total count per cell",
         col = (scales::hue_pal())(20)[20:1], horizontal = TRUE)
+
 ```
 
 ### QC plotting of filtered reads
@@ -322,7 +334,7 @@ VlnPlot(ds_dc, features = c('nCount_RNA','nFeature_RNA', 'percent_mt', 'percent_
 ### Other qc plots 
 
 ```{r, fig.width=10, fig.height=5, cache = T}
-FeatureScatter(ds_dc, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = F) + 
+FeatureScatter(ds_dc, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = T) + 
   scale_x_continuous(labels = scales::scientific) + 
   scale_y_continuous(labels = scales::scientific)
 ```
@@ -382,7 +394,7 @@ ___
 ### Other qc plots 
 
 ```{r, fig.width=10, fig.height=5, cache = T}
-FeatureScatter(ds_dcf, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = F) + 
+FeatureScatter(ds_dcf, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = T) + 
   scale_x_continuous(labels = scales::scientific) +
   scale_y_continuous(labels = scales::scientific)
 ```
@@ -681,10 +693,24 @@ p1 + p2
 
 #### All patients.
 ```{r dim_heatmap_cells, cache = T, fig.width= 15, fig.height= 10}
-DimHeatmap(ds_cf, dims = 1:6, balanced = TRUE, reduction = "pca")
+
+dim_plot_pca <- DimHeatmap(ds_cf, dims = 1:6, balanced = TRUE, reduction = "pca", fast = F, combine = F)
+
+for (i in 1:length(dim_plot_pca)) {
+  
+  pc <- paste0("PC_", i)
+  
+  dim_plot_pca[[i]] <- dim_plot_pca[[i]] + theme(legend.position = "none", axis.text.y = element_text(size = 11),
+          plot.title = element_text(size = 14)) +
+          ggtitle(label = pc)
+  
+}
+
+ggarrange(plotlist = dim_plot_pca, align = "v")
+
 ```
 
-#### PC1 of each patient
+#### PC1 of each patient.
 ```{r dim_heatmap_cells_patients, cache = T, fig.width= 15, fig.height= 14}
 plot_pat_dim_heat <- function (data, patient) {
   
@@ -711,6 +737,28 @@ DimHeatmap(subset(ds_cf, subset = pat %in% c(3133, 3256)), dims = 1:6, balanced 
 
 ```
 
+#### All patients - most expressed and most variable genes.
+
+```{r dim_heatmap_cells_most_expr_most_var, cache = T, fig.width= 15, fig.height= 8}
+
+list_heatmap <- names(sort(colSums(most_expr_counts_cells), decreasing = T))
+
+p1 <- DoHeatmap(ds_cf, features = list_heatmap, group.by = "pat", slot = 'counts') + 
+    guides(color = "none") +
+    theme(axis.text.y = element_text(size = 11)) +
+    ggtitle(label = "top 10 most expressed")
+p2 <- DoHeatmap(ds_cf, features = top10_c, group.by = "pat", slot = "scale.data") + 
+    guides(color = "none") +
+    theme(axis.text.y = element_text(size = 11)) +
+    ggtitle(label = "top 10 most variable (scaled data)")
+
+p1 + p2
+```
+
+
+
+
+
 
 ```{r}
 knitr::knit_exit()
@@ -724,7 +772,7 @@ DimPlot(ds_cf, group.by = c("pat", "diag", "type", "rep"))
 ```
 
 
-###
+## Cells - without patients 3133 and 3256.
 
 Differential expression analysis - cells ----
 
