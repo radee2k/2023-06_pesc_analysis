@@ -1,0 +1,148 @@
+---
+title: "pesc_integration_analysis"
+output: github_document
+---
+
+---
+title: "06-23_pesc_ev_analysis"
+output: github_document
+  # html_document:
+  #   theme:
+  #     bg: "#444444"
+  #     fg: "#d6d6d6"
+    
+date: '2023-06-22'
+---
+
+This script tries to integrate patient and replicate datasets instead of treating them them as homogeneous. According to: https://satijalab.org/seurat/articles/integration_introduction.html.
+
+
+___
+
+# Prepare the workign enviornment:
+
+-   install and load packages
+-   set %notin% and %notlike%
+    -   set ggplot's theme
+-   set the working directory
+-   set a plan for multithreading
+
+```{r setup, message=FALSE, warning=FALSE}
+# install.packages("Seurat")
+# install.packages("remotes")
+# BiocManager::install(version = '3.16')
+# BiocManager::install("glmGamPoi")
+# remotes::install_github("stephenturner/annotables")
+# install.packages("glmGamPoi")
+
+
+library(Seurat)
+library(dplyr)
+library(data.table)
+library(Matrix)
+library(ggplot2)
+library(scales) # to better customize Seurat's plots
+library(ggpubr)
+library(future)
+library(annotables) # for turning Ensembl ID to symbol
+library(sctransform) # for normalization  
+library(glmGamPoi) # for normalization
+# library(svglite) # for vectorized, lightweight plotting
+library(systemfonts) # to set the font for svg outputs
+
+"%notin%" <- Negate("%in%")
+"%notlike%" <- Negate("%like%")
+
+
+# set the theme for plotting (Seurat uses ggplot's themes)
+theme_set(new = theme_classic())
+theme_update(
+  axis.text.x = element_text(vjust = 0.5),
+  strip.background = element_rect(fill = '#FFFFFF'),
+  plot.title = element_text(hjust = 0.5, size = 25),
+  axis.title = element_text(size = 23),
+  axis.text = element_text(size = 20),
+  legend.text = element_text(size = 18),
+  legend.key.size = unit(2, 'line'),
+  legend.title = element_text(size = 20)
+  # text = element_text(family= "mono")
+)
+
+# That's not necessary (rmarkdown sets its directory as the one the .Rmd file is in.)
+wd <- "/disk2/user/radgro/projects/2023-06_pesc_analysis"
+knitr::opts_knit$set(root.dir = wd)
+
+
+
+fonts <- list(
+  mono = "Consolas",
+  sans = "Lato"
+)
+
+# set svglite as a default for all the plots
+# knitr::opts_chunk$set(knitr.chunk.dev = 'svglite')
+# knitr::opts_chunk$set(dev = 'svglite', system_fonts = fonts)
+knitr::opts_chunk$set(dev = 'svglite', dev.args = list(system_fonts = fonts))
+
+
+# plan("multicore", workers = 8)
+# plan()
+
+
+
+```
+
+# Integrated datasets
+
+```{r split and integrate patient single-cell data, cache = T}
+
+ds_cf_split <- SplitObject(ds_cf, split.by = "pat")
+
+ds_cf_split <- lapply(X = ds_cf_split, FUN = SCTransform)
+
+features <- SelectIntegrationFeatures(object.list = ds_cf_split, nfeatures = 3000)
+ds_cf_split <- PrepSCTIntegration(object.list = ds_cf_split, anchor.features = features)
+ds_cf_anchors <- FindIntegrationAnchors(object.list = ds_cf_split, anchor.features = features, normalization.method = "SCT")
+
+# k.weight changed to 66 as patient 3133 has the least cells
+ds_cf_comb <- IntegrateData(anchorset = ds_cf_anchors, k.weight = 66,  normalization.method = "SCT")
+```
+
+## Dim Reduc - Should it use SCTransform again?
+```{r, cache = T}
+
+DefaultAssay(ds_cf_comb) <- "integrated"
+
+ds_cf_comb <- SCTransform(ds_cf_comb, vst.flavor = "v2", verbose = FALSE) %>%
+  RunPCA( npcs = 30, verbose = FALSE) %>%
+  RunUMAP(reduction = "pca", dims = 1:30, verbose = FALSE)
+  
+```
+
+Data allows to stratify cells according to their origin and diagnosis, however different populations seem to be too mixed.
+
+```{r, cache = T, fig.width= 15, fig.height= 10}
+DimPlot(ds_cf_comb, group.by = c("pat", "diag", "type", "rep"))
+DimPlot(ds_cf_comb, group.by = c("pat", "diag", "type", "rep"), reduction = "pca")
+```
+
+
+
+
+```{r, cache = T, fig.width= 10, fig.height= 5}
+top10_c <- head(VariableFeatures(ds_cf_comb), 10)
+
+p_var_c <- VariableFeaturePlot(ds_cf_comb)
+LabelPoints(p_var_c, points = top10_c, repel = T)
+```
+
+**Top 10 variable genes and gene and RNA counts.**
+Most of the variable genes are upregulated in cells from patients 3133 and 3256.
+
+```{r, cache = T, fig.width= 15, fig.height= 10}
+FeaturePlot(ds_cf_comb, features = c('nFeature_RNA','nCount_RNA', top10_c), pt.size = 1, reduction = 'umap', slot = "scale.data")
+```
+
+
+
+

@@ -36,6 +36,7 @@ library(annotables) # for turning Ensembl ID to symbol
 library(sctransform) # for normalization  
 library(glmGamPoi) # for normalization
 # library(svglite) # for vectorized, lightweight plotting
+library(systemfonts) # to set the font for svg outputs
 
 "%notin%" <- Negate("%in%")
 "%notlike%" <- Negate("%like%")
@@ -51,8 +52,8 @@ theme_update(
   axis.text = element_text(size = 20),
   legend.text = element_text(size = 18),
   legend.key.size = unit(2, 'line'),
-  legend.title = element_text(size = 20),
-  text = element_text(family= "mono")
+  legend.title = element_text(size = 20)
+  # text = element_text(family= "mono")
 )
 
 # That's not necessary (rmarkdown sets its directory as the one the .Rmd file is in.)
@@ -61,22 +62,15 @@ knitr::opts_knit$set(root.dir = wd)
 
 
 
-  
-  fonts <- list(
-    sans = "Helvetica",
-    mono = "Consolas",
-    `Times New Roman` = "DejaVu Serif"
-  )
-
-
+fonts <- list(
+  mono = "Consolas",
+  sans = "Lato"
+)
 
 # set svglite as a default for all the plots
 # knitr::opts_chunk$set(knitr.chunk.dev = 'svglite')
-knitr::opts_chunk$set(dev = 'svglite', system_fonts = fonts)
-
-
-# svglite(system_fonts = )
-# mono
+# knitr::opts_chunk$set(dev = 'svglite', system_fonts = fonts)
+knitr::opts_chunk$set(dev = 'svglite', dev.args = list(system_fonts = fonts))
 
 
 # plan("multicore", workers = 8)
@@ -145,8 +139,8 @@ suppressMessages(gc())
 ```
 
     ##            used  (Mb) gc trigger   (Mb)  max used   (Mb)
-    ## Ncells  6677611 356.7   12132112  648.0   7479166  399.5
-    ## Vcells 27634000 210.9  242103746 1847.2 299733793 2286.8
+    ## Ncells  6679317 356.8   12136614  648.2   7478701  399.5
+    ## Vcells 27639360 210.9  242108892 1847.2 299738434 2286.9
 
 ``` r
 ds_c <- PercentageFeatureSet(ds_c, pattern = "^MT-", col.name = "percent_mt")
@@ -226,18 +220,27 @@ suppressMessages(gc())
 ```
 
     ##            used  (Mb) gc trigger   (Mb)  max used   (Mb)
-    ## Ncells  6907406 368.9   12132112  648.0  12132112  648.0
-    ## Vcells 34063716 259.9  193682997 1477.7 299733793 2286.8
+    ## Ncells  6907749 369.0   12136614  648.2  12136614  648.2
+    ## Vcells 34065420 259.9  193687114 1477.8 299738434 2286.9
 
 ### Find which genes contribute to the nCount_RNA the most
 
 ``` r
-C <- ds_cf@assays$RNA@counts
-C <- Matrix::t(Matrix::t(C)/Matrix::colSums(C)) * 100
-most_expressed <- order(apply(C, 1, median), decreasing = T)[20:1]
+counts_cells <- ds_cf@assays$RNA@counts
+counts_cells <- Matrix::t(Matrix::t(counts_cells)/Matrix::colSums(counts_cells)) * 100
 
+most_expr_cells <- order(apply(counts_cells, 1, median), decreasing = T)[20:1]
+most_expr_counts_cells <- as.matrix(t(counts_cells[most_expr_cells,]))
+
+rm(list = c("counts_cells", "most_expressed_cells"))
+```
+
+    ## Warning in rm(list = c("counts_cells", "most_expressed_cells")): object
+    ## 'most_expressed_cells' not found
+
+``` r
 par(mar=c(5,10,1,1))
-boxplot(as.matrix(t(C[most_expressed,])), cex = 1, las = 1, xlab = "% total count per cell",
+boxplot(most_expr_counts_cells, cex = 1, las = 1, xlab = "% total count per cell",
         col = (scales::hue_pal())(20)[20:1], horizontal = TRUE)
 ```
 
@@ -368,9 +371,9 @@ rm(d_dc)
 suppressMessages(gc())
 ```
 
-    ##            used  (Mb) gc trigger (Mb)  max used   (Mb)
-    ## Ncells  6933026 370.3   12132112  648  12132112  648.0
-    ## Vcells 41485994 316.6  180744842 1379 299733793 2286.8
+    ##            used  (Mb) gc trigger   (Mb)  max used   (Mb)
+    ## Ncells  6933375 370.3   12136614  648.2  12136614  648.2
+    ## Vcells 34206201 261.0  180746639 1379.0 299738434 2286.9
 
 ``` r
 ds_dc <- PercentageFeatureSet(ds_dc, pattern = "^MT-", col.name = "percent_mt")
@@ -388,7 +391,7 @@ VlnPlot(ds_dc, features = c('nCount_RNA','nFeature_RNA', 'percent_mt', 'percent_
 ### Other qc plots
 
 ``` r
-FeatureScatter(ds_dc, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = F) + 
+FeatureScatter(ds_dc, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = T) + 
   scale_x_continuous(labels = scales::scientific) + 
   scale_y_continuous(labels = scales::scientific)
 ```
@@ -435,8 +438,8 @@ suppressMessages(gc())
 ```
 
     ##            used  (Mb) gc trigger   (Mb)  max used   (Mb)
-    ## Ncells  6934757 370.4   12132112  648.0  12132112  648.0
-    ## Vcells 47623146 363.4  144595874 1103.2 299733793 2286.8
+    ## Ncells  6935101 370.4   12136614  648.2  12136614  648.2
+    ## Vcells 40343357 307.8  144597312 1103.2 299738434 2286.9
 
 ## Find which genes contribute to the nCount_RNA the most
 
@@ -475,7 +478,7 @@ VlnPlot(ds_dcf, features = 'nCount_RNA', pt.size = 1.3, log = T) +  NoLegend()
 ### Other qc plots
 
 ``` r
-FeatureScatter(ds_dcf, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = F) + 
+FeatureScatter(ds_dcf, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = T) + 
   scale_x_continuous(labels = scales::scientific) +
   scale_y_continuous(labels = scales::scientific)
 ```
@@ -542,8 +545,8 @@ suppressMessages(gc())
 ```
 
     ##            used  (Mb) gc trigger   (Mb)  max used   (Mb)
-    ## Ncells  6965952 372.1   12132112  648.0  12132112  648.0
-    ## Vcells 46528926 355.0  560185407 4273.9 700222865 5342.3
+    ## Ncells  6966304 372.1   12136614  648.2  12136614  648.2
+    ## Vcells 46551795 355.2  448169100 3419.3 700250130 5342.5
 
 ------------------------------------------------------------------------
 
@@ -721,8 +724,8 @@ ds_cf <- SCTransform(ds_cf, vst.flavor = "v2", verbose = FALSE) %>%
 # table(ds_cf@meta.data[c("pat", "diag", "type")])
 ```
 
-Data allows to correctly stratify cells, accordingly to their origin and
-diagnosis.
+Data allows to stratify cells according to their origin and diagnosis,
+however different populations seem to be too mixed.
 
 ``` r
 DimPlot(ds_cf, group.by = c("pat", "diag", "type", "rep"))
@@ -802,7 +805,27 @@ ElbowPlot(ds_cf)
 
 ![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-26-1.svg)<!-- -->
 
-### Variable features plots.
+### Variable features.
+
+**Top 10 most variable genes** \|Gene\|Protein\|Description (from
+genecards)\| \|—\|—\|—\| \|COL1A1, COL1A2\|Collagen 1\|\|
+\|SFTPB\|pulmonary-associated surfactant protein B\|\|
+\|SPARC\|cysteine-rich acidic matrix-associated protein\|involved in
+extracellular matrix synthesis\| \|SPP1\|Secreted Phosphoprotein
+1\|bone-osteoclasts interaction and a cytokine that upregulates
+expression of interferon-gamma and interleukin-12\|
+\|ENSG00000203396\|WDR45-like pseudogene\|\|
+\|TAGLN\|Transgelin\|calponin, a shape change and transformation
+sensitive actin-binding protein, early marker of smooth muscle
+differentiation, a tumor suppressor\| \|IGFBP4\|insulin-like growth
+factor binding protein 4\|binds both insulin-like growth factors I and
+II and circulates in the plasma prolonging their half-life and changing
+interactions\| \|IGF2\|Insulin Like Growth Factor 2\|epigenetic changes
+at its locus are associated with Wilms tumour, Beckwith-Wiedemann
+syndrome, rhabdomyosarcoma, and Silver-Russell syndrome, involved in
+Apoptotic Pathways in Synovial Fibroblasts\| \|COL6A1\|Collagen Type VI
+Alpha 1 Chain\|its mutations result in Bethlem myopathy and Ullrich
+muscular dystrophy, involved in platelet-derived growth factor binding\|
 
 Top 10 variable genes are annotated.
 
@@ -817,129 +840,14 @@ LabelPoints(p_var_c, points = top10_c, repel = T)
 
 ![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-27-1.svg)<!-- -->
 
-Top 10 variable genes and
+**Top 10 variable genes and gene and RNA counts.** Most of the variable
+genes are upregulated in cells from patients 3133 and 3256.
 
 ``` r
 FeaturePlot(ds_cf, features = c('nFeature_RNA','nCount_RNA', top10_c), pt.size = 2, reduction = 'umap')
 ```
 
 ![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-28-1.svg)<!-- -->
-
-### Feature plot - Umap
-
-**RNA and gene counts seem to not influence the clustering outcome**
-
-``` r
-FeaturePlot(ds_cf, features = c("nCount_RNA", "nFeature_RNA"), pt.size = 2, reduction = 'umap')
-```
-
-![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-29-1.svg)<!-- -->
-
-### Find cell clusters
-
-``` r
-ds_cf <- FindNeighbors(ds_cf, reduction = "umap", verbose = FALSE, dims = 1:2) %>%
-  FindClusters(resolution = 0.5, verbose = FALSE)
-
-
-
-p1 <- DimPlot(ds_cf, group.by = c("pat", "diag", "type"), pt.size = 1.5, reduction = "umap")
-
-
-alpha_colors <- hue_pal()(27) #  number of colors equal to number of clusters - required to change the alpha
-
-p2 <- DimPlot(ds_cf, pt.size = 2, label = T, cols = alpha(alpha_colors, .6), reduction = "umap") + 
-  labs(title = "clusters") + 
-  theme(plot.title = element_text(hjust = .5))
-
-
-p1 + p2
-```
-
-![](pesc_analysis_1_files/figure-gfm/clustering_cells_umap-1.svg)<!-- -->
-
-**If clusters are found using PCA:**
-
-``` r
-ds_cf <- FindNeighbors(ds_cf, reduction = "pca", dims = 1:10, verbose = FALSE) %>%
-  FindClusters(resolution = 0.7, verbose = FALSE)
-
-p1 <- DimPlot(ds_cf, group.by = c("pat", "diag", "type"), pt.size = 1.5, reduction = "umap")
-
-
-alpha_colors <- hue_pal()(14) #  number of colors equal to number of clusters - required to change the alpha
-
-p2 <- DimPlot(ds_cf, pt.size = 2, label = T, cols = alpha(alpha_colors, .6), reduction = "umap") + 
-  labs(title = "clusters") + 
-  theme(plot.title = element_text(hjust = .5))
-
-
-p1 + p2
-```
-
-![](pesc_analysis_1_files/figure-gfm/clustering_cells_pca-1.svg)<!-- -->
-
-**Clustering doesn’t seem to provide any useful information - data is
-further explored to exclude possible confounding effects in data
-quality**
-
-## Cells - post-clustering QC
-
-### Inter-replicate variance
-
-``` r
-p1 <- DimPlot(ds_cf, split.by = "pat", group.by = "rep", reduction = "pca")
-p2 <- DimPlot(ds_cf, split.by = "pat", group.by = "rep")
-
-p1 + p2
-```
-
-![](pesc_analysis_1_files/figure-gfm/check%20inter-replicate%20variance-1.svg)<!-- -->
-
-### Per-patient heatmaps of most expressed genes.
-
-#### All patients.
-
-``` r
-DimHeatmap(ds_cf, dims = 1:6, balanced = TRUE, reduction = "pca")
-```
-
-![](pesc_analysis_1_files/figure-gfm/dim_heatmap_cells-1.svg)<!-- -->
-
-#### PC1 of each patient
-
-``` r
-plot_pat_dim_heat <- function (data, patient) {
-  
-  DimHeatmap(subset(data, subset = pat == patient), nfeatures = 30,  dims = 1, balanced = TRUE, fast = F) +
-    theme(legend.position = "none", axis.text.y = element_text(size = 11),
-          plot.title = element_text(size = 14)) +
-    ggtitle(label = patient)
-  
-  }
-
-pat_dim_heat <- lapply(unique(ds_cf$pat), plot_pat_dim_heat, data = ds_cf)
-ggarrange(plotlist  = pat_dim_heat)
-```
-
-![](pesc_analysis_1_files/figure-gfm/dim_heatmap_cells_patients-1.svg)<!-- -->
-
-#### Patients 3133 and 3256.
-
-**Cells of patients 3133, 3256 have nearly identical expression profile
-despite different diagnoses - Both patients will be removed from the
-analysis.**
-
-``` r
-DimHeatmap(subset(ds_cf, subset = pat %in% c(3133, 3256)), dims = 1:6, balanced = TRUE)
-```
-
-![](pesc_analysis_1_files/figure-gfm/dim_heatmap_cells_3133_3256-1.svg)<!-- -->
-
-``` r
-# pat_3133_3256 <- DimHeatmap(subset(ds_cf, subset = pat %in% c(3133, 3256)), dims = 1:6, balanced = TRUE)
-#ggsave("pat_3133_3256_dimheatmap.png", pat_3133_3256,  device = "png")
-```
 
 ``` r
 knitr::knit_exit()
