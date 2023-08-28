@@ -19,7 +19,7 @@ ___
 -   set %notin% and %notlike%
     -   set ggplot's theme
 -   set the working directory
--   set a plan for multithreading
+-   set a plan for multithreading 
 
 ```{r setup, message=FALSE, warning=FALSE, include = F}
 # install.packages("Seurat")
@@ -77,7 +77,7 @@ fonts <- list(
 # knitr::opts_chunk$set(knitr.chunk.dev = 'svglite')
 # knitr::opts_chunk$set(dev = 'svglite', system_fonts = fonts)
 knitr::opts_chunk$set(dev = 'svglite', dev.args = list(system_fonts = fonts), 
-                      cache = T, cache.path="pesc_integration_analysis_cache/gfm/")
+                      cache = T, cache.path="pesc_integration_analysis_cache/gfm/") # cache of a github_document doesn't work if the path to the gfm folder is not provided!!!
 
 ```
 
@@ -297,8 +297,9 @@ FeaturePlot(ds_cf_comb, features = c('nFeature_RNA','nCount_RNA', top10_c), pt.s
 
 
 
+# Conlusion
 
-
+**The integration of data from different patients was not used as it had negligible impact on the mapping results when compared to direct analysis.**
 
 
 

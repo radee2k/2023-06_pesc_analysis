@@ -22,6 +22,108 @@ treating them them as homogeneous. According to:
 **All the data QC is taken from the main script and is not included in
 this document.**
 
+``` r
+d_c <- as.sparse(read.csv("data/PEsc_matrix.txt", sep = "\t"))
+# Gene names
+gt <- fread("data/genes_title.txt", sep = "\t")
+
+# get gene symbols from annotables
+gt_s <- setDT(grch38[, c("ensgene", "symbol")])
+colnames(gt_s)[1] <- "Geneid"
+```
+
+``` r
+gt_mito <- readLines("code_for_daniel/human_mitochondrial_genes_list.txt")[-1] # Could be used for Daniel's approach
+gt_join[Geneid %in% gt_mito] # same genes are mitochondrial here and in Daniel's table - all is fine
+```
+
+``` r
+rownames(d_c) <- gt_sym
+
+rm(list = c("gt", "gt_s", "gt_sym"))
+```
+
+``` r
+ds_c <- CreateSeuratObject(count = d_c, min.cells = 0, min.features = 1, project = "cells")
+```
+
+    ## Warning: Non-unique features (rownames) present in the input matrix, making
+    ## unique
+
+    ## Warning: Feature names cannot have underscores ('_'), replacing with dashes
+    ## ('-')
+
+``` r
+rm(d_c)
+suppressMessages(gc())
+```
+
+    ##            used  (Mb) gc trigger  (Mb) max used  (Mb)
+    ## Ncells  6598933 352.5   12567494 671.2  7641302 408.1
+    ## Vcells 20431481 155.9   48256356 368.2 47650828 363.6
+
+``` r
+ds_c <- PercentageFeatureSet(ds_c, pattern = "^MT-", col.name = "percent_mt")
+ds_c <- PercentageFeatureSet(ds_c, "^RP[SL]", col.name = "percent_ribo")
+ds_c <- PercentageFeatureSet(ds_c, "^HB[^(P)]", col.name = "percent_hb")
+ds_c <- PercentageFeatureSet(ds_c, "PECAM1|PF4", col.name = "percent_plat")
+```
+
+``` r
+ds_cf <- subset(x = ds_c, subset = nCount_RNA > 1000 & nFeature_RNA > 600 & percent_mt < 20 & percent_ribo > 1.5
+                & percent_hb < 1)
+rm(ds_c)
+suppressMessages(gc())
+```
+
+    ##            used  (Mb) gc trigger   (Mb)  max used   (Mb)
+    ## Ncells  6720477 359.0   12584027  672.1   7987379  426.6
+    ## Vcells 27509759 209.9  188943655 1441.6 294532711 2247.2
+
+``` r
+full_names <- colnames(ds_cf)
+reg.pat <- regmatches(full_names, regexpr("PEsc[0-9]{1,6}", full_names))
+reg.pat <- gsub("PEsc", "", reg.pat)
+ds_cf@meta.data$pat <- reg.pat
+```
+
+``` r
+reg.rep <- regmatches(full_names, regexpr("PEsc[0-9]{1,6}(.|_)[0-9]", full_names))
+reg.rep <- gsub("PEsc[0-9]{1,6}(.|_)", "", reg.rep)
+ds_cf@meta.data$rep <- reg.rep
+```
+
+``` r
+metd <- fread("PEpatients_sorted.csv")
+metd[, c("type", "diag") := lapply(.SD, factor), .SDcols = c("type", 'diag')]
+metd[, pat_numb := regmatches(metd[, pat_numb], regexpr("[0-9]{3,5}", metd[, pat_numb]))]
+
+# replace missing type values ("") with "unknown".
+metd[type == "", type := "unknown"]
+
+patd <- as.data.table(reg.pat)
+colnames(patd) <- "pat_numb"
+met.full <- metd[patd, on = .(pat_numb)]
+
+
+ds_cf@meta.data$type <- met.full[, type]
+ds_cf@meta.data$diag <- met.full[, diag]
+
+rm(list = c("reg.rep", "reg.pat"))
+```
+
+``` r
+# Subset the dataset
+pat2 <- unique(ds_cf$pat)
+pat2 <- pat2[1:6]
+
+ds_cf2 <- subset(ds_cf, subset = pat %in% pat2)
+```
+
+``` r
+knitr::opts_chunk$set(include = T)
+```
+
 # Integrate datasets
 
 ``` r
@@ -120,7 +222,7 @@ DimPlot(ds_cf_comb, group.by = c("pat", "diag", "type", "rep"))
 **How it looks compared to unintegrated dataset (with 3133 and 3256
 removed)?**
 
-![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-30-1.svg)<!-- -->
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-22-1.svg)<!-- -->
 
 ### PCA
 
@@ -148,3 +250,9 @@ FeaturePlot(ds_cf_comb, features = c('nFeature_RNA','nCount_RNA', top10_c), pt.s
 ```
 
 ![](pesc_integration_analysis_files/figure-gfm/unnamed-chunk-17-1.svg)<!-- -->
+
+# Conlusion
+
+**The integration of data from different patients was not used as it had
+negligible impact on the mapping results when compared to direct
+analysis.**

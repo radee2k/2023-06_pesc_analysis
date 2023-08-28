@@ -9,6 +9,8 @@ output: github_document
 date: '2023-06-22'
 ---
 
+<body style="background-color:FloralWhite;">
+
 This script identifies lineages of EVs among cells from pleural effusion samples.
 
 
@@ -78,13 +80,11 @@ fonts <- list(
 # knitr::opts_chunk$set(knitr.chunk.dev = 'svglite')
 # knitr::opts_chunk$set(dev = 'svglite', system_fonts = fonts)
 knitr::opts_chunk$set(dev = 'svglite', dev.args = list(system_fonts = fonts),
-                      cache = T, cache.path = "pesc_analysis_1_cache/gfm/") # CACHE OF a github_document doesn't work if the path to the gfm folder is not provided!!!
+                      cache = T, cache.path = "pesc_analysis_1_cache/gfm/") # cache of a github_document doesn't work if the path to the gfm folder is not provided!!!
 
 
-# plan("multicore", workers = 8)
+# plan("multicore", workers = 8) # Not allowed on the server
 # plan()
-
-
 
 ```
 
@@ -282,7 +282,7 @@ ggarrange(p1, p2, p3, p4, p5, p6, nrow = 1)
 
 ### UMI-gene count correlation
 
-```{r, cache=TRUE}
+```{r, cache=TRUE, fig.height=5, cache = T}
 FeatureScatter(ds_cf, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = T) + scale_x_continuous(labels = scales::scientific) + NoLegend()
 ```
 
@@ -528,9 +528,7 @@ DimPlot(ds_cf, group.by = c("pat", "diag", "type", "rep"))
 
 
 
-FOLLOWING CHUNKS ARE OBSOLETE - but still useful.
-
-```{r, cache = T, fig.width= 15, fig.height= 10, eval = F}
+```{r useful obsolete chunk, fig.width= 15, fig.height= 10, eval = F, echo = F}
 rep_plot <- list()
 
 # Appending to the list doesn't work, otherwise really cool.
@@ -562,7 +560,8 @@ plot_data_column = function (data, column) {
 # rm(list = ls()[ls() %like% "rep_plot"])
 
 ```
-```{r, cache = T, fig.width= 15, fig.height= 10, eval = F}
+
+```{r useful obsolete chunk2, fig.width= 15, fig.height= 10, eval = F, echo = F}
 rep_plot <- list()
 
 plot_reps <- function (data, patient) {
@@ -601,6 +600,7 @@ ElbowPlot(ds_cf)
 
 **Top 10 most variable genes**
 
+
 |Gene|Protein|Description (from genecards)|
 |------|------|------|
 |COL1A1, COL1A2|Collagen 1||
@@ -612,6 +612,8 @@ ElbowPlot(ds_cf)
 |IGFBP4|insulin-like growth factor binding protein 4|binds both insulin-like growth factors I and II and circulates in the plasma prolonging their half-life and changing interactions|
 |IGF2|Insulin Like Growth Factor 2|epigenetic changes at its locus are associated with Wilms tumour, Beckwith-Wiedemann syndrome, rhabdomyosarcoma, and Silver-Russell syndrome, involved in Apoptotic Pathways in Synovial Fibroblasts|
 |COL6A1|Collagen Type VI Alpha 1 Chain|its mutations result in Bethlem myopathy and Ullrich muscular dystrophy, involved in platelet-derived growth factor binding|
+
+
 
 ```{r, cache = T, fig.width= 10, fig.height= 5}
 top10_c <- head(VariableFeatures(ds_cf), 10)
@@ -708,7 +710,7 @@ for (i in 1:length(dim_plot_pca)) {
   
 }
 
-ggarrange(plotlist = dim_plot_pca, align = "v")
+ggarrange(plotlist = dim_plot_pca, align = "v", common.legend = T, legend = "right")
 
 ```
 
@@ -724,7 +726,7 @@ plot_pat_dim_heat <- function (data, patient) {
   }
 
 pat_dim_heat <- lapply(unique(ds_cf$pat), plot_pat_dim_heat, data = ds_cf)
-ggarrange(plotlist  = pat_dim_heat)
+ggarrange(plotlist  = pat_dim_heat, common.legend = T, legend = "right")
 
 
 ```
@@ -751,7 +753,7 @@ plot_dim_heat <- function (x) {
 
 heatmaps <- lapply(1:length(list_heatmaps), plot_dim_heat)
 
-ggarrange(plotlist = heatmaps, align = "v")
+ggarrange(plotlist = heatmaps, align = "v", common.legend = T, legend = "right")
 
 ```
 
@@ -803,7 +805,10 @@ DimPlot(ds_cf2, group.by = c("pat", "diag", "type", "rep"))
 ```
 
 
-**Inspect PCs - Jackstraw doesn't work with SCTransformed data.** 
+```{r, cache = T, fig.width= 15, fig.height= 10}
+DimPlot(ds_cf2, group.by = c("pat", "diag", "type", "rep"), reduction = "pca")
+```
+
 
 **Elbow Plot**
 Around 10 top PCAs should be enough to obtain proper clustering.
@@ -814,7 +819,7 @@ ElbowPlot(ds_cf2)
 
 ### Variable features plots.
 
-Top 20 variable genes are annotated.
+Top 22 variable genes are annotated.
 
 ```{r, cache = T, fig.width= 10, fig.height= 5}
 top22_c <- head(VariableFeatures(ds_cf2), 22)
@@ -823,7 +828,7 @@ p_var_c <- VariableFeaturePlot(ds_cf2)
 LabelPoints(p_var_c, points = top22_c, repel = T, xnudge = .2, ynudge = 1, max.overlaps = 20)
 ```
 
-Top 10 variable genes and 
+Top 22 variable genes and 
 
 ```{r, cache = T, fig.width= 15, fig.height= 15}
 FeaturePlot(ds_cf2, features = c('nFeature_RNA','nCount_RNA', top22_c), pt.size = 1, reduction = 'umap', slot = "scale.data") & 
@@ -833,18 +838,45 @@ FeaturePlot(ds_cf2, features = c('nFeature_RNA','nCount_RNA', top22_c), pt.size 
 ```
 
 
+### Per-patient heatmaps of most expressed genes.
 
-### Feature plot - Umap
+#### All patients.
 
-**RNA and gene counts seem to not influence the mapping outcome significantly.**
-```{r, cache = T, fig.width= 10, fig.height= 5}
-FeaturePlot(ds_cf2, features = c("nCount_RNA", "nFeature_RNA"), pt.size = 2, reduction = 'umap')
+
+
+```{r dim_heatmap_cells_2, cache = T, fig.width= 15, fig.height= 20}
+dim_plot_pca <- DimHeatmap(ds_cf2, dims = 1:20, nfeatures = 20, balanced = TRUE, fast = F, combine = F)
+
+for (i in 1:length(dim_plot_pca)) {
+  
+  pc <- paste0("PC_", i)
+  
+  dim_plot_pca[[i]] <- dim_plot_pca[[i]] + theme(legend.position = "none", axis.text.y = element_text(size = 11),
+          plot.title = element_text(size = 14)) +
+          ggtitle(label = pc)
+  
+}
+
+ggarrange(plotlist = dim_plot_pca, align = "v", ncol = 3, nrow = 7, common.legend = T, legend = "right")
+
 ```
 
+#### PC1 of each patient.
+```{r dim_heatmap_cells_patients_2, cache = T, fig.width= 15, fig.height= 15}
+plot_pat_dim_heat <- function (data, patient) {
+
+  DimHeatmap(subset(data, subset = pat == patient), nfeatures = 30,  dims = 1, balanced = TRUE, fast = F) +
+    theme(legend.position = "none", axis.text.y = element_text(size = 11),
+          plot.title = element_text(size = 14)) +
+    ggtitle(label = patient)
+
+  }
+
+pat_dim_heat <- lapply(unique(ds_cf2$pat), plot_pat_dim_heat, data = ds_cf)
+ggarrange(plotlist  = pat_dim_heat, align = "v", common.legend = T, legend = "right")
 
 
-
-
+```
 
 
 
@@ -1313,7 +1345,7 @@ p4fp <- FindNeighbors(p4fp, dims = 1:10)
 p4fp <- FindClusters(p4fp, resolution = 0.5)
 ```
 
-Inspect different features on a dim reduc plot
+Inspect different features on a dim reduc plot:
 
 ```{r }
 FeaturePlot(p4fp, features = c("percent_plat", "percent_hb", "percent_mt", "percent_ribo", "nCount_RNA", "nFeature_RNA"), pt.size = 2, ncol = 3)

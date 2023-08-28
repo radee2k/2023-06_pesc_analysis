@@ -2,6 +2,8 @@
 ================
 2023-06-22
 
+<body style="background-color:FloralWhite;">
+
 This script identifies lineages of EVs among cells from pleural effusion
 samples.
 
@@ -71,10 +73,10 @@ fonts <- list(
 # knitr::opts_chunk$set(knitr.chunk.dev = 'svglite')
 # knitr::opts_chunk$set(dev = 'svglite', system_fonts = fonts)
 knitr::opts_chunk$set(dev = 'svglite', dev.args = list(system_fonts = fonts),
-                      cache.path = "pesc_analysis_1_cache/gfm/")
+                      cache = T, cache.path = "pesc_analysis_1_cache/gfm/") # cache of a github_document doesn't work if the path to the gfm folder is not provided!!!
 
 
-# plan("multicore", workers = 8)
+# plan("multicore", workers = 8) # Not allowed on the server
 # plan()
 ```
 
@@ -725,58 +727,6 @@ DimPlot(ds_cf, group.by = c("pat", "diag", "type", "rep"))
 
 ![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-21-1.svg)<!-- -->
 
-FOLLOWING CHUNKS ARE OBSOLETE - but still useful.
-
-``` r
-rep_plot <- list()
-
-# Appending to the list doesn't work, otherwise really cool.
-# for (i in unique(ds_cf$pat)) {
-#   
-#   print(i)
-#   rep_plot_single <- paste0("rep_plot_single_", i)
-#   
-#   assign(rep_plot_single, DimPlot(subset(ds_cf, pat == i)) +h
-#                                     labs(title = i) +
-#                                     theme(plot.title = element_text(hjust = .5))
-#   )
-#   
-#   print(rep_plot_single)
-#   
-#   rep_plot[i] <- get(rep_plot_single)
-#   rm(list = rep_plot_single)
-#   
-# }
-
-
-plot_data_column = function (data, column) {
-    ggplot(data, aes_string(x = column)) +
-        geom_histogram(fill = "lightgreen") +
-        xlab(column)
-}
-
-# how to remove bad plots
-# rm(list = ls()[ls() %like% "rep_plot"])
-```
-
-``` r
-rep_plot <- list()
-
-plot_reps <- function (data, patient) {
-  
-  DimPlot(subset(data, pat == patient), group.by = "rep") +
-    scale_x_continuous(limits = c(-18, 12)) +
-    scale_y_continuous(limits = c(-12, 12)) +
-    labs(title = patient) +
-    theme(plot.title = element_text(hjust = .5))
-  
-}
-
-rep_plot <- lapply(unique(ds_cf$pat), plot_reps, data = ds_cf)
-
-ggarrange(plotlist  = rep_plot)
-```
-
 **Inspect PCs - Jackstraw doesn’t work with SCTransformed data.**
 
 **JackStraw plots doesn’t work on SCtransformed data**
@@ -795,7 +745,7 @@ clustering.
 ElbowPlot(ds_cf)
 ```
 
-![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-25-1.svg)<!-- -->
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-23-1.svg)<!-- -->
 
 ### Variable features.
 
@@ -822,7 +772,7 @@ LabelPoints(p_var_c, points = top10_c, repel = T)
 
     ## When using repel, set xnudge and ynudge to 0 for optimal results
 
-![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-26-1.svg)<!-- -->
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-24-1.svg)<!-- -->
 
 **Top 10 variable genes and gene and RNA counts.** Most of the variable
 genes are upregulated in cells from patients 3133 and 3256.
@@ -831,7 +781,7 @@ genes are upregulated in cells from patients 3133 and 3256.
 FeaturePlot(ds_cf, features = c('nFeature_RNA','nCount_RNA', top10_c), pt.size = 1, reduction = 'umap', slot = "scale.data")
 ```
 
-![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-27-1.svg)<!-- -->
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-25-1.svg)<!-- -->
 
 ### Feature plot - Umap
 
@@ -841,7 +791,7 @@ FeaturePlot(ds_cf, features = c('nFeature_RNA','nCount_RNA', top10_c), pt.size =
 FeaturePlot(ds_cf, features = c("nCount_RNA", "nFeature_RNA"), pt.size = 2, reduction = 'umap')
 ```
 
-![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-28-1.svg)<!-- -->
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-26-1.svg)<!-- -->
 
 ### Find cell clusters
 
@@ -921,7 +871,7 @@ for (i in 1:length(dim_plot_pca)) {
   
 }
 
-ggarrange(plotlist = dim_plot_pca, align = "v")
+ggarrange(plotlist = dim_plot_pca, align = "v", common.legend = T, legend = "right")
 ```
 
 ![](pesc_analysis_1_files/figure-gfm/dim_heatmap_cells-1.svg)<!-- -->
@@ -939,7 +889,7 @@ plot_pat_dim_heat <- function (data, patient) {
   }
 
 pat_dim_heat <- lapply(unique(ds_cf$pat), plot_pat_dim_heat, data = ds_cf)
-ggarrange(plotlist  = pat_dim_heat)
+ggarrange(plotlist  = pat_dim_heat, common.legend = T, legend = "right")
 ```
 
 ![](pesc_analysis_1_files/figure-gfm/dim_heatmap_cells_patients-1.svg)<!-- -->
@@ -967,7 +917,7 @@ plot_dim_heat <- function (x) {
 
 heatmaps <- lapply(1:length(list_heatmaps), plot_dim_heat)
 
-ggarrange(plotlist = heatmaps, align = "v")
+ggarrange(plotlist = heatmaps, align = "v", common.legend = T, legend = "right")
 ```
 
 ![](pesc_analysis_1_files/figure-gfm/dim_heatmap_cells_3133_3256-1.svg)<!-- -->
@@ -1081,13 +1031,21 @@ ds_cf2 <- SCTransform(ds_cf2, vst.flavor = "v2", verbose = FALSE) %>%
     ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
     ## useNames = TRUE.
 
+    ## Warning: The default method for RunUMAP has changed from calling Python UMAP via reticulate to the R-native UWOT using the cosine metric
+    ## To use Python UMAP via reticulate, set umap.method to 'umap-learn' and metric to 'correlation'
+    ## This message will be shown once per session
+
 ``` r
 DimPlot(ds_cf2, group.by = c("pat", "diag", "type", "rep"))
 ```
 
-![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-30-1.svg)<!-- -->
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-28-1.svg)<!-- -->
 
-**Inspect PCs - Jackstraw doesn’t work with SCTransformed data.**
+``` r
+DimPlot(ds_cf2, group.by = c("pat", "diag", "type", "rep"), reduction = "pca")
+```
+
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-29-1.svg)<!-- -->
 
 **Elbow Plot** Around 10 top PCAs should be enough to obtain proper
 clustering.
@@ -1096,11 +1054,11 @@ clustering.
 ElbowPlot(ds_cf2)
 ```
 
-![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-31-1.svg)<!-- -->
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-30-1.svg)<!-- -->
 
 ### Variable features plots.
 
-Top 20 variable genes are annotated.
+Top 22 variable genes are annotated.
 
 ``` r
 top22_c <- head(VariableFeatures(ds_cf2), 22)
@@ -1111,9 +1069,9 @@ LabelPoints(p_var_c, points = top22_c, repel = T, xnudge = .2, ynudge = 1, max.o
 
     ## When using repel, set xnudge and ynudge to 0 for optimal results
 
-![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-32-1.svg)<!-- -->
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-31-1.svg)<!-- -->
 
-Top 10 variable genes and
+Top 22 variable genes and
 
 ``` r
 FeaturePlot(ds_cf2, features = c('nFeature_RNA','nCount_RNA', top22_c), pt.size = 1, reduction = 'umap', slot = "scale.data") & 
@@ -1122,18 +1080,47 @@ FeaturePlot(ds_cf2, features = c('nFeature_RNA','nCount_RNA', top22_c), pt.size 
         axis.title = element_text(size = 10))
 ```
 
-![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-33-1.svg)<!-- -->
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-32-1.svg)<!-- -->
 
-### Feature plot - Umap
+### Per-patient heatmaps of most expressed genes.
 
-**RNA and gene counts seem to not influence the mapping outcome
-significantly.**
+#### All patients.
 
 ``` r
-FeaturePlot(ds_cf2, features = c("nCount_RNA", "nFeature_RNA"), pt.size = 2, reduction = 'umap')
+dim_plot_pca <- DimHeatmap(ds_cf2, dims = 1:20, nfeatures = 20, balanced = TRUE, fast = F, combine = F)
+
+for (i in 1:length(dim_plot_pca)) {
+  
+  pc <- paste0("PC_", i)
+  
+  dim_plot_pca[[i]] <- dim_plot_pca[[i]] + theme(legend.position = "none", axis.text.y = element_text(size = 11),
+          plot.title = element_text(size = 14)) +
+          ggtitle(label = pc)
+  
+}
+
+ggarrange(plotlist = dim_plot_pca, align = "v", ncol = 3, nrow = 7, common.legend = T, legend = "right")
 ```
 
-![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-34-1.svg)<!-- -->
+![](pesc_analysis_1_files/figure-gfm/dim_heatmap_cells_2-1.svg)<!-- -->
+
+#### PC1 of each patient.
+
+``` r
+plot_pat_dim_heat <- function (data, patient) {
+
+  DimHeatmap(subset(data, subset = pat == patient), nfeatures = 30,  dims = 1, balanced = TRUE, fast = F) +
+    theme(legend.position = "none", axis.text.y = element_text(size = 11),
+          plot.title = element_text(size = 14)) +
+    ggtitle(label = patient)
+
+  }
+
+pat_dim_heat <- lapply(unique(ds_cf2$pat), plot_pat_dim_heat, data = ds_cf)
+ggarrange(plotlist  = pat_dim_heat, align = "v", common.legend = T, legend = "right")
+```
+
+![](pesc_analysis_1_files/figure-gfm/dim_heatmap_cells_patients_2-1.svg)<!-- -->
 
 ``` r
 knitr::knit_exit()
