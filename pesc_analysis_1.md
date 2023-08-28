@@ -70,20 +70,12 @@ fonts <- list(
 # set svglite as a default for all the plots
 # knitr::opts_chunk$set(knitr.chunk.dev = 'svglite')
 # knitr::opts_chunk$set(dev = 'svglite', system_fonts = fonts)
-knitr::opts_chunk$set(dev = 'svglite', dev.args = list(system_fonts = fonts))
+knitr::opts_chunk$set(dev = 'svglite', dev.args = list(system_fonts = fonts),
+                      cache.path = "pesc_analysis_1_cache/gfm/")
 
 
 # plan("multicore", workers = 8)
 # plan()
-```
-
-``` r
-# A demonstration of advantages of a sparse matrix ("d" for data).
-d_dc <- as.matrix(read.csv("data/DC_matrix.txt", sep = "\t"))
-s1 <- object.size(d_dc)
-d_dc <- as(d_dc, "sparseMatrix")
-s2 <- object.size(d_dc)
-s1-s2
 ```
 
 ## Load and prepare the data and metadata.
@@ -165,7 +157,7 @@ VlnPlot(ds_c, features = c('nCount_RNA','nFeature_RNA', 'percent_mt', 'percent_h
 FeatureScatter(ds_c, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = T) + scale_x_continuous(labels = scales::scientific) + NoLegend()
 ```
 
-![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-5-1.svg)<!-- -->
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-4-1.svg)<!-- -->
 
 ### Hemoglobin content
 
@@ -333,7 +325,7 @@ ggarrange(p1, p2, p3, p4, p5, p6, nrow = 1)
 FeatureScatter(ds_cf, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = T) + scale_x_continuous(labels = scales::scientific) + NoLegend()
 ```
 
-![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-7-1.svg)<!-- -->
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-6-1.svg)<!-- -->
 
 ### Hemoglobin content
 
@@ -371,9 +363,9 @@ rm(d_dc)
 suppressMessages(gc())
 ```
 
-    ##            used  (Mb) gc trigger   (Mb)  max used   (Mb)
-    ## Ncells  6933375 370.3   12136614  648.2  12136614  648.2
-    ## Vcells 34206201 261.0  180746639 1379.0 299738434 2286.9
+    ##            used  (Mb) gc trigger  (Mb) max used  (Mb)
+    ## Ncells  6790216 362.7   12535812 669.5 10082339 538.5
+    ## Vcells 59501028 454.0   98968996 755.1 97846734 746.6
 
 ``` r
 ds_dc <- PercentageFeatureSet(ds_dc, pattern = "^MT-", col.name = "percent_mt")
@@ -386,7 +378,7 @@ ds_dc <- PercentageFeatureSet(ds_dc, "PECAM1|PF4", col.name = "percent_plat")
 VlnPlot(ds_dc, features = c('nCount_RNA','nFeature_RNA', 'percent_mt', 'percent_hb', "percent_ribo", "percent_plat"), pt.size = 1.3, ncol = 1) +  NoLegend()
 ```
 
-![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-9-1.svg)<!-- -->
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-8-1.svg)<!-- -->
 
 ### Other qc plots
 
@@ -396,7 +388,7 @@ FeatureScatter(ds_dc, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = T) +
   scale_y_continuous(labels = scales::scientific)
 ```
 
-![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-10-1.svg)<!-- -->
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-9-1.svg)<!-- -->
 \_\_\_ ## Filtering
 
 ``` r
@@ -437,9 +429,9 @@ rm(ds_dc)
 suppressMessages(gc())
 ```
 
-    ##            used  (Mb) gc trigger   (Mb)  max used   (Mb)
-    ## Ncells  6935101 370.4   12136614  648.2  12136614  648.2
-    ## Vcells 40343357 307.8  144597312 1103.2 299738434 2286.9
+    ##            used  (Mb) gc trigger  (Mb) max used  (Mb)
+    ## Ncells  6837112 365.2   12535812 669.5 12535812 669.5
+    ## Vcells 65730114 501.5   98968996 755.1 98960718 755.1
 
 ## Find which genes contribute to the nCount_RNA the most
 
@@ -465,13 +457,13 @@ boxplot(as.matrix(t(C[most_expressed,])), cex = 1, las = 1, xlab = "% total coun
 VlnPlot(ds_dcf, features = 'nFeature_RNA', pt.size = 1.3, log = T) +  NoLegend()
 ```
 
-![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-13-1.svg)<!-- -->
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-12-1.svg)<!-- -->
 
 ``` r
 VlnPlot(ds_dcf, features = 'nCount_RNA', pt.size = 1.3, log = T) +  NoLegend()
 ```
 
-![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-13-2.svg)<!-- -->
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-12-2.svg)<!-- -->
 
 ------------------------------------------------------------------------
 
@@ -483,7 +475,7 @@ FeatureScatter(ds_dcf, "nCount_RNA", "nFeature_RNA", pt.size = 1, plot.cor = T) 
   scale_y_continuous(labels = scales::scientific)
 ```
 
-![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-14-1.svg)<!-- -->
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-13-1.svg)<!-- -->
 
 # Ratio of well annotated genes (with symbols) to the rest
 
@@ -513,7 +505,7 @@ ggplot(ratc) +
   theme(plot.title = element_text(size = 18), axis.text = element_text(size = 15), axis.title = element_text(size = 17))
 ```
 
-![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-15-1.svg)<!-- -->
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-14-1.svg)<!-- -->
 
 ``` r
 ratev <- as.data.table(ds_dcf@assays$RNA@counts, keep.rownames = T)
@@ -537,7 +529,7 @@ ggplot(ratev) +
   theme(plot.title = element_text(size = 18), axis.text = element_text(size = 15), axis.title = element_text(size = 17))
 ```
 
-![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-16-1.svg)<!-- -->
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-15-1.svg)<!-- -->
 
 ``` r
 rm(list = c('ratev', 'ratc'))
@@ -545,8 +537,8 @@ suppressMessages(gc())
 ```
 
     ##            used  (Mb) gc trigger   (Mb)  max used   (Mb)
-    ## Ncells  6966304 372.1   12136614  648.2  12136614  648.2
-    ## Vcells 46551795 355.2  448169100 3419.3 700250130 5342.5
+    ## Ncells  6871932 367.1   12535812  669.5  12535812  669.5
+    ## Vcells 65872346 502.6  603832016 4606.9 754772198 5758.5
 
 ------------------------------------------------------------------------
 
@@ -731,7 +723,7 @@ however different populations seem to be too mixed.
 DimPlot(ds_cf, group.by = c("pat", "diag", "type", "rep"))
 ```
 
-![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-22-1.svg)<!-- -->
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-21-1.svg)<!-- -->
 
 FOLLOWING CHUNKS ARE OBSOLETE - but still useful.
 
@@ -744,7 +736,7 @@ rep_plot <- list()
 #   print(i)
 #   rep_plot_single <- paste0("rep_plot_single_", i)
 #   
-#   assign(rep_plot_single, DimPlot(subset(ds_cf, pat == i)) +
+#   assign(rep_plot_single, DimPlot(subset(ds_cf, pat == i)) +h
 #                                     labs(title = i) +
 #                                     theme(plot.title = element_text(hjust = .5))
 #   )
@@ -803,31 +795,23 @@ clustering.
 ElbowPlot(ds_cf)
 ```
 
-![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-26-1.svg)<!-- -->
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-25-1.svg)<!-- -->
 
 ### Variable features.
 
-**Top 10 most variable genes** \|Gene\|Protein\|Description (from
-genecards)\| \|—\|—\|—\| \|COL1A1, COL1A2\|Collagen 1\|\|
-\|SFTPB\|pulmonary-associated surfactant protein B\|\|
-\|SPARC\|cysteine-rich acidic matrix-associated protein\|involved in
-extracellular matrix synthesis\| \|SPP1\|Secreted Phosphoprotein
-1\|bone-osteoclasts interaction and a cytokine that upregulates
-expression of interferon-gamma and interleukin-12\|
-\|ENSG00000203396\|WDR45-like pseudogene\|\|
-\|TAGLN\|Transgelin\|calponin, a shape change and transformation
-sensitive actin-binding protein, early marker of smooth muscle
-differentiation, a tumor suppressor\| \|IGFBP4\|insulin-like growth
-factor binding protein 4\|binds both insulin-like growth factors I and
-II and circulates in the plasma prolonging their half-life and changing
-interactions\| \|IGF2\|Insulin Like Growth Factor 2\|epigenetic changes
-at its locus are associated with Wilms tumour, Beckwith-Wiedemann
-syndrome, rhabdomyosarcoma, and Silver-Russell syndrome, involved in
-Apoptotic Pathways in Synovial Fibroblasts\| \|COL6A1\|Collagen Type VI
-Alpha 1 Chain\|its mutations result in Bethlem myopathy and Ullrich
-muscular dystrophy, involved in platelet-derived growth factor binding\|
+**Top 10 most variable genes**
 
-Top 10 variable genes are annotated.
+| Gene            | Protein                                        | Description (from genecards)                                                                                                                                                                         |
+|-----------------|------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| COL1A1, COL1A2  | Collagen 1                                     |                                                                                                                                                                                                      |
+| SFTPB           | pulmonary-associated surfactant protein B      |                                                                                                                                                                                                      |
+| SPARC           | cysteine-rich acidic matrix-associated protein | involved in extracellular matrix synthesis                                                                                                                                                           |
+| SPP1            | Secreted Phosphoprotein 1                      | bone-osteoclasts interaction and a cytokine that upregulates expression of interferon-gamma and interleukin-12                                                                                       |
+| ENSG00000203396 | WDR45-like pseudogene                          |                                                                                                                                                                                                      |
+| TAGLN           | Transgelin                                     | calponin, a shape change and transformation sensitive actin-binding protein, early marker of smooth muscle differentiation, a tumor suppressor                                                       |
+| IGFBP4          | insulin-like growth factor binding protein 4   | binds both insulin-like growth factors I and II and circulates in the plasma prolonging their half-life and changing interactions                                                                    |
+| IGF2            | Insulin Like Growth Factor 2                   | epigenetic changes at its locus are associated with Wilms tumour, Beckwith-Wiedemann syndrome, rhabdomyosarcoma, and Silver-Russell syndrome, involved in Apoptotic Pathways in Synovial Fibroblasts |
+| COL6A1          | Collagen Type VI Alpha 1 Chain                 | its mutations result in Bethlem myopathy and Ullrich muscular dystrophy, involved in platelet-derived growth factor binding                                                                          |
 
 ``` r
 top10_c <- head(VariableFeatures(ds_cf), 10)
@@ -838,16 +822,318 @@ LabelPoints(p_var_c, points = top10_c, repel = T)
 
     ## When using repel, set xnudge and ynudge to 0 for optimal results
 
-![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-27-1.svg)<!-- -->
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-26-1.svg)<!-- -->
 
 **Top 10 variable genes and gene and RNA counts.** Most of the variable
 genes are upregulated in cells from patients 3133 and 3256.
 
 ``` r
-FeaturePlot(ds_cf, features = c('nFeature_RNA','nCount_RNA', top10_c), pt.size = 2, reduction = 'umap')
+FeaturePlot(ds_cf, features = c('nFeature_RNA','nCount_RNA', top10_c), pt.size = 1, reduction = 'umap', slot = "scale.data")
+```
+
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-27-1.svg)<!-- -->
+
+### Feature plot - Umap
+
+**RNA and gene counts seem to not influence the clustering outcome**
+
+``` r
+FeaturePlot(ds_cf, features = c("nCount_RNA", "nFeature_RNA"), pt.size = 2, reduction = 'umap')
 ```
 
 ![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-28-1.svg)<!-- -->
+
+### Find cell clusters
+
+``` r
+ds_cf <- FindNeighbors(ds_cf, reduction = "umap", verbose = FALSE, dims = 1:2) %>%
+  FindClusters(resolution = 0.5, verbose = FALSE)
+
+
+
+p1 <- DimPlot(ds_cf, group.by = c("pat", "diag", "type"), pt.size = 1.5, reduction = "umap")
+
+
+alpha_colors <- hue_pal()(27) #  number of colors equal to number of clusters - required to change the alpha
+
+p2 <- DimPlot(ds_cf, pt.size = 2, label = T, cols = alpha(alpha_colors, .6), reduction = "umap") + 
+  labs(title = "clusters") + 
+  theme(plot.title = element_text(hjust = .5))
+
+
+p1 + p2
+```
+
+![](pesc_analysis_1_files/figure-gfm/clustering_cells_umap-1.svg)<!-- -->
+
+**If clusters are found using PCA:**
+
+``` r
+ds_cf <- FindNeighbors(ds_cf, reduction = "pca", dims = 1:10, verbose = FALSE) %>%
+  FindClusters(resolution = 0.7, verbose = FALSE)
+
+p1 <- DimPlot(ds_cf, group.by = c("pat", "diag", "type"), pt.size = 1.5, reduction = "umap")
+
+
+alpha_colors <- hue_pal()(14) #  number of colors equal to number of clusters - required to change the alpha
+
+p2 <- DimPlot(ds_cf, pt.size = 2, label = T, cols = alpha(alpha_colors, .6), reduction = "umap") + 
+  labs(title = "clusters") + 
+  theme(plot.title = element_text(hjust = .5))
+
+
+p1 + p2
+```
+
+![](pesc_analysis_1_files/figure-gfm/clustering_cells_pca-1.svg)<!-- -->
+
+**Clustering doesn’t seem to provide any useful information - data is
+further explored to exclude possible confounding effects in data
+quality**
+
+## Cells - post-clustering QC
+
+### Inter-replicate variance
+
+``` r
+p1 <- DimPlot(ds_cf, split.by = "pat", group.by = "rep", reduction = "pca")
+p2 <- DimPlot(ds_cf, split.by = "pat", group.by = "rep")
+
+p1 + p2
+```
+
+![](pesc_analysis_1_files/figure-gfm/check%20inter-replicate%20variance-1.svg)<!-- -->
+
+### Per-patient heatmaps of most expressed genes.
+
+#### All patients.
+
+``` r
+dim_plot_pca <- DimHeatmap(ds_cf, dims = 1:6, balanced = TRUE, reduction = "pca", fast = F, combine = F)
+
+for (i in 1:length(dim_plot_pca)) {
+  
+  pc <- paste0("PC_", i)
+  
+  dim_plot_pca[[i]] <- dim_plot_pca[[i]] + theme(legend.position = "none", axis.text.y = element_text(size = 11),
+          plot.title = element_text(size = 14)) +
+          ggtitle(label = pc)
+  
+}
+
+ggarrange(plotlist = dim_plot_pca, align = "v")
+```
+
+![](pesc_analysis_1_files/figure-gfm/dim_heatmap_cells-1.svg)<!-- -->
+
+#### PC1 of each patient.
+
+``` r
+plot_pat_dim_heat <- function (data, patient) {
+
+  DimHeatmap(subset(data, subset = pat == patient), nfeatures = 30,  dims = 1, balanced = TRUE, fast = F) +
+    theme(legend.position = "none", axis.text.y = element_text(size = 11),
+          plot.title = element_text(size = 14)) +
+    ggtitle(label = patient)
+
+  }
+
+pat_dim_heat <- lapply(unique(ds_cf$pat), plot_pat_dim_heat, data = ds_cf)
+ggarrange(plotlist  = pat_dim_heat)
+```
+
+![](pesc_analysis_1_files/figure-gfm/dim_heatmap_cells_patients-1.svg)<!-- -->
+
+#### Patients 3133 and 3256.
+
+**Cells of patients 3133, 3256 have nearly identical expression profile
+despite different diagnoses - Both patients will be removed from the
+analysis.**
+
+``` r
+list_heatmaps <- DimHeatmap(subset(ds_cf, subset = pat %in% c(3133, 3256)), dims = 1:6, balanced = TRUE, fast = F, combine = F) 
+  
+
+plot_dim_heat <- function (x) {
+  
+  heatmap_x <- list_heatmaps[[x]] + 
+    ggtitle(paste0("PC_", x)) +
+    theme(axis.text.y = element_text(size = 12),
+          plot.title = element_text(size = 14),
+          legend.position = "none")
+  
+  return(heatmap_x)
+}
+
+heatmaps <- lapply(1:length(list_heatmaps), plot_dim_heat)
+
+ggarrange(plotlist = heatmaps, align = "v")
+```
+
+![](pesc_analysis_1_files/figure-gfm/dim_heatmap_cells_3133_3256-1.svg)<!-- -->
+
+#### All patients - most expressed and most variable genes.
+
+``` r
+list_heatmap <- names(sort(colSums(most_expr_counts_cells), decreasing = T))
+
+p1 <- DoHeatmap(ds_cf, features = list_heatmap, group.by = "pat", slot = 'counts') + 
+    guides(color = "none") +
+    theme(axis.text.y = element_text(size = 11), title = element_text(size = 13)) +
+    ggtitle(label = "top 10 most expressed")
+p2 <- DoHeatmap(ds_cf, features = top10_c, group.by = "pat", slot = "scale.data") + 
+    guides(color = "none") +
+    theme(axis.text.y = element_text(size = 11), title = element_text(size = 13)) +
+    ggtitle(label = "top 10 most variable (scaled data)")
+
+p1 + p2
+```
+
+![](pesc_analysis_1_files/figure-gfm/dim_heatmap_cells_most_expr_most_var-1.svg)<!-- -->
+
+``` r
+DimPlot(ds_cf, group.by = c("pat", "diag", "type", "rep"))
+```
+
+## Cells - without patients 3133 and 3256.
+
+``` r
+# Subset the dataset
+pat2 <- unique(ds_cf$pat)
+pat2 <- pat2[1:6]
+
+ds_cf2 <- subset(ds_cf, subset = pat %in% pat2)
+
+ds_cf2 <- SCTransform(ds_cf2, vst.flavor = "v2", verbose = FALSE) %>%
+  RunPCA(npcs = 30, verbose = FALSE) %>%
+  RunUMAP(reduction = "pca", dims = 1:30, verbose = FALSE)
+```
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
+    ## useNames = TRUE.
+
+``` r
+DimPlot(ds_cf2, group.by = c("pat", "diag", "type", "rep"))
+```
+
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-30-1.svg)<!-- -->
+
+**Inspect PCs - Jackstraw doesn’t work with SCTransformed data.**
+
+**Elbow Plot** Around 10 top PCAs should be enough to obtain proper
+clustering.
+
+``` r
+ElbowPlot(ds_cf2)
+```
+
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-31-1.svg)<!-- -->
+
+### Variable features plots.
+
+Top 20 variable genes are annotated.
+
+``` r
+top22_c <- head(VariableFeatures(ds_cf2), 22)
+
+p_var_c <- VariableFeaturePlot(ds_cf2)
+LabelPoints(p_var_c, points = top22_c, repel = T, xnudge = .2, ynudge = 1, max.overlaps = 20)
+```
+
+    ## When using repel, set xnudge and ynudge to 0 for optimal results
+
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-32-1.svg)<!-- -->
+
+Top 10 variable genes and
+
+``` r
+FeaturePlot(ds_cf2, features = c('nFeature_RNA','nCount_RNA', top22_c), pt.size = 1, reduction = 'umap', slot = "scale.data") & 
+  theme(plot.title = element_text(size = 12),
+        legend.text = element_text(size = 9),
+        axis.title = element_text(size = 10))
+```
+
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-33-1.svg)<!-- -->
+
+### Feature plot - Umap
+
+**RNA and gene counts seem to not influence the mapping outcome
+significantly.**
+
+``` r
+FeaturePlot(ds_cf2, features = c("nCount_RNA", "nFeature_RNA"), pt.size = 2, reduction = 'umap')
+```
+
+![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-34-1.svg)<!-- -->
 
 ``` r
 knitr::knit_exit()

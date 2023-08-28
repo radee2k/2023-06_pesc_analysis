@@ -77,7 +77,8 @@ fonts <- list(
 # set svglite as a default for all the plots
 # knitr::opts_chunk$set(knitr.chunk.dev = 'svglite')
 # knitr::opts_chunk$set(dev = 'svglite', system_fonts = fonts)
-knitr::opts_chunk$set(dev = 'svglite', dev.args = list(system_fonts = fonts))
+knitr::opts_chunk$set(dev = 'svglite', dev.args = list(system_fonts = fonts),
+                      cache = T, cache.path = "pesc_analysis_1_cache/gfm/") # CACHE OF a github_document doesn't work if the path to the gfm folder is not provided!!!
 
 
 # plan("multicore", workers = 8)
@@ -504,7 +505,6 @@ ds_dcf@meta.data$diag <- met.full[, diag]
 
 ___
 # Clustering analysis
-
 ## Cells
 
 ### Normalization, scaling and dimensionality reduction
@@ -539,7 +539,7 @@ rep_plot <- list()
 #   print(i)
 #   rep_plot_single <- paste0("rep_plot_single_", i)
 #   
-#   assign(rep_plot_single, DimPlot(subset(ds_cf, pat == i)) +
+#   assign(rep_plot_single, DimPlot(subset(ds_cf, pat == i)) +h
 #                                     labs(title = i) +
 #                                     theme(plot.title = element_text(hjust = .5))
 #   )
