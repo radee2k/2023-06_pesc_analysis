@@ -794,26 +794,55 @@ ds_cf2 <- subset(ds_cf, subset = pat %in% pat2)
 
 ds_cf2 <- SCTransform(ds_cf2, vst.flavor = "v2", verbose = FALSE) %>%
   RunPCA(npcs = 30, verbose = FALSE) %>%
-  RunUMAP(reduction = "pca", dims = 1:30, verbose = FALSE)
+  RunUMAP(reduction = "pca", dims = 1:15, verbose = FALSE)
 
 ```
 
+### Elbow Plot
+
+Around 15 top PCAs should be enough to obtain proper clustering.
+```{r, cache = T, fig.width= 7, fig.height= 5}
+ElbowPlot(ds_cf2, ndims = 30)
+```
 
 
+**10 PCAs was allowing to obtain lesser separation of cells with regard to replicates, however, 15 provided with better resolution of clusters.**
+
+
+### Umap
 ```{r, cache = T, fig.width= 15, fig.height= 10}
 DimPlot(ds_cf2, group.by = c("pat", "diag", "type", "rep"))
 ```
 
 
-```{r, cache = T, fig.width= 15, fig.height= 10}
-DimPlot(ds_cf2, group.by = c("pat", "diag", "type", "rep"), reduction = "pca")
+### Correlation of metadata and PCs
+```{r correlation of PCs with metadata, fig.width= 15, cache = T}
+# from https://jdblischak.github.io/singlecell-qtl/pca-variable.html
+get_r2 <- function(x, y) {
+  stopifnot(length(x) == length(y))
+  model <- lm(y ~ x)
+  stats <- summary(model)
+  return(stats$adj.r.squared)
+}
+covariates <- ds_cf2@meta.data
+
+pcs <- ds_cf2@reductions$pca@cell.embeddings[,1:30]
+
+r2 <- matrix(NA, nrow = ncol(covariates), ncol = ncol(pcs),
+             dimnames = list(colnames(covariates), colnames(pcs)))
+for (cov in colnames(covariates)) {
+  for (pc in colnames(pcs)) {
+    r2[cov, pc] <- get_r2(covariates[, cov], pcs[, pc])
+  }
+}
+
+heatmap(r2, cexCol = 1)
 ```
 
 
-**Elbow Plot**
-Around 10 top PCAs should be enough to obtain proper clustering.
-```{r, cache = T, fig.width= 7, fig.height= 5}
-ElbowPlot(ds_cf2)
+# PCs
+```{r, cache = T, fig.width= 15, fig.height= 10}
+DimPlot(ds_cf2, group.by = c("pat", "diag", "type", "rep"), reduction = "pca")
 ```
 
 
@@ -841,7 +870,6 @@ FeaturePlot(ds_cf2, features = c('nFeature_RNA','nCount_RNA', top22_c), pt.size 
 ### Per-patient heatmaps of most expressed genes.
 
 #### All patients.
-
 
 
 ```{r dim_heatmap_cells_2, cache = T, fig.width= 15, fig.height= 20}
@@ -887,10 +915,6 @@ ggarrange(plotlist  = pat_dim_heat, align = "v", common.legend = T, legend = "ri
 ```{r}
 knitr::knit_exit()
 ```
-
-
-
-
 
 
 
