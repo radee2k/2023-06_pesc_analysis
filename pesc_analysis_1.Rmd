@@ -42,6 +42,8 @@ library(ggplot2)
 library(scales) # to better customize Seurat's plots
 library(ggpubr)
 library(ggrepel)
+library(patchwork)
+library(ggbeeswarm) # for better positioning of arrows on log2 change plots
 library(future)
 library(annotables) # for turning Ensembl ID to symbol
 library(sctransform) # for normalization  
@@ -60,6 +62,7 @@ theme_update(
   axis.text.x = element_text(vjust = 0.5),
   strip.background = element_rect(fill = '#FFFFFF'),
   plot.title = element_text(hjust = 0.5, size = 25),
+  plot.subtitle = element_text(size = 20, hjust = .5),
   axis.title = element_text(size = 23),
   axis.text = element_text(size = 20),
   legend.text = element_text(size = 18),
@@ -810,8 +813,21 @@ ElbowPlot(ds_cf2, ndims = 30)
 
 ### Umap
 ```{r, cache = T, fig.width= 15, fig.height= 10}
-DimPlot(ds_cf2, group.by = c("pat", "diag", "type", "rep"))
+title_list <- c("patient", "diagnosis", "type of biopsy", "replicate")
+plot_list <- DimPlot(ds_cf2, group.by = c("pat", "diag", "type", "rep"), combine = F)
+
+for (i in 1:length(plot_list)) {
+
+  plot_list[[i]] <- plot_list[[i]] + ggtitle(label = title_list[i])
+}
+
+plot <- ggarrange(plotlist = plot_list, align = "v")
+
+annotate_figure(plot, top = text_grob("UMAP of PCA results", face = "bold", size = 18))
+
 ```
+
+
 
 
 ### Correlation of metadata and PCs
@@ -936,8 +952,15 @@ knitr::kable(top22_c_an, caption = "**Top 22 most variable genes**")
 ds_cf2 <- FindNeighbors(ds_cf2, verbose = FALSE, dims = 1:15) %>%
   FindClusters(resolution = 0.5, verbose = FALSE)
 
-p1 <- DimPlot(ds_cf2, group.by = c("pat", "diag", "type", "rep"), pt.size = 1.5, reduction = "umap")
+title_list <- c("patient", "diagnosis", "type of biopsy", "replicate")
+plot_list <- DimPlot(ds_cf2, group.by = c("pat", "diag", "type", "rep"),  pt.size = 1, combine = F)
 
+for (i in 1:length(plot_list)) {
+
+  plot_list[[i]] <- plot_list[[i]] + ggtitle(label = title_list[i])
+}
+
+p1 <- ggarrange(plotlist = plot_list, align = "v")
 
 alpha_colors <- hue_pal()(10) #  number of colors equal to number of clusters - required to change the alpha
 
@@ -946,11 +969,15 @@ p2 <- DimPlot(ds_cf2, pt.size = 2, label = T, cols = alpha(alpha_colors, .6), re
   theme(plot.title = element_text(hjust = .5))
 
 
-ggarrange(p1, p2, widths = c(3, 2))
+plot <- ggarrange(p1, p2, widths = c(3, 2))
+
+annotate_figure(plot, top = text_grob("UMAP of PCA results and clustering analysis", face = "bold", size = 18))
+
 
 ```
 
 ## DE analysis
+### DESeq2 - high minimum detection rate - .4
 ```{r cells2 DEseq, cache = T}
 c_markers <- FindAllMarkers(ds_cf2, assay = "RNA", test.use = "DESeq2", min.pct = 0.4, verbose = F) # minimal feature frequency of 40%
 
@@ -958,41 +985,151 @@ for(i in levels(c_markers$cluster)) {print(head(c_markers[c_markers$cluster == i
 ```
 
 Plot most differentially expressed genes
-```{r most_diff_bar, fig.width=15, fig.height=10}
+```{r most_diff_bar1, fig.width=15, fig.height=10}
 setDT(c_markers)
 highest_de <- c_markers[order(avg_log2FC, decreasing = T), .SD[1:5] ,by = cluster][p_val < 5e-2][order(cluster)]
 lowest_de <- c_markers[order(avg_log2FC), .SD[1:5] ,by = cluster][p_val < 5e-2][order(cluster)]
 
 most_diff_c <- merge(highest_de, lowest_de, all = T)
 
-ggplot(c_markers) +
-  geom_jitter(aes(x = cluster, y = avg_log2FC, color = -log10(p_val)), width = .2) +
+ggplot(c_markers, aes(x = cluster, y = avg_log2FC, color = -log10(p_val))) +
+  geom_point(position = position_quasirandom()) +
+  geom_text_repel(most_diff_c, mapping = aes(label = gene),
+                  size = 5, color = "red", fontface = "bold", 
+                  force = 3, min.segment.length = 0) +
   geom_hline(yintercept = 0) +
-  geom_text_repel(most_diff_c, mapping = aes(x = cluster, y = avg_log2FC, label = gene),
-                  size = 4.5, color = "red", fontface = "bold") +
-  scale_color_continuous(trans = "log", breaks = c(1, 10, 50, 125))
+  scale_color_continuous(trans = "log", breaks = c(1, 10, 50, 125)) + 
+  ggtitle(label = "Fold change and p-values of differentially expressed genes among clusters", 
+          subtitle = "most differentially expressed genes are labeled")
   
 ```
 
 
-```{r cluster_heatmap, cache = t, fig.width= 15, fig.height= 15}
+```{r cluster_heatmap1, cache = T, fig.width= 15, fig.height= 15}
 highest_de <- c_markers[order(avg_log2FC, decreasing = T), .SD[1:10] ,by = cluster][p_val < 5e-2][order(cluster)]
 
 
-DoHeatmap(ds_cf2, group.by = "seurat_clusters", features = highest_de$gene) + NoLegend()
+DoHeatmap(ds_cf2, group.by = "seurat_clusters", features = highest_de$gene) + 
+  NoLegend() + 
+  ggtitle(label = "Expression of top markers of clusters of cells found in the dataset")
 
 ```
 
+Genes:
+`DBR1, TMEM52B, SHPK, ENSG00000269044, MAP4K2, OTUD4, LINC02503, LINC00504, NCBP3, GIHCG, TRBV12-3, INTS6, CIITA, HLA-DQA1, ASB3, GPR82, TAP1, NAAA, NIBAN1, MT-TE, DSE, ASB11, LINC02242, ENSG00000225113, ENSG00000261177, DSTYK, MMS22L, RAB12, ANAPC5, RCN2, ENSG00000280138, HBA2, CD36, ENSG00000256618, F13A1, TMEM176B, TNFSF13, CMKLR1, NRP1, MRC1`
+were present in the differentially expressed set but not among the most variable genes which might indicate, that the .4 minimum detection rate might have been too high and excluded too many genes from the DESeq analysis.
+
+
+
+### DESeq2 - low minimum detection rate - .25
+```{r cells2 DEseq - low min.pct, cache = T, message = F, error = F, warning=F}
+c_markers2 <- FindAllMarkers(ds_cf2, assay = "RNA", test.use = "DESeq2", min.pct = .25, verbose = T) # minimal feature frequency of 25%
+
+for(i in levels(c_markers$cluster)) {
+  
+  print(head(c_markers[c_markers$cluster == i,], 10))
+  
+  }
+```
+
+Plot most differentially expressed genes
+```{r most_diff_bar_2, fig.width=15, fig.height=10}
+setDT(c_markers2)
+highest_de <- c_markers2[order(avg_log2FC, decreasing = T), .SD[1:5] ,by = cluster][p_val < 5e-2][order(cluster)]
+lowest_de <- c_markers2[order(avg_log2FC), .SD[1:5] ,by = cluster][p_val < 5e-2][order(cluster)]
+
+most_diff_c <- merge(highest_de, lowest_de, all = T)
+
+ggplot(c_markers2, aes(x = cluster, y = avg_log2FC, color = -log10(p_val))) +
+  geom_point(position = position_quasirandom()) +
+  geom_text_repel(most_diff_c, mapping = aes(label = gene),
+                  size = 5, color = "red", fontface = "bold", 
+                  force = 3, min.segment.length = 0) +
+  geom_hline(yintercept = 0) +
+  scale_color_continuous(trans = "log", breaks = c(1, 10, 50, 125)) + 
+  ggtitle(label = "Fold change and p-values of differentially expressed genes among clusters", 
+          subtitle = "most differentially expressed genes are labeled")  
+```
+
+
+```{r cluster_heatmap_2, cache = T, fig.width= 15, fig.height= 15}
+highest_de <- c_markers2[order(avg_log2FC, decreasing = T), .SD[1:10] ,by = cluster][p_val < 5e-2][order(cluster)]
+
+
+DoHeatmap(ds_cf2, group.by = "seurat_clusters", features = highest_de$gene) + 
+  NoLegend() + 
+  ggtitle(label = "Expression of top markers of clusters of cells found in the dataset")
+
+```
+
+
+
+
+
+### DE with Wilcoxon test
+
+```{r cells2 DE wilcox, cache = T, message = F, warning=F, error=F}
+c_markers3 <- FindAllMarkers(ds_cf2, verbose = T)
+
+# for(i in levels(c_markers$cluster)) {print(head(c_markers[c_markers$cluster == i,], 10))}
+
+```
+
+
+Plot most differentially expressed genes
+```{r most_diff_bar_3, fig.width=15, fig.height=10}
+setDT(c_markers3)
+highest_de <- c_markers3[order(avg_log2FC, decreasing = T), .SD[1:5] ,by = cluster][p_val < 5e-2][order(cluster)]
+lowest_de <- c_markers3[order(avg_log2FC), .SD[1:5] ,by = cluster][p_val < 5e-2][order(cluster)]
+
+most_diff_c <- merge(highest_de, lowest_de, all = T)
+
+ggplot(c_markers3, aes(x = cluster, y = avg_log2FC, color = -log10(p_val))) +
+  geom_point(position = position_quasirandom()) +
+  geom_text_repel(most_diff_c, mapping = aes(label = gene),
+                  size = 5, color = "red", fontface = "bold", 
+                  force = 3, min.segment.length = 0) +
+  geom_hline(yintercept = 0) +
+  scale_color_continuous(trans = "log", breaks = c(1, 10, 50, 125)) + 
+  ggtitle(label = "Fold change and p-values of differentially expressed genes among clusters", 
+          subtitle = "most differentially expressed genes are labeled")
+
+  
+```
+
+
+```{r cluster_heatmap_3, cache = T, fig.width= 15, fig.height= 18}
+highest_de <- c_markers3[order(avg_log2FC, decreasing = T), .SD[1:10] ,by = cluster][p_val < 5e-2][order(cluster)]
+
+
+DoHeatmap(ds_cf2, group.by = "seurat_clusters", features = highest_de$gene, angle = 0) + 
+  NoLegend() + 
+  ggtitle(label = "Expression of top markers of clusters of cells found in the dataset") 
+
+```
 
 
 ```{r }
-ds_cf2 <- PrepSCTFindMarkers(ds_cf2)
-
-aggr_exp <- Matrix::rowSums(ds_cf@assays$SCT)
-hist(aggr_exp[aggr_exp > 50], breaks = 500)
-ggplot(as.data.table(aggr_exp)) +
-  geom_histogram()
+# ds_cf2 <- PrepSCTFindMarkers(ds_cf2)
+# 
+# aggr_exp <- Matrix::rowSums(ds_cf@assays$SCT)
+# hist(aggr_exp[aggr_exp > 50], breaks = 500)
+# ggplot(as.data.table(aggr_exp)) +
+  # geom_histogram()
 ```
+
+
+
+
+
+
+
+```{r}
+
+knitr::knit_exit()
+
+```
+
 
 
 
@@ -1061,10 +1198,6 @@ ggsave("ev_umap_feat_wo_ft.png", f_umap_ftless, device = 'png', dpi = "retina", 
 
 
 
-
-```{r}
-knitr::knit_exit()
-```
 
 
 
