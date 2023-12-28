@@ -22,7 +22,7 @@ ___
 
 -   install and load packages
 -   set %notin% and %notlike%
-    -   set ggplot's theme
+-   set ggplot's theme
 -   set the working directory
 -   set a plan for multithreading
 
@@ -69,7 +69,7 @@ theme_update(
   plot.subtitle = element_text(size = 20, hjust = .5),
   axis.title = element_text(size = 23),
   axis.text = element_text(size = 20),
-  legend.text = element_text(size = 18),
+  legend.text = element_text(size = 20),
   legend.key.size = unit(2, 'line'),
   legend.title = element_text(size = 20, hjust = .5, vjust = .5)
   # text = element_text(family= "mono")
@@ -447,7 +447,6 @@ suppressMessages(gc())
 ```
 ___
 # Metadata 
-
 ## Cells
 Assign cells to the patient, ...    
 
@@ -616,7 +615,7 @@ JackStrawPlot(ds_cf, dims = 1:15)
 ```
 
 **Elbow Plot**
-Around 10 top PCAs should be enough to obtain proper clustering.
+Around 10 top PCs should be enough to obtain proper clustering.
 ```{r,  cache = F, fig.width= 7, fig.height= 5}
 ElbowPlot(ds_cf)
 ```
@@ -663,7 +662,7 @@ FeaturePlot(ds_cf, features = c("nCount_RNA", "nFeature_RNA"), pt.size = 2, redu
 
 
 ### Clustering 
-```{r clustering_cells_umap, fig.height=10, cache = F, fig.width=15}
+```{r clustering_cells_umap_3, fig.height=10, cache = F, fig.width=15}
 
 ds_cf <- FindNeighbors(ds_cf, reduction = "umap", verbose = FALSE, dims = 1:2) %>%
   FindClusters(resolution = 0.5, verbose = FALSE)
@@ -716,7 +715,7 @@ p1 + p2
 ```
 
 #### Heatmaps of genes with highest PC scores.
-##### All patients.
+##### All patients
 ```{r dim_heatmap_cells,  cache = F, fig.width= 15, fig.height= 10}
 
 dim_plot_pca <- DimHeatmap(ds_cf, dims = 1:6, balanced = TRUE, reduction = "pca", fast = F, combine = F)
@@ -967,10 +966,12 @@ knitr::kable(top22_c_an, caption = "**Top 22 most variable genes**")
 ### Clustering
 
 ```{r finding clusters cells2,  cache = F, fig.width= 15, fig.height=8}
-
 ds_cf2 <- FindNeighbors(ds_cf2, verbose = FALSE, dims = 1:15) %>%
   FindClusters(resolution = 0.5, verbose = FALSE)
+```
 
+
+```{r finding_clusters_cells2_plotting,  cache = F, fig.width= 15, fig.height=8}
 title_list <- c("patient", "diagnosis", "type of biopsy", "replicate")
 plot_list <- DimPlot(ds_cf2, group.by = c("pat", "diag", "type", "rep"),  pt.size = 1, combine = F)
 
@@ -996,15 +997,15 @@ annotate_figure(plot, top = text_grob("UMAP of PCA results and clustering analys
 ```
 
 ## DE analysis
-### DESeq2 - high minimum detection rate - .4
-```{r cells2 DEseq}
+### DESeq2 - high minimum detection rate - .4 - not run
+```{r cells2 DEseq, cache = F, eval = F}
 c_markers <- FindAllMarkers(ds_cf2, assay = "RNA", test.use = "DESeq2", min.pct = 0.4, verbose = F) # minimal feature frequency of 40%
 
 for(i in levels(c_markers$cluster)) {print(head(c_markers[c_markers$cluster == i,], 10))}
 ```
 
 Plot most differentially expressed genes
-```{r most_diff_bar1, cache = F, fig.width=15, fig.height=10}
+```{r most_diff_bar1, cache = F, fig.width=15, fig.height=10, eval = F}
 setDT(c_markers)
 highest_de <- c_markers[order(avg_log2FC, decreasing = T), .SD[1:5] ,by = cluster][p_val < 5e-2][order(cluster)]
 lowest_de <- c_markers[order(avg_log2FC), .SD[1:5] ,by = cluster][p_val < 5e-2][order(cluster)]
@@ -1024,7 +1025,7 @@ ggplot(c_markers, aes(x = cluster, y = avg_log2FC, color = -log10(p_val))) +
 ```
 
 
-```{r cluster_heatmap1,  cache = F, fig.width= 15, fig.height= 15}
+```{r cluster_heatmap1,  cache = F, fig.width= 15, fig.height= 15, eval = F}
 highest_de <- c_markers[order(avg_log2FC, decreasing = T), .SD[1:10] ,by = cluster][p_val < 5e-2][order(cluster)]
 
 
@@ -1041,7 +1042,7 @@ were present in the differentially expressed set but not among the most variable
 
 
 ### DESeq2 - low minimum detection rate - .25
-```{r cells2 DEseq - low min.pct,  message = F, error = F, warning=F}
+```{r cells2 DEseq - low min.pct,  message = F, error = F, warning=F, eval = F, cache = F}
 c_markers2 <- FindAllMarkers(ds_cf2, assay = "RNA", test.use = "DESeq2", min.pct = .25, verbose = T) # minimal feature frequency of 25%
 
 for(i in levels(c_markers$cluster)) {
@@ -1052,7 +1053,7 @@ for(i in levels(c_markers$cluster)) {
 ```
 
 Plot most differentially expressed genes
-```{r most_diff_bar_2, cache = F, fig.width=15, fig.height=10}
+```{r most_diff_bar_2, cache = F, fig.width=15, fig.height=10, eval = F, cache = F}
 setDT(c_markers2)
 highest_de <- c_markers2[order(avg_log2FC, decreasing = T), .SD[1:5] ,by = cluster][p_val < 5e-2][order(cluster)]
 lowest_de <- c_markers2[order(avg_log2FC), .SD[1:5] ,by = cluster][p_val < 5e-2][order(cluster)]
@@ -1071,7 +1072,7 @@ ggplot(c_markers2, aes(x = cluster, y = avg_log2FC, color = -log10(p_val))) +
 ```
 
 
-```{r cluster_heatmap_2,  cache = F, fig.width= 15, fig.height= 15}
+```{r cluster_heatmap_2,  cache = F, fig.width= 15, fig.height= 15, eval = F, cache = F}
 highest_de <- c_markers2[order(avg_log2FC, decreasing = T), .SD[1:10] ,by = cluster][p_val < 5e-2][order(cluster)]
 
 
@@ -1087,7 +1088,7 @@ DoHeatmap(ds_cf2, group.by = "seurat_clusters", features = highest_de$gene) +
 
 ### DE with Wilcoxon test
 
-```{r cells2 DE wilcox,  message = F, warning=F, error=F}
+```{r cells2 DE wilcox,  message = F, warning=F, error=F, eval = F, cache = F}
 c_markers3 <- FindAllMarkers(ds_cf2, verbose = T)
 
 # for(i in levels(c_markers$cluster)) {print(head(c_markers[c_markers$cluster == i,], 10))}
@@ -1096,9 +1097,9 @@ c_markers3 <- FindAllMarkers(ds_cf2, verbose = T)
 
 
 Plot most differentially expressed genes
-```{r most_diff_bar_3, cache = F, fig.width=15, fig.height=10}
+```{r most_diff_bar_3, cache = F, fig.width=15, fig.height=10, eval = F, cache = F}
 setDT(c_markers3)
-highest_de <- c_markers3[order(avg_log2FC, decreasing = T), .SD[1:5] ,by = cluster][p_val < 5e-2][order(cluster)]
+highest_de <- c_markers3[order(avg_log2FC, decreasing = T), .SD[1:5] , by = cluster][p_val < 5e-2][order(cluster)]
 lowest_de <- c_markers3[order(avg_log2FC), .SD[1:5] ,by = cluster][p_val < 5e-2][order(cluster)]
 
 most_diff_c <- merge(highest_de, lowest_de, all = T)
@@ -1118,7 +1119,7 @@ ggplot(c_markers3, aes(x = cluster, y = avg_log2FC, color = -log10(p_val))) +
 ```
 
 
-```{r cluster_heatmap_3,  cache = F, fig.width= 15, fig.height= 18}
+```{r cluster_heatmap_3,  cache = F, fig.width= 15, fig.height= 18, eval = F, cache = F}
 highest_de <- c_markers3[order(avg_log2FC, decreasing = T), .SD[1:10] ,by = cluster][p_val < 5e-2][order(cluster)]
 
 heat_cols <- hcl.colors(3, palette = "gnbu")
@@ -1134,7 +1135,7 @@ DoHeatmap(ds_cf2, group.by = "seurat_clusters", features = highest_de$gene, angl
 ### DE with MAST
 **Possibly the best algorithm for sc data.**
 
-```{r cells2 DE mast,  message = F, warning=F, error=F}
+```{r cells2 DE mast,  message = F, warning=F, error=F, cache = F}
 c_markers_mast <- FindAllMarkers(ds_cf2, verbose = T, test.use = "MAST")
 ```
 
@@ -1172,7 +1173,18 @@ DoHeatmap(ds_cf2, group.by = "seurat_clusters", features = highest_de$gene, angl
   guides(color = "none") +
   scale_fill_gradient2("Average log2 fold change", low = heat_cols[1], mid = heat_cols[2], high = heat_cols[3], guide = guide_colourbar(title.position = "top")) +
   ggtitle(label = "Expression of top markers of clusters of cells found in the dataset")
-  
+```
+
+
+```{r cluster_heatmap_mast_diag,  cache = F, fig.width= 15, fig.height= 18}
+highest_de <- c_markers_mast[order(avg_log2FC, decreasing = T), .SD[1:10] ,by = cluster][p_val < 5e-2][order(cluster)]
+
+heat_cols <- hcl.colors(3, palette = "gnbu")
+
+DoHeatmap(ds_cf2, group.by = "diag", features = highest_de$gene, angle = 0) + 
+  guides(color = "none") +
+  scale_fill_gradient2("Average log2 fold change", low = heat_cols[1], mid = heat_cols[2], high = heat_cols[3], guide = guide_colourbar(title.position = "top")) +
+  ggtitle(label = "Expression of top markers of clusters of cells across diagnoses")
 
 ```
 
@@ -1183,207 +1195,87 @@ DoHeatmap(ds_cf2, group.by = "seurat_clusters", features = highest_de$gene, angl
 
 
 ## Cells - diagnosis separated
-## Cells
+### Cells
 
 #### Normalization, scaling and dimensionality reduction
-**Normalization was done using the SC transform described here: <https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1874-1> as it is supposed to be depth-independent, which justifies its use in Smartseq3 EV sequencing.**
+Cells were split depending on patient's diagnosis to look at inter-diagnosis variation.
 
-**During the analysis a change in mapping occurred, without significantly affecting its overall profile, possibly due to package update.**
+```{r, warning=F}
+ds_cf_diag <- SplitObject(ds_cf2, split.by = "diag")
 
-```{r}
-ds_cf_sep <- SCTransform(ds_cf, vst.flavor = "v2", verbose = FALSE) %>%
+map.list.seurat <- function(x) {
+  SCTransform(x, vst.flavor = "v2", verbose = FALSE) %>%
   RunPCA(npcs = 30, verbose = FALSE) %>%
-  RunUMAP(reduction = "pca", dims = 1:30, verbose = FALSE)
-  # RunUMAP(reduction = "pca", dims = 1:30, verbose = FALSE, n.components = 2)
-# table(ds_cf@meta.data[c("pat", "diag", "type")])
-```
-
-Data allows to stratify cells according to their origin and diagnosis, however different populations seem to be too mixed.
-
-```{r,  cache = F, fig.width= 15, fig.height= 10}
-DimPlot(ds_cf, group.by = c("pat", "diag", "type", "rep"))
-```
-
-
-### PCs
-**Inspect PCs - Jackstraw doesn't work with SCTransformed data.** 
-
-```{r,  cache = F, fig.width= 7, fig.height= 5, , eval = F, echo = F}
-ds_cf <- JackStraw(ds_cf, num.replicate = 100) 
-ds_cf <- ScoreJackStraw(ds_cf, dims = 1:20) 
-
-JackStrawPlot(ds_cf, dims = 1:15)
-```
-
-**Elbow Plot**
-Around 10 top PCAs should be enough to obtain proper clustering.
-```{r,  cache = F, fig.width= 7, fig.height= 5}
-ElbowPlot(ds_cf)
-```
-
-
-
-```{r,  cache = F, fig.width= 10, fig.height= 5}
-top10_c <- head(VariableFeatures(ds_cf), 10) # No need to use FindVariableFeatures, as SCTransform does that
-
-p_var_c <- VariableFeaturePlot(ds_cf)
-LabelPoints(p_var_c, points = top10_c, repel = T)
-```
-
-**Top 10 variable genes and gene and RNA counts.**
-Most of the variable genes are upregulated in cells from patients 3133 and 3256.
-
-```{r,  cache = F, fig.width= 15, fig.height= 10}
-FeaturePlot(ds_cf, features = c('nFeature_RNA','nCount_RNA', top10_c), pt.size = 1, reduction = 'umap', slot = "scale.data")
-```
-
-### Feature plot - Umap
-
-**RNA and gene counts seem to not influence the clustering outcome**
-```{r,  cache = F, fig.width= 10, fig.height= 5}
-FeaturePlot(ds_cf, features = c("nCount_RNA", "nFeature_RNA"), pt.size = 2, reduction = 'umap')
-```
-
-
-### Clustering 
-```{r clustering_cells_umap, fig.height=10, cache = F, fig.width=15}
-
-ds_cf <- FindNeighbors(ds_cf, reduction = "umap", verbose = FALSE, dims = 1:2) %>%
-  FindClusters(resolution = 0.5, verbose = FALSE)
-
-p1 <- DimPlot(ds_cf, group.by = c("pat", "diag", "type"), pt.size = 1.5, reduction = "umap")
-
-alpha_colors <- hue_pal()(27) #  number of colors equal to number of clusters - required to change the alpha
-
-p2 <- DimPlot(ds_cf, pt.size = 2, label = T, cols = alpha(alpha_colors, .6), reduction = "umap") + 
-  labs(title = "clusters") + 
-  theme(plot.title = element_text(hjust = .5))
-
-
-p1 + p2
-
-```
-
-**If clusters are found using PCA:**
-```{r clustering_cells_pca,  cache = F, fig.width= 15, fig.height= 10}
-ds_cf <- FindNeighbors(ds_cf, reduction = "pca", dims = 1:10, verbose = FALSE) %>%
-  FindClusters(resolution = 0.7, verbose = FALSE)
-
-p1 <- DimPlot(ds_cf, group.by = c("pat", "diag", "type"), pt.size = 1.5, reduction = "umap")
-
-
-alpha_colors <- hue_pal()(14) #  number of colors equal to number of clusters - required to change the alpha
-
-p2 <- DimPlot(ds_cf, pt.size = 2, label = T, cols = alpha(alpha_colors, .6), reduction = "umap") + 
-  labs(title = "clusters") + 
-  theme(plot.title = element_text(hjust = .5))
-
-
-p1 + p2
-
-```
-
-
-
-
-### Post-clustering QC
-
-**Data was further explored to exclude possible confounding effects in data quality:**
-
-#### Inter-replicate variance
-```{r, check inter-replicate variance,  cache = F, fig.width= 15, fig.height= 5}
-p1 <- DimPlot(ds_cf, split.by = "pat", group.by = "rep", reduction = "pca")
-p2 <- DimPlot(ds_cf, split.by = "pat", group.by = "rep")
-
-p1 + p2
-```
-
-#### Heatmaps of genes with highest PC scores.
-##### All patients.
-```{r dim_heatmap_cells,  cache = F, fig.width= 15, fig.height= 10}
-
-dim_plot_pca <- DimHeatmap(ds_cf, dims = 1:6, balanced = TRUE, reduction = "pca", fast = F, combine = F)
-
-for (i in 1:length(dim_plot_pca)) {
-  
-  pc <- paste0("PC_", i)
-  
-  dim_plot_pca[[i]] <- dim_plot_pca[[i]] + theme(legend.position = "none", axis.text.y = element_text(size = 11),
-          plot.title = element_text(size = 14)) +
-          ggtitle(label = pc)
-  
+  RunUMAP(reduction = "pca", dims = 1:30, verbose = FALSE)  
 }
+  
 
-ggarrange(plotlist = dim_plot_pca, align = "v", common.legend = T, legend = "right")
+ds_cf_diag <- lapply(ds_cf_diag, map.list.seurat)
+
+# ds_cf_diag <- merge(ds_cf_diag_list[[1]], y = ds_cf_diag_list[-1])
+
 
 ```
 
-##### PC1 of each patient.
-```{r dim_heatmap_cells_patients,  cache = F, fig.width= 15, fig.height= 14}
-plot_pat_dim_heat <- function (data, patient) {
+#### PCs
+**Elbow Plot**
+13 top PCs should be enough to obtain proper clustering.
+```{r,  cache = F, fig.width= 7, fig.height= 10}
 
-  DimHeatmap(subset(data, subset = pat == patient), nfeatures = 30,  dims = 1, balanced = TRUE, fast = F) +
-    theme(legend.position = "none", axis.text.y = element_text(size = 11),
-          plot.title = element_text(size = 14)) +
-    ggtitle(label = patient)
+plots.names <- names(ds_cf_diag)
 
+plot.list <- lapply(plots.names, FUN = function(x) { ElbowPlot(ds_cf_diag[[x]]) +
+                                                               plot_annotation(title = x)
+                                                             })
+
+ggarrange(plotlist = plot.list, ncol = 1, nrow = 3)
+
+```
+
+**Top variable genes**
+```{r,  cache = F, fig.width= 10, fig.height= 10}
+plots.names <- names(ds_cf_diag)
+
+top10_c_diag <- function(x) {
+  
+  top10_c <- head(VariableFeatures(ds_cf_diag[[x]]), 10) # No need to use FindVariableFeatures, as SCTransform does that
+  p_var_c <- VariableFeaturePlot(ds_cf_diag[[x]]) + 
+                  plot_annotation(title = x)
+  
+  LabelPoints(p_var_c, points = top10_c, repel = T)
+  
   }
 
-pat_dim_heat <- lapply(unique(ds_cf$pat), plot_pat_dim_heat, data = ds_cf)
-ggarrange(plotlist  = pat_dim_heat, common.legend = T, legend = "right")
+plot.list <- lapply(plots.names, top10_c_diag)
 
-
-```
-
-
-
-#### Patients 3133 and 3256.
-**Cells of patients 3133, 3256 have nearly identical expression profile despite different diagnoses - Both patients will be removed from the analysis.**
-```{r dim_heatmap_cells_3133_3256,  cache = F, fig.width= 15, fig.height= 10}
-
-list_heatmaps <- DimHeatmap(subset(ds_cf, subset = pat %in% c(3133, 3256)), dims = 1:6, balanced = TRUE, fast = F, combine = F) 
-  
-
-plot_dim_heat <- function (x) {
-  
-  heatmap_x <- list_heatmaps[[x]] + 
-    ggtitle(paste0("PC_", x)) +
-    theme(axis.text.y = element_text(size = 12),
-          plot.title = element_text(size = 14),
-          legend.position = "none")
-  
-  return(heatmap_x)
-}
-
-heatmaps <- lapply(1:length(list_heatmaps), plot_dim_heat)
-
-ggarrange(plotlist = heatmaps, align = "v", common.legend = T, legend = "right")
+ggarrange(plotlist = plot.list, ncol = 1, nrow = 3)
 
 ```
 
-#### All patients - most expressed and most variable genes.
 
-```{r dim_heatmap_cells_most_expr_most_var,  cache = F, fig.width= 15, fig.height= 8}
+#### UMAP
 
-list_heatmap <- names(sort(colSums(most_expr_counts_cells), decreasing = T))
 
-p1 <- DoHeatmap(ds_cf, features = list_heatmap, group.by = "pat", slot = 'counts') + 
-    guides(color = "none") +
-    theme(axis.text.y = element_text(size = 11), title = element_text(size = 13)) +
-    ggtitle(label = "top 10 most expressed")
-p2 <- DoHeatmap(ds_cf, features = top10_c, group.by = "pat", slot = "scale.data") + 
-    guides(color = "none") +
-    theme(axis.text.y = element_text(size = 11), title = element_text(size = 13)) +
-    ggtitle(label = "top 10 most variable (scaled data)")
+```{r umap_diag_sep_cells_meta,  cache = F, fig.width= 15, fig.height= 10}
 
-p1 + p2
+plots.names <- names(ds_cf_diag)
+
+plot.list <- lapply(plots.names, FUN = function(x) { DimPlot(ds_cf_diag[[x]], group.by = c("pat", "rep")) +
+                                                               plot_annotation(title = x)
+                                                             })
+
+ggarrange(plotlist = plot.list, ncol = 1, nrow = 3)
 ```
 
+```{r umap_diag_sep_cells_features,  cache = F, fig.width= 15, fig.height= 10}
 
+plots.names <- names(ds_cf_diag)
 
-```{r cell_selector, eval = F}
-DimPlot(ds_cf, group.by = c("pat", "diag", "type", "rep"))
+plot.list <- lapply(plots.names, FUN = function(x) { FeaturePlot(ds_cf_diag[[x]], features = c("nCount_RNA", "nFeature_RNA")) +
+                                                               plot_annotation(title = x)
+                                                             })
 
+ggarrange(plotlist = plot.list, ncol = 1, nrow = 3)
 ```
 
 
@@ -1430,7 +1322,7 @@ FeaturePlot(ds_dcf, features = c("nFeature_RNA", "nCount_RNA"), ncol = 2)
 
 
 ### Elbow Plot
-Around 10 top PCAs should be enough to obtain proper clustering.
+Around 10 top PCs should be enough to obtain proper clustering.
 ```{r,  cache = F, fig.width= 7, fig.height= 5}
 ElbowPlot(ds_dcf, ndims = 30)
 ```
@@ -1449,7 +1341,7 @@ ds_dcf2 <- SCTransform(ds_dcf2, vst.flavor = "v2", verbose = FALSE) %>%
 
 Data still doesn't allow to stratify EVs according to their identities and diagnoses and the mapping is homogenous with regard to fractions.
 
-```{r dimplot_evs_all,  cache = F, fig.width= 15, fig.height= 10}
+```{r dimplot_evs_wo_cells,  cache = F, fig.width= 15, fig.height= 10}
 DimPlot(ds_dcf2, group.by = c("pat", "diag", "type", "frac"), ncol = 2) +
   scale_color_discrete(labels = ~ stringr::str_wrap(.x, width = 20)) 
 
@@ -1477,7 +1369,7 @@ p1 + p2
 
 
 ### Elbow plot
-Around 10 top PCAs should be enough to obtain proper clustering.
+Around 10 top PCs should be enough to obtain proper clustering.
 ```{r,  cache = F, fig.width= 7, fig.height= 5}
 ElbowPlot(ds_dcf2, ndims = 30)
 ```
@@ -1600,7 +1492,7 @@ FeaturePlot(ds_dcf3, features = c("nFeature_RNA", "nCount_RNA"), ncol = 2)
 
 
 ### Elbow plot
-Around 10 top PCAs should be enough to obtain proper clustering.
+Around 10 top PCs should be enough to obtain proper clustering.
 ```{r,  cache = F, fig.width= 7, fig.height= 5}
 ElbowPlot(ds_dcf3, ndims = 30)
 ```
@@ -1695,7 +1587,7 @@ FeaturePlot(ds_dcf4, features = c("nFeature_RNA", "nCount_RNA"), ncol = 2)
 
 
 ### Elbow plot
-Around 10 top PCAs should be enough to obtain proper clustering.
+Around 10 top PCs should be enough to obtain proper clustering.
 ```{r,  cache = F, fig.width= 7, fig.height= 5}
 ElbowPlot(ds_dcf4, ndims = 30)
 ```
@@ -1767,7 +1659,7 @@ lapply(names(r2.list), function(x) heatmap(r2.list[[x]], main = x,
 
 ## EVs - without cells, FT and SP and platelet, ribosomal, mitochondrial transcripts and hemoglobin
 ### PCA
-```{r dim_reduc_evs_wo_cells_FT_SP_SP_genes}
+```{r dim_reduc_evs_wo_cells_FT_SP_SP_genes, cache = F}
 
 genes_remove <- which(rownames(ds_dcf4@assays$RNA) %like% "^MT-" | 
                         rownames(ds_dcf4@assays$RNA) %like% "^RP[SL]" | 
@@ -1807,7 +1699,7 @@ FeaturePlot(ds_dcf5, features =c('nCount_RNA','nFeature_RNA'), ncol = 2)
 
 
 ### Elbow plot
-Around 10 top PCAs should be enough to obtain proper clustering.
+Around 10 top PCs should be enough to obtain proper clustering.
 ```{r,  cache = F, fig.width= 7, fig.height= 5}
 ElbowPlot(ds_dcf5, ndims = 30)
 ```
@@ -1822,15 +1714,15 @@ get_r2 <- function(x, y) {
   stats <- summary(model)
   return(stats$adj.r.squared)
 }
-covariates <- ds_dcf5@meta.data
-
+covariates <- setDT(ds_dcf5@meta.data)
+covariates <- covariates[, !"percent_mt"][, !"percent_ribo"][, !"percent_hb"][, !"percent_plat"]
 pcs <- ds_dcf5@reductions$pca@cell.embeddings[,1:30]
 
 r2 <- matrix(NA, nrow = ncol(covariates), ncol = ncol(pcs),
              dimnames = list(colnames(covariates), colnames(pcs)))
 for (cov in colnames(covariates)) {
   for (pc in colnames(pcs)) {
-    r2[cov, pc] <- get_r2(covariates[, cov], pcs[, pc])
+    r2[cov, pc] <- get_r2(covariates[, ..cov][[1]], pcs[, pc])
   }
 }
 
@@ -1839,7 +1731,7 @@ heatmap(r2, cexCol = 1)
 
 **PCs are still closely tied to the feature and molecule counts. That indicates, again, that most other genes might be expressed homogeneously.** 
 
-```{r correlation of PCs with metadata EVs per fraction_wo_cells_FT_SP_genes, cache = F, fig.width= 10}
+```{r correlation of PCs with metadata EVs per fraction_wo_cells_FT_SP_genes, cache = F, fig.width= 10, eval = F}
 # adapted from https://jdblischak.github.io/singlecell-qtl/pca-variable.html
 get_r2 <- function(x, y) {
   stopifnot(length(x) == length(y))
@@ -1853,7 +1745,7 @@ r2.list <- list()
 for (i in unique(ds_dcf5@meta.data$frac)) {
   
 covariates <- setDT(subset(ds_dcf5@meta.data, subset = frac == i))
-covariates <- covariates[, !"frac"] # remove frac as it will have only one type per loop
+covariates <- covariates[, !"frac"][,!"percent_mt"][, !"percent_ribo"][, !"percent_hb"][, !"percent_plat"] # remove frac as it will have only one type per loop and others removed from the dataset
 
 pcs <- subset(ds_dcf5, subset = frac == i)@reductions$pca@cell.embeddings[,1:30]
 
@@ -1869,12 +1761,12 @@ r2.list[[i]] <- r2
 
 }
 
-lapply(names(r2.list), function(x) heatmap(r2.list[[x]], main = x, 
+plot_list <- lapply(names(r2.list), function(x) heatmap(r2.list[[x]], main = x, 
                                            Colv = NA, Rowv = NA, margins = c(5, 1)))
 
 ```
 ### PCs
-
+NOT FINAL - Copied for EVs
 
 **Inspect PCs - Jackstraw doesn't work with SCTransformed data.** 
 
@@ -1886,7 +1778,7 @@ JackStrawPlot(ds_dcf, dims = 1:15)
 ```
 
 **Elbow Plot**
-Around 10 top PCAs should be enough to obtain proper clustering.
+Around 10 top PCs should be enough to obtain proper clustering.
 ```{r,  cache = F, fig.width= 7, fig.height= 5}
 ElbowPlot(ds_dcf)
 ```
@@ -1917,7 +1809,7 @@ FeaturePlot(ds_cf, features = c("nCount_RNA", "nFeature_RNA"), pt.size = 2, redu
 
 
 ### Clustering 
-```{r clustering_cells_umap, fig.height=10, cache = F, fig.width=15}
+```{r clustering_ev_umap_2, fig.height=10, cache = F, fig.width=15}
 
 ds_cf <- FindNeighbors(ds_cf, reduction = "umap", verbose = FALSE, dims = 1:2) %>%
   FindClusters(resolution = 0.5, verbose = FALSE)
@@ -1936,7 +1828,7 @@ p1 + p2
 ```
 
 **If clusters are found using PCA:**
-```{r clustering_cells_pca,  cache = F, fig.width= 15, fig.height= 10}
+```{r clustering_ev_pca,  cache = F, fig.width= 15, fig.height= 10}
 ds_cf <- FindNeighbors(ds_cf, reduction = "pca", dims = 1:10, verbose = FALSE) %>%
   FindClusters(resolution = 0.7, verbose = FALSE)
 
@@ -1956,6 +1848,12 @@ p1 + p2
 
 
 
+```{r}
+
+knitr::knit_exit()
+
+```
+
 
 
 ```{r feature}
@@ -1972,7 +1870,6 @@ FeaturePlot(ds_dcf, features = top12, pt.size = 2, reduction = 'umap')
 histograms and violinplots of overall expression of genes
 
 ```{r }
-
 
 aggr_exp <- Matrix::rowSums(ds_dcf@assays$SCT)
 hist(aggr_exp[aggr_exp > 50], breaks = 500)
@@ -2012,12 +1909,6 @@ ggsave("ev_umap_feat_wo_ft.png", f_umap_ftless, device = 'png', dpi = "retina", 
 
 
 
-
-```{r}
-
-knitr::knit_exit()
-
-```
 
 
 # Dataset integration ----

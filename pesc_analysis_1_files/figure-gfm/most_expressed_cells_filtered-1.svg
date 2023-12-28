@@ -1725,36 +1725,36 @@
 <line x1='144.00' y1='56.20' x2='136.80' y2='56.20' style='stroke-width: 0.75;' />
 <line x1='144.00' y1='43.53' x2='136.80' y2='43.53' style='stroke-width: 0.75;' />
 <line x1='144.00' y1='30.87' x2='136.80' y2='30.87' style='stroke-width: 0.75;' />
-<text x='129.60' y='275.91' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='46.78px' lengthAdjust='spacingAndGlyphs'>MT-ND5</text>
-<text x='129.60' y='263.24' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='30.76px' lengthAdjust='spacingAndGlyphs'>PFN1</text>
-<text x='129.60' y='250.57' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='46.38px' lengthAdjust='spacingAndGlyphs'>MT-CO3</text>
-<text x='129.60' y='237.91' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='30.52px' lengthAdjust='spacingAndGlyphs'>PSAP</text>
-<text x='129.60' y='225.24' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='48.82px' lengthAdjust='spacingAndGlyphs'>TMSB10</text>
-<text x='129.60' y='212.57' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='30.69px' lengthAdjust='spacingAndGlyphs'>FTH1</text>
-<text x='129.60' y='199.91' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='43.02px' lengthAdjust='spacingAndGlyphs'>GAPDH</text>
-<text x='129.60' y='187.24' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='46.38px' lengthAdjust='spacingAndGlyphs'>MT-CO2</text>
-<text x='129.60' y='174.57' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='117.51px' lengthAdjust='spacingAndGlyphs'>ENSG00000225840</text>
-<text x='129.60' y='161.91' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='46.38px' lengthAdjust='spacingAndGlyphs'>MT-CO1</text>
-<text x='129.60' y='149.24' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='44.65px' lengthAdjust='spacingAndGlyphs'>MT-CYB</text>
-<text x='129.60' y='136.57' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='46.78px' lengthAdjust='spacingAndGlyphs'>MT-ND4</text>
-<text x='129.60' y='123.91' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='26.23px' lengthAdjust='spacingAndGlyphs'>B2M</text>
-<text x='129.60' y='111.24' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='49.40px' lengthAdjust='spacingAndGlyphs'>TMSB4X</text>
-<text x='129.60' y='98.57' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='20.71px' lengthAdjust='spacingAndGlyphs'>FTL</text>
-<text x='129.60' y='85.91' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='32.90px' lengthAdjust='spacingAndGlyphs'>CD74</text>
-<text x='129.60' y='73.24' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='31.95px' lengthAdjust='spacingAndGlyphs'>ACTB</text>
-<text x='129.60' y='60.57' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='54.21px' lengthAdjust='spacingAndGlyphs'>MT-RNR1</text>
-<text x='129.60' y='47.91' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='47.77px' lengthAdjust='spacingAndGlyphs'>MALAT1</text>
-<text x='129.60' y='35.24' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='54.21px' lengthAdjust='spacingAndGlyphs'>MT-RNR2</text>
+<text x='129.60' y='275.91' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='46.78px' lengthAdjust='spacingAndGlyphs'>MT-ND5</text>
+<text x='129.60' y='263.24' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='30.76px' lengthAdjust='spacingAndGlyphs'>PFN1</text>
+<text x='129.60' y='250.57' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='46.38px' lengthAdjust='spacingAndGlyphs'>MT-CO3</text>
+<text x='129.60' y='237.91' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='30.52px' lengthAdjust='spacingAndGlyphs'>PSAP</text>
+<text x='129.60' y='225.24' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='48.82px' lengthAdjust='spacingAndGlyphs'>TMSB10</text>
+<text x='129.60' y='212.57' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='30.69px' lengthAdjust='spacingAndGlyphs'>FTH1</text>
+<text x='129.60' y='199.91' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='43.02px' lengthAdjust='spacingAndGlyphs'>GAPDH</text>
+<text x='129.60' y='187.24' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='46.38px' lengthAdjust='spacingAndGlyphs'>MT-CO2</text>
+<text x='129.60' y='174.57' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='117.51px' lengthAdjust='spacingAndGlyphs'>ENSG00000225840</text>
+<text x='129.60' y='161.91' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='46.38px' lengthAdjust='spacingAndGlyphs'>MT-CO1</text>
+<text x='129.60' y='149.24' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='44.65px' lengthAdjust='spacingAndGlyphs'>MT-CYB</text>
+<text x='129.60' y='136.57' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='46.78px' lengthAdjust='spacingAndGlyphs'>MT-ND4</text>
+<text x='129.60' y='123.91' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='26.23px' lengthAdjust='spacingAndGlyphs'>B2M</text>
+<text x='129.60' y='111.24' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='49.40px' lengthAdjust='spacingAndGlyphs'>TMSB4X</text>
+<text x='129.60' y='98.57' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='20.71px' lengthAdjust='spacingAndGlyphs'>FTL</text>
+<text x='129.60' y='85.91' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='32.90px' lengthAdjust='spacingAndGlyphs'>CD74</text>
+<text x='129.60' y='73.24' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='31.95px' lengthAdjust='spacingAndGlyphs'>ACTB</text>
+<text x='129.60' y='60.57' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='54.21px' lengthAdjust='spacingAndGlyphs'>MT-RNR1</text>
+<text x='129.60' y='47.91' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='47.77px' lengthAdjust='spacingAndGlyphs'>MALAT1</text>
+<text x='129.60' y='35.24' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='54.21px' lengthAdjust='spacingAndGlyphs'>MT-RNR2</text>
 <line x1='164.80' y1='288.00' x2='626.29' y2='288.00' style='stroke-width: 0.75;' />
 <line x1='164.80' y1='288.00' x2='164.80' y2='295.20' style='stroke-width: 0.75;' />
 <line x1='318.63' y1='288.00' x2='318.63' y2='295.20' style='stroke-width: 0.75;' />
 <line x1='472.46' y1='288.00' x2='472.46' y2='295.20' style='stroke-width: 0.75;' />
 <line x1='626.29' y1='288.00' x2='626.29' y2='295.20' style='stroke-width: 0.75;' />
-<text x='164.80' y='313.92' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
-<text x='318.63' y='313.92' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>5</text>
-<text x='472.46' y='313.92' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>10</text>
-<text x='626.29' y='313.92' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>15</text>
-<text x='424.80' y='342.72' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='128.59px' lengthAdjust='spacingAndGlyphs'>% total count per cell</text>
+<text x='164.80' y='313.92' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='318.63' y='313.92' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>5</text>
+<text x='472.46' y='313.92' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>10</text>
+<text x='626.29' y='313.92' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>15</text>
+<text x='424.80' y='342.72' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='128.59px' lengthAdjust='spacingAndGlyphs'>% total count per cell</text>
 <polygon points='144.00,288.00 705.60,288.00 705.60,14.40 144.00,14.40 ' style='stroke-width: 0.75;' />
 </g>
 </svg>
