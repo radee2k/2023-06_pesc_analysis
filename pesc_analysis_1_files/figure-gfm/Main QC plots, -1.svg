@@ -1977,11 +1977,11 @@
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTgwMC4wMA==)'>
 <polyline points='72.40,221.78 72.40,34.42 ' style='stroke-width: 1.07; stroke-linecap: square;' />
-<text x='65.93' y='217.64' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
-<text x='65.93' y='177.56' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='45.84px' lengthAdjust='spacingAndGlyphs'>500000</text>
-<text x='65.93' y='137.48' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='53.47px' lengthAdjust='spacingAndGlyphs'>1000000</text>
-<text x='65.93' y='97.40' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='53.47px' lengthAdjust='spacingAndGlyphs'>1500000</text>
-<text x='65.93' y='57.32' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='53.47px' lengthAdjust='spacingAndGlyphs'>2000000</text>
+<text x='65.93' y='217.64' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='65.93' y='177.56' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='45.84px' lengthAdjust='spacingAndGlyphs'>500000</text>
+<text x='65.93' y='137.48' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='53.47px' lengthAdjust='spacingAndGlyphs'>1000000</text>
+<text x='65.93' y='97.40' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='53.47px' lengthAdjust='spacingAndGlyphs'>1500000</text>
+<text x='65.93' y='57.32' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='53.47px' lengthAdjust='spacingAndGlyphs'>2000000</text>
 <polyline points='68.92,213.27 72.40,213.27 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='68.92,173.19 72.40,173.19 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='68.92,133.11 72.40,133.11 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
@@ -2004,24 +2004,24 @@
 <polyline points='907.83,225.26 907.83,221.78 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='969.26,225.26 969.26,221.78 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='1030.69,225.26 1030.69,221.78 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
-<text transform='translate(115.45,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc305</text>
-<text transform='translate(176.87,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc305.2</text>
-<text transform='translate(238.30,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc305.3</text>
-<text transform='translate(299.73,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='58.23px' lengthAdjust='spacingAndGlyphs'>PEsc3133</text>
-<text transform='translate(361.16,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='58.23px' lengthAdjust='spacingAndGlyphs'>PEsc3256</text>
-<text transform='translate(422.59,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc420</text>
-<text transform='translate(484.02,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc420.2</text>
-<text transform='translate(545.45,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc420.3</text>
-<text transform='translate(606.88,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc425</text>
-<text transform='translate(668.30,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc425.1</text>
-<text transform='translate(729.73,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc425.2</text>
-<text transform='translate(791.16,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc577</text>
-<text transform='translate(852.59,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc604</text>
-<text transform='translate(914.02,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc604.2</text>
-<text transform='translate(975.45,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc822</text>
-<text transform='translate(1036.88,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc822.2</text>
-<text x='569.98' y='293.77' text-anchor='middle' style='font-size: 14.00px; font-family: "Lato";' textLength='53.63px' lengthAdjust='spacingAndGlyphs'>Identity</text>
-<text x='569.98' y='24.12' text-anchor='middle' style='font-size: 16.00px; font-weight: bold; font-family: "Lato";' textLength='110.65px' lengthAdjust='spacingAndGlyphs'>nCount_RNA</text>
+<text transform='translate(115.45,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc305</text>
+<text transform='translate(176.87,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc305.2</text>
+<text transform='translate(238.30,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc305.3</text>
+<text transform='translate(299.73,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='58.23px' lengthAdjust='spacingAndGlyphs'>PEsc3133</text>
+<text transform='translate(361.16,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='58.23px' lengthAdjust='spacingAndGlyphs'>PEsc3256</text>
+<text transform='translate(422.59,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc420</text>
+<text transform='translate(484.02,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc420.2</text>
+<text transform='translate(545.45,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc420.3</text>
+<text transform='translate(606.88,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc425</text>
+<text transform='translate(668.30,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc425.1</text>
+<text transform='translate(729.73,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc425.2</text>
+<text transform='translate(791.16,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc577</text>
+<text transform='translate(852.59,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc604</text>
+<text transform='translate(914.02,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc604.2</text>
+<text transform='translate(975.45,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc822</text>
+<text transform='translate(1036.88,234.44) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc822.2</text>
+<text x='569.98' y='293.77' text-anchor='middle' style='font-size: 14.00px; font-family: "DejaVu Sans Mono";' textLength='53.63px' lengthAdjust='spacingAndGlyphs'>Identity</text>
+<text x='569.98' y='24.12' text-anchor='middle' style='font-size: 16.00px; font-weight: bold; font-family: "DejaVu Sans Mono";' textLength='110.65px' lengthAdjust='spacingAndGlyphs'>nCount_RNA</text>
 </g>
 <defs>
   <clipPath id='cpNS40OHwxMDc0LjUyfDMwMy42NXw2MDEuODM='>
@@ -3977,10 +3977,10 @@
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTgwMC4wMA==)'>
 <polyline points='72.40,519.95 72.40,332.59 ' style='stroke-width: 1.07; stroke-linecap: square;' />
-<text x='65.93' y='516.44' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
-<text x='65.93' y='463.13' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='30.56px' lengthAdjust='spacingAndGlyphs'>5000</text>
-<text x='65.93' y='409.82' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='38.20px' lengthAdjust='spacingAndGlyphs'>10000</text>
-<text x='65.93' y='356.52' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='38.20px' lengthAdjust='spacingAndGlyphs'>15000</text>
+<text x='65.93' y='516.44' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='65.93' y='463.13' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='30.56px' lengthAdjust='spacingAndGlyphs'>5000</text>
+<text x='65.93' y='409.82' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.20px' lengthAdjust='spacingAndGlyphs'>10000</text>
+<text x='65.93' y='356.52' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.20px' lengthAdjust='spacingAndGlyphs'>15000</text>
 <polyline points='68.92,512.06 72.40,512.06 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='68.92,458.76 72.40,458.76 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='68.92,405.45 72.40,405.45 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
@@ -4002,24 +4002,24 @@
 <polyline points='907.83,523.44 907.83,519.95 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='969.26,523.44 969.26,519.95 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='1030.69,523.44 1030.69,519.95 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
-<text transform='translate(115.45,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc305</text>
-<text transform='translate(176.87,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc305.2</text>
-<text transform='translate(238.30,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc305.3</text>
-<text transform='translate(299.73,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='58.23px' lengthAdjust='spacingAndGlyphs'>PEsc3133</text>
-<text transform='translate(361.16,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='58.23px' lengthAdjust='spacingAndGlyphs'>PEsc3256</text>
-<text transform='translate(422.59,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc420</text>
-<text transform='translate(484.02,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc420.2</text>
-<text transform='translate(545.45,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc420.3</text>
-<text transform='translate(606.88,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc425</text>
-<text transform='translate(668.30,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc425.1</text>
-<text transform='translate(729.73,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc425.2</text>
-<text transform='translate(791.16,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc577</text>
-<text transform='translate(852.59,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc604</text>
-<text transform='translate(914.02,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc604.2</text>
-<text transform='translate(975.45,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc822</text>
-<text transform='translate(1036.88,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc822.2</text>
-<text x='569.98' y='591.94' text-anchor='middle' style='font-size: 14.00px; font-family: "Lato";' textLength='53.63px' lengthAdjust='spacingAndGlyphs'>Identity</text>
-<text x='569.98' y='322.29' text-anchor='middle' style='font-size: 16.00px; font-weight: bold; font-family: "Lato";' textLength='127.19px' lengthAdjust='spacingAndGlyphs'>nFeature_RNA</text>
+<text transform='translate(115.45,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc305</text>
+<text transform='translate(176.87,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc305.2</text>
+<text transform='translate(238.30,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc305.3</text>
+<text transform='translate(299.73,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='58.23px' lengthAdjust='spacingAndGlyphs'>PEsc3133</text>
+<text transform='translate(361.16,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='58.23px' lengthAdjust='spacingAndGlyphs'>PEsc3256</text>
+<text transform='translate(422.59,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc420</text>
+<text transform='translate(484.02,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc420.2</text>
+<text transform='translate(545.45,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc420.3</text>
+<text transform='translate(606.88,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc425</text>
+<text transform='translate(668.30,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc425.1</text>
+<text transform='translate(729.73,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc425.2</text>
+<text transform='translate(791.16,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc577</text>
+<text transform='translate(852.59,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc604</text>
+<text transform='translate(914.02,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc604.2</text>
+<text transform='translate(975.45,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc822</text>
+<text transform='translate(1036.88,532.61) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc822.2</text>
+<text x='569.98' y='591.94' text-anchor='middle' style='font-size: 14.00px; font-family: "DejaVu Sans Mono";' textLength='53.63px' lengthAdjust='spacingAndGlyphs'>Identity</text>
+<text x='569.98' y='322.29' text-anchor='middle' style='font-size: 16.00px; font-weight: bold; font-family: "DejaVu Sans Mono";' textLength='127.19px' lengthAdjust='spacingAndGlyphs'>nFeature_RNA</text>
 </g>
 <defs>
   <clipPath id='cpNS40OHwxMDc0LjUyfDYwMS44M3w5MDAuMDA='>
@@ -5975,11 +5975,11 @@
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTgwMC4wMA==)'>
 <polyline points='72.40,818.12 72.40,630.76 ' style='stroke-width: 1.07; stroke-linecap: square;' />
-<text x='65.93' y='814.03' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
-<text x='65.93' y='770.62' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>20</text>
-<text x='65.93' y='727.22' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>40</text>
-<text x='65.93' y='683.81' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>60</text>
-<text x='65.93' y='640.41' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>80</text>
+<text x='65.93' y='814.03' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='65.93' y='770.62' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>20</text>
+<text x='65.93' y='727.22' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>40</text>
+<text x='65.93' y='683.81' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>60</text>
+<text x='65.93' y='640.41' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>80</text>
 <polyline points='68.92,809.65 72.40,809.65 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='68.92,766.25 72.40,766.25 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='68.92,722.84 72.40,722.84 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
@@ -6002,24 +6002,24 @@
 <polyline points='907.83,821.61 907.83,818.12 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='969.26,821.61 969.26,818.12 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='1030.69,821.61 1030.69,818.12 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
-<text transform='translate(115.45,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc305</text>
-<text transform='translate(176.87,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc305.2</text>
-<text transform='translate(238.30,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc305.3</text>
-<text transform='translate(299.73,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='58.23px' lengthAdjust='spacingAndGlyphs'>PEsc3133</text>
-<text transform='translate(361.16,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='58.23px' lengthAdjust='spacingAndGlyphs'>PEsc3256</text>
-<text transform='translate(422.59,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc420</text>
-<text transform='translate(484.02,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc420.2</text>
-<text transform='translate(545.45,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc420.3</text>
-<text transform='translate(606.88,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc425</text>
-<text transform='translate(668.30,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc425.1</text>
-<text transform='translate(729.73,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc425.2</text>
-<text transform='translate(791.16,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc577</text>
-<text transform='translate(852.59,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc604</text>
-<text transform='translate(914.02,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc604.2</text>
-<text transform='translate(975.45,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc822</text>
-<text transform='translate(1036.88,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc822.2</text>
-<text x='569.98' y='890.12' text-anchor='middle' style='font-size: 14.00px; font-family: "Lato";' textLength='53.63px' lengthAdjust='spacingAndGlyphs'>Identity</text>
-<text x='569.98' y='620.46' text-anchor='middle' style='font-size: 16.00px; font-weight: bold; font-family: "Lato";' textLength='101.88px' lengthAdjust='spacingAndGlyphs'>percent_mt</text>
+<text transform='translate(115.45,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc305</text>
+<text transform='translate(176.87,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc305.2</text>
+<text transform='translate(238.30,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc305.3</text>
+<text transform='translate(299.73,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='58.23px' lengthAdjust='spacingAndGlyphs'>PEsc3133</text>
+<text transform='translate(361.16,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='58.23px' lengthAdjust='spacingAndGlyphs'>PEsc3256</text>
+<text transform='translate(422.59,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc420</text>
+<text transform='translate(484.02,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc420.2</text>
+<text transform='translate(545.45,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc420.3</text>
+<text transform='translate(606.88,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc425</text>
+<text transform='translate(668.30,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc425.1</text>
+<text transform='translate(729.73,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc425.2</text>
+<text transform='translate(791.16,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc577</text>
+<text transform='translate(852.59,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc604</text>
+<text transform='translate(914.02,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc604.2</text>
+<text transform='translate(975.45,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc822</text>
+<text transform='translate(1036.88,830.79) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc822.2</text>
+<text x='569.98' y='890.12' text-anchor='middle' style='font-size: 14.00px; font-family: "DejaVu Sans Mono";' textLength='53.63px' lengthAdjust='spacingAndGlyphs'>Identity</text>
+<text x='569.98' y='620.46' text-anchor='middle' style='font-size: 16.00px; font-weight: bold; font-family: "DejaVu Sans Mono";' textLength='101.88px' lengthAdjust='spacingAndGlyphs'>percent_mt</text>
 </g>
 <defs>
   <clipPath id='cpNS40OHwxMDc0LjUyfDkwMC4wMHwxMTk4LjE3'>
@@ -7975,10 +7975,10 @@
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTgwMC4wMA==)'>
 <polyline points='72.40,1116.30 72.40,928.94 ' style='stroke-width: 1.07; stroke-linecap: square;' />
-<text x='65.93' y='1112.16' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
-<text x='65.93' y='1059.22' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>20</text>
-<text x='65.93' y='1006.29' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>40</text>
-<text x='65.93' y='953.36' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>60</text>
+<text x='65.93' y='1112.16' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='65.93' y='1059.22' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>20</text>
+<text x='65.93' y='1006.29' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>40</text>
+<text x='65.93' y='953.36' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>60</text>
 <polyline points='68.92,1107.78 72.40,1107.78 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='68.92,1054.85 72.40,1054.85 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='68.92,1001.92 72.40,1001.92 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
@@ -8000,24 +8000,24 @@
 <polyline points='907.83,1119.78 907.83,1116.30 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='969.26,1119.78 969.26,1116.30 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='1030.69,1119.78 1030.69,1116.30 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
-<text transform='translate(115.45,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc305</text>
-<text transform='translate(176.87,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc305.2</text>
-<text transform='translate(238.30,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc305.3</text>
-<text transform='translate(299.73,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='58.23px' lengthAdjust='spacingAndGlyphs'>PEsc3133</text>
-<text transform='translate(361.16,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='58.23px' lengthAdjust='spacingAndGlyphs'>PEsc3256</text>
-<text transform='translate(422.59,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc420</text>
-<text transform='translate(484.02,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc420.2</text>
-<text transform='translate(545.45,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc420.3</text>
-<text transform='translate(606.88,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc425</text>
-<text transform='translate(668.30,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc425.1</text>
-<text transform='translate(729.73,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc425.2</text>
-<text transform='translate(791.16,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc577</text>
-<text transform='translate(852.59,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc604</text>
-<text transform='translate(914.02,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc604.2</text>
-<text transform='translate(975.45,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc822</text>
-<text transform='translate(1036.88,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc822.2</text>
-<text x='569.98' y='1188.29' text-anchor='middle' style='font-size: 14.00px; font-family: "Lato";' textLength='53.63px' lengthAdjust='spacingAndGlyphs'>Identity</text>
-<text x='569.98' y='918.64' text-anchor='middle' style='font-size: 16.00px; font-weight: bold; font-family: "Lato";' textLength='100.41px' lengthAdjust='spacingAndGlyphs'>percent_hb</text>
+<text transform='translate(115.45,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc305</text>
+<text transform='translate(176.87,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc305.2</text>
+<text transform='translate(238.30,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc305.3</text>
+<text transform='translate(299.73,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='58.23px' lengthAdjust='spacingAndGlyphs'>PEsc3133</text>
+<text transform='translate(361.16,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='58.23px' lengthAdjust='spacingAndGlyphs'>PEsc3256</text>
+<text transform='translate(422.59,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc420</text>
+<text transform='translate(484.02,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc420.2</text>
+<text transform='translate(545.45,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc420.3</text>
+<text transform='translate(606.88,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc425</text>
+<text transform='translate(668.30,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc425.1</text>
+<text transform='translate(729.73,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc425.2</text>
+<text transform='translate(791.16,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc577</text>
+<text transform='translate(852.59,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc604</text>
+<text transform='translate(914.02,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc604.2</text>
+<text transform='translate(975.45,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc822</text>
+<text transform='translate(1036.88,1128.96) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc822.2</text>
+<text x='569.98' y='1188.29' text-anchor='middle' style='font-size: 14.00px; font-family: "DejaVu Sans Mono";' textLength='53.63px' lengthAdjust='spacingAndGlyphs'>Identity</text>
+<text x='569.98' y='918.64' text-anchor='middle' style='font-size: 16.00px; font-weight: bold; font-family: "DejaVu Sans Mono";' textLength='100.41px' lengthAdjust='spacingAndGlyphs'>percent_hb</text>
 </g>
 <defs>
   <clipPath id='cpNS40OHwxMDc0LjUyfDExOTguMTd8MTQ5Ni4zNQ=='>
@@ -9973,9 +9973,9 @@
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTgwMC4wMA==)'>
 <polyline points='72.40,1414.47 72.40,1227.11 ' style='stroke-width: 1.07; stroke-linecap: square;' />
-<text x='65.93' y='1411.01' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
-<text x='65.93' y='1350.66' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>10</text>
-<text x='65.93' y='1290.31' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>20</text>
+<text x='65.93' y='1411.01' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='65.93' y='1350.66' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>10</text>
+<text x='65.93' y='1290.31' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>20</text>
 <polyline points='68.92,1406.63 72.40,1406.63 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='68.92,1346.29 72.40,1346.29 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='68.92,1285.94 72.40,1285.94 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
@@ -9996,24 +9996,24 @@
 <polyline points='907.83,1417.96 907.83,1414.47 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='969.26,1417.96 969.26,1414.47 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='1030.69,1417.96 1030.69,1414.47 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
-<text transform='translate(115.45,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc305</text>
-<text transform='translate(176.87,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc305.2</text>
-<text transform='translate(238.30,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc305.3</text>
-<text transform='translate(299.73,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='58.23px' lengthAdjust='spacingAndGlyphs'>PEsc3133</text>
-<text transform='translate(361.16,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='58.23px' lengthAdjust='spacingAndGlyphs'>PEsc3256</text>
-<text transform='translate(422.59,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc420</text>
-<text transform='translate(484.02,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc420.2</text>
-<text transform='translate(545.45,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc420.3</text>
-<text transform='translate(606.88,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc425</text>
-<text transform='translate(668.30,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc425.1</text>
-<text transform='translate(729.73,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc425.2</text>
-<text transform='translate(791.16,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc577</text>
-<text transform='translate(852.59,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc604</text>
-<text transform='translate(914.02,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc604.2</text>
-<text transform='translate(975.45,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc822</text>
-<text transform='translate(1036.88,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc822.2</text>
-<text x='569.98' y='1486.46' text-anchor='middle' style='font-size: 14.00px; font-family: "Lato";' textLength='53.63px' lengthAdjust='spacingAndGlyphs'>Identity</text>
-<text x='569.98' y='1216.81' text-anchor='middle' style='font-size: 16.00px; font-weight: bold; font-family: "Lato";' textLength='113.39px' lengthAdjust='spacingAndGlyphs'>percent_ribo</text>
+<text transform='translate(115.45,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc305</text>
+<text transform='translate(176.87,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc305.2</text>
+<text transform='translate(238.30,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc305.3</text>
+<text transform='translate(299.73,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='58.23px' lengthAdjust='spacingAndGlyphs'>PEsc3133</text>
+<text transform='translate(361.16,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='58.23px' lengthAdjust='spacingAndGlyphs'>PEsc3256</text>
+<text transform='translate(422.59,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc420</text>
+<text transform='translate(484.02,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc420.2</text>
+<text transform='translate(545.45,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc420.3</text>
+<text transform='translate(606.88,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc425</text>
+<text transform='translate(668.30,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc425.1</text>
+<text transform='translate(729.73,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc425.2</text>
+<text transform='translate(791.16,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc577</text>
+<text transform='translate(852.59,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc604</text>
+<text transform='translate(914.02,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc604.2</text>
+<text transform='translate(975.45,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc822</text>
+<text transform='translate(1036.88,1427.13) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc822.2</text>
+<text x='569.98' y='1486.46' text-anchor='middle' style='font-size: 14.00px; font-family: "DejaVu Sans Mono";' textLength='53.63px' lengthAdjust='spacingAndGlyphs'>Identity</text>
+<text x='569.98' y='1216.81' text-anchor='middle' style='font-size: 16.00px; font-weight: bold; font-family: "DejaVu Sans Mono";' textLength='113.39px' lengthAdjust='spacingAndGlyphs'>percent_ribo</text>
 </g>
 <defs>
   <clipPath id='cpNS40OHwxMDc0LjUyfDE0OTYuMzV8MTc5NC41Mg=='>
@@ -11969,10 +11969,10 @@
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTgwMC4wMA==)'>
 <polyline points='72.40,1712.64 72.40,1525.29 ' style='stroke-width: 1.07; stroke-linecap: square;' />
-<text x='65.93' y='1708.50' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
-<text x='65.93' y='1662.72' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>2</text>
-<text x='65.93' y='1616.93' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>4</text>
-<text x='65.93' y='1571.15' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>6</text>
+<text x='65.93' y='1708.50' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='65.93' y='1662.72' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>2</text>
+<text x='65.93' y='1616.93' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>4</text>
+<text x='65.93' y='1571.15' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>6</text>
 <polyline points='68.92,1704.13 72.40,1704.13 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='68.92,1658.34 72.40,1658.34 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='68.92,1612.56 72.40,1612.56 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
@@ -11994,23 +11994,23 @@
 <polyline points='907.83,1716.13 907.83,1712.64 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='969.26,1716.13 969.26,1712.64 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='1030.69,1716.13 1030.69,1712.64 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
-<text transform='translate(115.45,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc305</text>
-<text transform='translate(176.87,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc305.2</text>
-<text transform='translate(238.30,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc305.3</text>
-<text transform='translate(299.73,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='58.23px' lengthAdjust='spacingAndGlyphs'>PEsc3133</text>
-<text transform='translate(361.16,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='58.23px' lengthAdjust='spacingAndGlyphs'>PEsc3256</text>
-<text transform='translate(422.59,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc420</text>
-<text transform='translate(484.02,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc420.2</text>
-<text transform='translate(545.45,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc420.3</text>
-<text transform='translate(606.88,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc425</text>
-<text transform='translate(668.30,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc425.1</text>
-<text transform='translate(729.73,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc425.2</text>
-<text transform='translate(791.16,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc577</text>
-<text transform='translate(852.59,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc604</text>
-<text transform='translate(914.02,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc604.2</text>
-<text transform='translate(975.45,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc822</text>
-<text transform='translate(1036.88,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc822.2</text>
-<text x='569.98' y='1784.64' text-anchor='middle' style='font-size: 14.00px; font-family: "Lato";' textLength='53.63px' lengthAdjust='spacingAndGlyphs'>Identity</text>
-<text x='569.98' y='1514.98' text-anchor='middle' style='font-size: 16.00px; font-weight: bold; font-family: "Lato";' textLength='112.95px' lengthAdjust='spacingAndGlyphs'>percent_plat</text>
+<text transform='translate(115.45,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc305</text>
+<text transform='translate(176.87,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc305.2</text>
+<text transform='translate(238.30,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc305.3</text>
+<text transform='translate(299.73,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='58.23px' lengthAdjust='spacingAndGlyphs'>PEsc3133</text>
+<text transform='translate(361.16,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='58.23px' lengthAdjust='spacingAndGlyphs'>PEsc3256</text>
+<text transform='translate(422.59,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc420</text>
+<text transform='translate(484.02,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc420.2</text>
+<text transform='translate(545.45,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc420.3</text>
+<text transform='translate(606.88,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc425</text>
+<text transform='translate(668.30,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc425.1</text>
+<text transform='translate(729.73,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc425.2</text>
+<text transform='translate(791.16,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc577</text>
+<text transform='translate(852.59,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc604</text>
+<text transform='translate(914.02,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc604.2</text>
+<text transform='translate(975.45,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='50.59px' lengthAdjust='spacingAndGlyphs'>PEsc822</text>
+<text transform='translate(1036.88,1725.31) rotate(-45)' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>PEsc822.2</text>
+<text x='569.98' y='1784.64' text-anchor='middle' style='font-size: 14.00px; font-family: "DejaVu Sans Mono";' textLength='53.63px' lengthAdjust='spacingAndGlyphs'>Identity</text>
+<text x='569.98' y='1514.98' text-anchor='middle' style='font-size: 16.00px; font-weight: bold; font-family: "DejaVu Sans Mono";' textLength='112.95px' lengthAdjust='spacingAndGlyphs'>percent_plat</text>
 </g>
 </svg>

@@ -503,11 +503,11 @@
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8NzIwLjAw)'>
 <polyline points='59.24,193.20 59.24,63.64 ' style='stroke-width: 1.07; stroke-linecap: square;' />
-<text x='52.76' y='193.69' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='23.43px' lengthAdjust='spacingAndGlyphs'>-7.5</text>
-<text x='52.76' y='167.44' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='23.43px' lengthAdjust='spacingAndGlyphs'>-5.0</text>
-<text x='52.76' y='141.20' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='23.43px' lengthAdjust='spacingAndGlyphs'>-2.5</text>
-<text x='52.76' y='114.95' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>0.0</text>
-<text x='52.76' y='88.70' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>2.5</text>
+<text x='52.76' y='193.69' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='23.43px' lengthAdjust='spacingAndGlyphs'>-7.5</text>
+<text x='52.76' y='167.44' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='23.43px' lengthAdjust='spacingAndGlyphs'>-5.0</text>
+<text x='52.76' y='141.20' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='23.43px' lengthAdjust='spacingAndGlyphs'>-2.5</text>
+<text x='52.76' y='114.95' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>0.0</text>
+<text x='52.76' y='88.70' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>2.5</text>
 <polyline points='55.75,189.32 59.24,189.32 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='55.75,163.07 59.24,163.07 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='55.75,136.82 59.24,136.82 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
@@ -519,18 +519,18 @@
 <polyline points='289.44,196.68 289.44,193.20 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='376.20,196.68 376.20,193.20 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='462.96,196.68 462.96,193.20 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
-<text x='115.91' y='208.42' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='11.97px' lengthAdjust='spacingAndGlyphs'>-5</text>
-<text x='202.67' y='208.42' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
-<text x='289.44' y='208.42' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>5</text>
-<text x='376.20' y='208.42' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>10</text>
-<text x='462.96' y='208.42' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>15</text>
-<text x='271.33' y='224.54' text-anchor='middle' style='font-size: 14.00px; font-family: "Lato";' textLength='56.24px' lengthAdjust='spacingAndGlyphs'>UMAP_1</text>
-<text transform='translate(22.58,128.42) rotate(-90)' text-anchor='middle' style='font-size: 14.00px; font-family: "Lato";' textLength='56.24px' lengthAdjust='spacingAndGlyphs'>UMAP_2</text>
+<text x='115.91' y='208.42' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='11.97px' lengthAdjust='spacingAndGlyphs'>-5</text>
+<text x='202.67' y='208.42' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='289.44' y='208.42' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>5</text>
+<text x='376.20' y='208.42' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>10</text>
+<text x='462.96' y='208.42' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>15</text>
+<text x='271.33' y='224.54' text-anchor='middle' style='font-size: 14.00px; font-family: "DejaVu Sans Mono";' textLength='56.24px' lengthAdjust='spacingAndGlyphs'>UMAP_1</text>
+<text transform='translate(22.58,128.42) rotate(-90)' text-anchor='middle' style='font-size: 14.00px; font-family: "DejaVu Sans Mono";' textLength='56.24px' lengthAdjust='spacingAndGlyphs'>UMAP_2</text>
 <circle cx='505.04' cy='124.23' r='3.56' style='stroke-width: 0.71; stroke: #F8766D; fill: #F8766D;' />
 <circle cx='505.04' cy='139.58' r='3.56' style='stroke-width: 0.71; stroke: #00BFC4; fill: #00BFC4;' />
-<text x='519.68' y='128.61' style='font-size: 12.00px; font-family: "Lato";' textLength='22.92px' lengthAdjust='spacingAndGlyphs'>305</text>
-<text x='519.68' y='143.95' style='font-size: 12.00px; font-family: "Lato";' textLength='22.92px' lengthAdjust='spacingAndGlyphs'>420</text>
-<text x='271.33' y='53.23' text-anchor='middle' style='font-size: 16.00px; font-weight: bold; font-family: "Lato";' textLength='29.89px' lengthAdjust='spacingAndGlyphs'>pat</text>
+<text x='519.68' y='128.61' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='22.92px' lengthAdjust='spacingAndGlyphs'>305</text>
+<text x='519.68' y='143.95' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='22.92px' lengthAdjust='spacingAndGlyphs'>420</text>
+<text x='271.33' y='53.23' text-anchor='middle' style='font-size: 16.00px; font-weight: bold; font-family: "DejaVu Sans Mono";' textLength='29.89px' lengthAdjust='spacingAndGlyphs'>pat</text>
 </g>
 <defs>
   <clipPath id='cpNTQ2LjY3fDEwNzQuNTJ8MzQuNjh8MjM0LjUy'>
@@ -1003,11 +1003,11 @@
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8NzIwLjAw)'>
 <polyline points='600.43,193.20 600.43,63.64 ' style='stroke-width: 1.07; stroke-linecap: square;' />
-<text x='593.95' y='193.69' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='23.43px' lengthAdjust='spacingAndGlyphs'>-7.5</text>
-<text x='593.95' y='167.44' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='23.43px' lengthAdjust='spacingAndGlyphs'>-5.0</text>
-<text x='593.95' y='141.20' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='23.43px' lengthAdjust='spacingAndGlyphs'>-2.5</text>
-<text x='593.95' y='114.95' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>0.0</text>
-<text x='593.95' y='88.70' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>2.5</text>
+<text x='593.95' y='193.69' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='23.43px' lengthAdjust='spacingAndGlyphs'>-7.5</text>
+<text x='593.95' y='167.44' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='23.43px' lengthAdjust='spacingAndGlyphs'>-5.0</text>
+<text x='593.95' y='141.20' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='23.43px' lengthAdjust='spacingAndGlyphs'>-2.5</text>
+<text x='593.95' y='114.95' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>0.0</text>
+<text x='593.95' y='88.70' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>2.5</text>
 <polyline points='596.94,189.32 600.43,189.32 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='596.94,163.07 600.43,163.07 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='596.94,136.82 600.43,136.82 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
@@ -1019,21 +1019,21 @@
 <polyline points='830.63,196.68 830.63,193.20 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='917.39,196.68 917.39,193.20 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='1004.15,196.68 1004.15,193.20 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
-<text x='657.10' y='208.42' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='11.97px' lengthAdjust='spacingAndGlyphs'>-5</text>
-<text x='743.87' y='208.42' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
-<text x='830.63' y='208.42' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>5</text>
-<text x='917.39' y='208.42' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>10</text>
-<text x='1004.15' y='208.42' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>15</text>
-<text x='812.52' y='224.54' text-anchor='middle' style='font-size: 14.00px; font-family: "Lato";' textLength='56.24px' lengthAdjust='spacingAndGlyphs'>UMAP_1</text>
-<text transform='translate(563.77,128.42) rotate(-90)' text-anchor='middle' style='font-size: 14.00px; font-family: "Lato";' textLength='56.24px' lengthAdjust='spacingAndGlyphs'>UMAP_2</text>
+<text x='657.10' y='208.42' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='11.97px' lengthAdjust='spacingAndGlyphs'>-5</text>
+<text x='743.87' y='208.42' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='830.63' y='208.42' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>5</text>
+<text x='917.39' y='208.42' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>10</text>
+<text x='1004.15' y='208.42' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>15</text>
+<text x='812.52' y='224.54' text-anchor='middle' style='font-size: 14.00px; font-family: "DejaVu Sans Mono";' textLength='56.24px' lengthAdjust='spacingAndGlyphs'>UMAP_1</text>
+<text transform='translate(563.77,128.42) rotate(-90)' text-anchor='middle' style='font-size: 14.00px; font-family: "DejaVu Sans Mono";' textLength='56.24px' lengthAdjust='spacingAndGlyphs'>UMAP_2</text>
 <circle cx='1046.23' cy='116.56' r='3.56' style='stroke-width: 0.71; stroke: #F8766D; fill: #F8766D;' />
 <circle cx='1046.23' cy='131.90' r='3.56' style='stroke-width: 0.71; stroke: #00BA38; fill: #00BA38;' />
 <circle cx='1046.23' cy='147.25' r='3.56' style='stroke-width: 0.71; stroke: #619CFF; fill: #619CFF;' />
-<text x='1060.87' y='120.94' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>1</text>
-<text x='1060.87' y='136.28' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>2</text>
-<text x='1060.87' y='151.62' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>3</text>
-<text x='812.52' y='53.23' text-anchor='middle' style='font-size: 16.00px; font-weight: bold; font-family: "Lato";' textLength='30.20px' lengthAdjust='spacingAndGlyphs'>rep</text>
-<text x='540.00' y='23.70' text-anchor='middle' style='font-size: 25.00px; font-family: "Lato";' textLength='177.93px' lengthAdjust='spacingAndGlyphs'>mesothelioma</text>
+<text x='1060.87' y='120.94' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>1</text>
+<text x='1060.87' y='136.28' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>2</text>
+<text x='1060.87' y='151.62' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>3</text>
+<text x='812.52' y='53.23' text-anchor='middle' style='font-size: 16.00px; font-weight: bold; font-family: "DejaVu Sans Mono";' textLength='30.20px' lengthAdjust='spacingAndGlyphs'>rep</text>
+<text x='540.00' y='23.70' text-anchor='middle' style='font-size: 25.00px; font-family: "DejaVu Sans Mono";' textLength='177.93px' lengthAdjust='spacingAndGlyphs'>mesothelioma</text>
 </g>
 <defs>
   <clipPath id='cpMC4wMHwxMDgwLjAwfDI0MC4wMHw0ODAuMDA='>
@@ -1323,9 +1323,9 @@
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8NzIwLjAw)'>
 <polyline points='59.24,433.20 59.24,303.64 ' style='stroke-width: 1.07; stroke-linecap: square;' />
-<text x='52.76' y='407.69' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='23.43px' lengthAdjust='spacingAndGlyphs'>-2.5</text>
-<text x='52.76' y='372.31' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>0.0</text>
-<text x='52.76' y='336.93' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>2.5</text>
+<text x='52.76' y='407.69' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='23.43px' lengthAdjust='spacingAndGlyphs'>-2.5</text>
+<text x='52.76' y='372.31' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>0.0</text>
+<text x='52.76' y='336.93' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>2.5</text>
 <polyline points='55.75,403.32 59.24,403.32 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='55.75,367.94 59.24,367.94 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='55.75,332.56 59.24,332.56 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
@@ -1333,16 +1333,16 @@
 <polyline points='131.00,436.68 131.00,433.20 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='251.44,436.68 251.44,433.20 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='371.88,436.68 371.88,433.20 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
-<text x='131.00' y='448.42' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='11.97px' lengthAdjust='spacingAndGlyphs'>-2</text>
-<text x='251.44' y='448.42' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
-<text x='371.88' y='448.42' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>2</text>
-<text x='271.33' y='464.54' text-anchor='middle' style='font-size: 14.00px; font-family: "Lato";' textLength='56.24px' lengthAdjust='spacingAndGlyphs'>UMAP_1</text>
-<text transform='translate(22.58,368.42) rotate(-90)' text-anchor='middle' style='font-size: 14.00px; font-family: "Lato";' textLength='56.24px' lengthAdjust='spacingAndGlyphs'>UMAP_2</text>
+<text x='131.00' y='448.42' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='11.97px' lengthAdjust='spacingAndGlyphs'>-2</text>
+<text x='251.44' y='448.42' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='371.88' y='448.42' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>2</text>
+<text x='271.33' y='464.54' text-anchor='middle' style='font-size: 14.00px; font-family: "DejaVu Sans Mono";' textLength='56.24px' lengthAdjust='spacingAndGlyphs'>UMAP_1</text>
+<text transform='translate(22.58,368.42) rotate(-90)' text-anchor='middle' style='font-size: 14.00px; font-family: "DejaVu Sans Mono";' textLength='56.24px' lengthAdjust='spacingAndGlyphs'>UMAP_2</text>
 <circle cx='505.04' cy='364.23' r='3.56' style='stroke-width: 0.71; stroke: #F8766D; fill: #F8766D;' />
 <circle cx='505.04' cy='379.58' r='3.56' style='stroke-width: 0.71; stroke: #00BFC4; fill: #00BFC4;' />
-<text x='519.68' y='368.61' style='font-size: 12.00px; font-family: "Lato";' textLength='22.92px' lengthAdjust='spacingAndGlyphs'>425</text>
-<text x='519.68' y='383.95' style='font-size: 12.00px; font-family: "Lato";' textLength='22.92px' lengthAdjust='spacingAndGlyphs'>822</text>
-<text x='271.33' y='293.23' text-anchor='middle' style='font-size: 16.00px; font-weight: bold; font-family: "Lato";' textLength='29.89px' lengthAdjust='spacingAndGlyphs'>pat</text>
+<text x='519.68' y='368.61' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='22.92px' lengthAdjust='spacingAndGlyphs'>425</text>
+<text x='519.68' y='383.95' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='22.92px' lengthAdjust='spacingAndGlyphs'>822</text>
+<text x='271.33' y='293.23' text-anchor='middle' style='font-size: 16.00px; font-weight: bold; font-family: "DejaVu Sans Mono";' textLength='29.89px' lengthAdjust='spacingAndGlyphs'>pat</text>
 </g>
 <defs>
   <clipPath id='cpNTQ2LjY3fDEwNzQuNTJ8Mjc0LjY4fDQ3NC41Mg=='>
@@ -1622,9 +1622,9 @@
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8NzIwLjAw)'>
 <polyline points='600.43,433.20 600.43,303.64 ' style='stroke-width: 1.07; stroke-linecap: square;' />
-<text x='593.95' y='407.69' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='23.43px' lengthAdjust='spacingAndGlyphs'>-2.5</text>
-<text x='593.95' y='372.31' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>0.0</text>
-<text x='593.95' y='336.93' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>2.5</text>
+<text x='593.95' y='407.69' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='23.43px' lengthAdjust='spacingAndGlyphs'>-2.5</text>
+<text x='593.95' y='372.31' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>0.0</text>
+<text x='593.95' y='336.93' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>2.5</text>
 <polyline points='596.94,403.32 600.43,403.32 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='596.94,367.94 600.43,367.94 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='596.94,332.56 600.43,332.56 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
@@ -1632,19 +1632,19 @@
 <polyline points='672.19,436.68 672.19,433.20 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='792.63,436.68 792.63,433.20 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='913.07,436.68 913.07,433.20 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
-<text x='672.19' y='448.42' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='11.97px' lengthAdjust='spacingAndGlyphs'>-2</text>
-<text x='792.63' y='448.42' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
-<text x='913.07' y='448.42' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>2</text>
-<text x='812.52' y='464.54' text-anchor='middle' style='font-size: 14.00px; font-family: "Lato";' textLength='56.24px' lengthAdjust='spacingAndGlyphs'>UMAP_1</text>
-<text transform='translate(563.77,368.42) rotate(-90)' text-anchor='middle' style='font-size: 14.00px; font-family: "Lato";' textLength='56.24px' lengthAdjust='spacingAndGlyphs'>UMAP_2</text>
+<text x='672.19' y='448.42' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='11.97px' lengthAdjust='spacingAndGlyphs'>-2</text>
+<text x='792.63' y='448.42' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='913.07' y='448.42' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>2</text>
+<text x='812.52' y='464.54' text-anchor='middle' style='font-size: 14.00px; font-family: "DejaVu Sans Mono";' textLength='56.24px' lengthAdjust='spacingAndGlyphs'>UMAP_1</text>
+<text transform='translate(563.77,368.42) rotate(-90)' text-anchor='middle' style='font-size: 14.00px; font-family: "DejaVu Sans Mono";' textLength='56.24px' lengthAdjust='spacingAndGlyphs'>UMAP_2</text>
 <circle cx='1046.23' cy='356.56' r='3.56' style='stroke-width: 0.71; stroke: #F8766D; fill: #F8766D;' />
 <circle cx='1046.23' cy='371.90' r='3.56' style='stroke-width: 0.71; stroke: #00BA38; fill: #00BA38;' />
 <circle cx='1046.23' cy='387.25' r='3.56' style='stroke-width: 0.71; stroke: #619CFF; fill: #619CFF;' />
-<text x='1060.87' y='360.94' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>1</text>
-<text x='1060.87' y='376.28' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>2</text>
-<text x='1060.87' y='391.62' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>3</text>
-<text x='812.52' y='293.23' text-anchor='middle' style='font-size: 16.00px; font-weight: bold; font-family: "Lato";' textLength='30.20px' lengthAdjust='spacingAndGlyphs'>rep</text>
-<text x='540.00' y='263.70' text-anchor='middle' style='font-size: 25.00px; font-family: "Lato";' textLength='60.26px' lengthAdjust='spacingAndGlyphs'>adca</text>
+<text x='1060.87' y='360.94' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>1</text>
+<text x='1060.87' y='376.28' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>2</text>
+<text x='1060.87' y='391.62' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>3</text>
+<text x='812.52' y='293.23' text-anchor='middle' style='font-size: 16.00px; font-weight: bold; font-family: "DejaVu Sans Mono";' textLength='30.20px' lengthAdjust='spacingAndGlyphs'>rep</text>
+<text x='540.00' y='263.70' text-anchor='middle' style='font-size: 25.00px; font-family: "DejaVu Sans Mono";' textLength='60.26px' lengthAdjust='spacingAndGlyphs'>adca</text>
 </g>
 <defs>
   <clipPath id='cpMC4wMHwxMDgwLjAwfDQ4MC4wMHw3MjAuMDA='>
@@ -2078,10 +2078,10 @@
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8NzIwLjAw)'>
 <polyline points='55.90,673.20 55.90,543.64 ' style='stroke-width: 1.07; stroke-linecap: square;' />
-<text x='49.42' y='665.39' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='19.61px' lengthAdjust='spacingAndGlyphs'>-10</text>
-<text x='49.42' y='626.64' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='11.97px' lengthAdjust='spacingAndGlyphs'>-5</text>
-<text x='49.42' y='587.90' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
-<text x='49.42' y='549.15' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>5</text>
+<text x='49.42' y='665.39' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='19.61px' lengthAdjust='spacingAndGlyphs'>-10</text>
+<text x='49.42' y='626.64' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='11.97px' lengthAdjust='spacingAndGlyphs'>-5</text>
+<text x='49.42' y='587.90' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='49.42' y='549.15' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>5</text>
 <polyline points='52.41,661.01 55.90,661.01 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='52.41,622.27 55.90,622.27 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='52.41,583.52 55.90,583.52 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
@@ -2091,17 +2091,17 @@
 <polyline points='193.17,676.68 193.17,673.20 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='310.62,676.68 310.62,673.20 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='428.08,676.68 428.08,673.20 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
-<text x='75.71' y='688.42' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='11.97px' lengthAdjust='spacingAndGlyphs'>-5</text>
-<text x='193.17' y='688.42' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
-<text x='310.62' y='688.42' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>5</text>
-<text x='428.08' y='688.42' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>10</text>
-<text x='269.66' y='704.54' text-anchor='middle' style='font-size: 14.00px; font-family: "Lato";' textLength='56.24px' lengthAdjust='spacingAndGlyphs'>UMAP_1</text>
-<text transform='translate(22.58,608.42) rotate(-90)' text-anchor='middle' style='font-size: 14.00px; font-family: "Lato";' textLength='56.24px' lengthAdjust='spacingAndGlyphs'>UMAP_2</text>
+<text x='75.71' y='688.42' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='11.97px' lengthAdjust='spacingAndGlyphs'>-5</text>
+<text x='193.17' y='688.42' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='310.62' y='688.42' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>5</text>
+<text x='428.08' y='688.42' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>10</text>
+<text x='269.66' y='704.54' text-anchor='middle' style='font-size: 14.00px; font-family: "DejaVu Sans Mono";' textLength='56.24px' lengthAdjust='spacingAndGlyphs'>UMAP_1</text>
+<text transform='translate(22.58,608.42) rotate(-90)' text-anchor='middle' style='font-size: 14.00px; font-family: "DejaVu Sans Mono";' textLength='56.24px' lengthAdjust='spacingAndGlyphs'>UMAP_2</text>
 <circle cx='505.04' cy='604.23' r='3.56' style='stroke-width: 0.71; stroke: #F8766D; fill: #F8766D;' />
 <circle cx='505.04' cy='619.58' r='3.56' style='stroke-width: 0.71; stroke: #00BFC4; fill: #00BFC4;' />
-<text x='519.68' y='608.61' style='font-size: 12.00px; font-family: "Lato";' textLength='22.92px' lengthAdjust='spacingAndGlyphs'>577</text>
-<text x='519.68' y='623.95' style='font-size: 12.00px; font-family: "Lato";' textLength='22.92px' lengthAdjust='spacingAndGlyphs'>604</text>
-<text x='269.66' y='533.23' text-anchor='middle' style='font-size: 16.00px; font-weight: bold; font-family: "Lato";' textLength='29.89px' lengthAdjust='spacingAndGlyphs'>pat</text>
+<text x='519.68' y='608.61' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='22.92px' lengthAdjust='spacingAndGlyphs'>577</text>
+<text x='519.68' y='623.95' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='22.92px' lengthAdjust='spacingAndGlyphs'>604</text>
+<text x='269.66' y='533.23' text-anchor='middle' style='font-size: 16.00px; font-weight: bold; font-family: "DejaVu Sans Mono";' textLength='29.89px' lengthAdjust='spacingAndGlyphs'>pat</text>
 </g>
 <defs>
   <clipPath id='cpNTQ2LjY3fDEwNzQuNTJ8NTE0LjY4fDcxNC41Mg=='>
@@ -2525,10 +2525,10 @@
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8NzIwLjAw)'>
 <polyline points='597.09,673.20 597.09,543.64 ' style='stroke-width: 1.07; stroke-linecap: square;' />
-<text x='590.62' y='665.39' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='19.61px' lengthAdjust='spacingAndGlyphs'>-10</text>
-<text x='590.62' y='626.64' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='11.97px' lengthAdjust='spacingAndGlyphs'>-5</text>
-<text x='590.62' y='587.90' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
-<text x='590.62' y='549.15' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>5</text>
+<text x='590.62' y='665.39' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='19.61px' lengthAdjust='spacingAndGlyphs'>-10</text>
+<text x='590.62' y='626.64' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='11.97px' lengthAdjust='spacingAndGlyphs'>-5</text>
+<text x='590.62' y='587.90' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='590.62' y='549.15' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>5</text>
 <polyline points='593.61,661.01 597.09,661.01 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='593.61,622.27 597.09,622.27 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='593.61,583.52 597.09,583.52 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
@@ -2538,19 +2538,19 @@
 <polyline points='734.36,676.68 734.36,673.20 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='851.82,676.68 851.82,673.20 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='969.28,676.68 969.28,673.20 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
-<text x='616.90' y='688.42' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='11.97px' lengthAdjust='spacingAndGlyphs'>-5</text>
-<text x='734.36' y='688.42' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
-<text x='851.82' y='688.42' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>5</text>
-<text x='969.28' y='688.42' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>10</text>
-<text x='810.85' y='704.54' text-anchor='middle' style='font-size: 14.00px; font-family: "Lato";' textLength='56.24px' lengthAdjust='spacingAndGlyphs'>UMAP_1</text>
-<text transform='translate(563.77,608.42) rotate(-90)' text-anchor='middle' style='font-size: 14.00px; font-family: "Lato";' textLength='56.24px' lengthAdjust='spacingAndGlyphs'>UMAP_2</text>
+<text x='616.90' y='688.42' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='11.97px' lengthAdjust='spacingAndGlyphs'>-5</text>
+<text x='734.36' y='688.42' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='851.82' y='688.42' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>5</text>
+<text x='969.28' y='688.42' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>10</text>
+<text x='810.85' y='704.54' text-anchor='middle' style='font-size: 14.00px; font-family: "DejaVu Sans Mono";' textLength='56.24px' lengthAdjust='spacingAndGlyphs'>UMAP_1</text>
+<text transform='translate(563.77,608.42) rotate(-90)' text-anchor='middle' style='font-size: 14.00px; font-family: "DejaVu Sans Mono";' textLength='56.24px' lengthAdjust='spacingAndGlyphs'>UMAP_2</text>
 <circle cx='1046.23' cy='596.56' r='3.56' style='stroke-width: 0.71; stroke: #F8766D; fill: #F8766D;' />
 <circle cx='1046.23' cy='611.90' r='3.56' style='stroke-width: 0.71; stroke: #00BA38; fill: #00BA38;' />
 <circle cx='1046.23' cy='627.25' r='3.56' style='stroke-width: 0.71; stroke: #619CFF; fill: #619CFF;' />
-<text x='1060.87' y='600.94' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>1</text>
-<text x='1060.87' y='616.28' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>2</text>
-<text x='1060.87' y='631.62' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>3</text>
-<text x='810.85' y='533.23' text-anchor='middle' style='font-size: 16.00px; font-weight: bold; font-family: "Lato";' textLength='30.20px' lengthAdjust='spacingAndGlyphs'>rep</text>
-<text x='540.00' y='503.70' text-anchor='middle' style='font-size: 25.00px; font-family: "Lato";' textLength='85.76px' lengthAdjust='spacingAndGlyphs'>benign</text>
+<text x='1060.87' y='600.94' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>1</text>
+<text x='1060.87' y='616.28' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>2</text>
+<text x='1060.87' y='631.62' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>3</text>
+<text x='810.85' y='533.23' text-anchor='middle' style='font-size: 16.00px; font-weight: bold; font-family: "DejaVu Sans Mono";' textLength='30.20px' lengthAdjust='spacingAndGlyphs'>rep</text>
+<text x='540.00' y='503.70' text-anchor='middle' style='font-size: 25.00px; font-family: "DejaVu Sans Mono";' textLength='85.76px' lengthAdjust='spacingAndGlyphs'>benign</text>
 </g>
 </svg>

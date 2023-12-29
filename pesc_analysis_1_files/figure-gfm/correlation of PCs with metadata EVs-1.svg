@@ -457,35 +457,35 @@
 <rect x='472.63' y='72.00' width='7.61' height='16.30' style='stroke-width: 0.75; stroke: none; fill: #F8D074;' />
 </g>
 <g clip-path='url(#cpMC4wMHw3MjAuMDB8MC4wMHwzNjAuMDA=)'>
-<text transform='translate(259.43,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "Lato";' textLength='24.25px' lengthAdjust='spacingAndGlyphs'>PC_2</text>
-<text transform='translate(274.65,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "Lato";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_10</text>
-<text transform='translate(289.86,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "Lato";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_16</text>
-<text transform='translate(305.08,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "Lato";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_26</text>
-<text transform='translate(320.29,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "Lato";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_19</text>
-<text transform='translate(335.51,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "Lato";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_12</text>
-<text transform='translate(350.73,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "Lato";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_29</text>
-<text transform='translate(365.94,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "Lato";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_28</text>
-<text transform='translate(381.16,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "Lato";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_27</text>
-<text transform='translate(396.37,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "Lato";' textLength='24.25px' lengthAdjust='spacingAndGlyphs'>PC_7</text>
-<text transform='translate(411.59,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "Lato";' textLength='24.25px' lengthAdjust='spacingAndGlyphs'>PC_3</text>
-<text transform='translate(426.81,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "Lato";' textLength='24.25px' lengthAdjust='spacingAndGlyphs'>PC_8</text>
-<text transform='translate(442.02,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "Lato";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_15</text>
-<text transform='translate(457.24,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "Lato";' textLength='24.25px' lengthAdjust='spacingAndGlyphs'>PC_5</text>
-<text transform='translate(472.45,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "Lato";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_14</text>
-<text x='486.22' y='295.98' style='font-size: 10.68px; font-family: "Lato";' textLength='64.53px' lengthAdjust='spacingAndGlyphs'>nCount_SCT</text>
-<text x='486.22' y='279.67' style='font-size: 10.68px; font-family: "Lato";' textLength='73.15px' lengthAdjust='spacingAndGlyphs'>nFeature_SCT</text>
-<text x='486.22' y='263.37' style='font-size: 10.68px; font-family: "Lato";' textLength='66.48px' lengthAdjust='spacingAndGlyphs'>nCount_RNA</text>
-<text x='486.22' y='247.07' style='font-size: 10.68px; font-family: "Lato";' textLength='75.11px' lengthAdjust='spacingAndGlyphs'>nFeature_RNA</text>
-<text x='486.22' y='230.77' style='font-size: 10.68px; font-family: "Lato";' textLength='66.86px' lengthAdjust='spacingAndGlyphs'>percent_ribo</text>
-<text x='486.22' y='214.46' style='font-size: 10.68px; font-family: "Lato";' textLength='60.78px' lengthAdjust='spacingAndGlyphs'>percent_mt</text>
-<text x='486.22' y='198.16' style='font-size: 10.68px; font-family: "Lato";' textLength='23.84px' lengthAdjust='spacingAndGlyphs'>type</text>
-<text x='486.22' y='181.86' style='font-size: 10.68px; font-family: "Lato";' textLength='59.74px' lengthAdjust='spacingAndGlyphs'>percent_hb</text>
-<text x='486.22' y='165.55' style='font-size: 10.68px; font-family: "Lato";' textLength='17.49px' lengthAdjust='spacingAndGlyphs'>rep</text>
-<text x='486.22' y='149.25' style='font-size: 10.68px; font-family: "Lato";' textLength='66.66px' lengthAdjust='spacingAndGlyphs'>percent_plat</text>
-<text x='486.22' y='132.95' style='font-size: 10.68px; font-family: "Lato";' textLength='23.05px' lengthAdjust='spacingAndGlyphs'>diag</text>
-<text x='486.22' y='116.65' style='font-size: 10.68px; font-family: "Lato";' textLength='20.55px' lengthAdjust='spacingAndGlyphs'>frac</text>
-<text x='486.22' y='100.34' style='font-size: 10.68px; font-family: "Lato";' textLength='51.30px' lengthAdjust='spacingAndGlyphs'>orig.ident</text>
-<text x='486.22' y='84.04' style='font-size: 10.68px; font-family: "Lato";' textLength='17.50px' lengthAdjust='spacingAndGlyphs'>pat</text>
+<text transform='translate(259.43,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "DejaVu Sans Mono";' textLength='24.25px' lengthAdjust='spacingAndGlyphs'>PC_2</text>
+<text transform='translate(274.65,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "DejaVu Sans Mono";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_10</text>
+<text transform='translate(289.86,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "DejaVu Sans Mono";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_16</text>
+<text transform='translate(305.08,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "DejaVu Sans Mono";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_26</text>
+<text transform='translate(320.29,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "DejaVu Sans Mono";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_19</text>
+<text transform='translate(335.51,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "DejaVu Sans Mono";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_12</text>
+<text transform='translate(350.73,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "DejaVu Sans Mono";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_29</text>
+<text transform='translate(365.94,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "DejaVu Sans Mono";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_28</text>
+<text transform='translate(381.16,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "DejaVu Sans Mono";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_27</text>
+<text transform='translate(396.37,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "DejaVu Sans Mono";' textLength='24.25px' lengthAdjust='spacingAndGlyphs'>PC_7</text>
+<text transform='translate(411.59,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "DejaVu Sans Mono";' textLength='24.25px' lengthAdjust='spacingAndGlyphs'>PC_3</text>
+<text transform='translate(426.81,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "DejaVu Sans Mono";' textLength='24.25px' lengthAdjust='spacingAndGlyphs'>PC_8</text>
+<text transform='translate(442.02,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "DejaVu Sans Mono";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_15</text>
+<text transform='translate(457.24,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "DejaVu Sans Mono";' textLength='24.25px' lengthAdjust='spacingAndGlyphs'>PC_5</text>
+<text transform='translate(472.45,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "DejaVu Sans Mono";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_14</text>
+<text x='486.22' y='295.98' style='font-size: 10.68px; font-family: "DejaVu Sans Mono";' textLength='64.53px' lengthAdjust='spacingAndGlyphs'>nCount_SCT</text>
+<text x='486.22' y='279.67' style='font-size: 10.68px; font-family: "DejaVu Sans Mono";' textLength='73.15px' lengthAdjust='spacingAndGlyphs'>nFeature_SCT</text>
+<text x='486.22' y='263.37' style='font-size: 10.68px; font-family: "DejaVu Sans Mono";' textLength='66.48px' lengthAdjust='spacingAndGlyphs'>nCount_RNA</text>
+<text x='486.22' y='247.07' style='font-size: 10.68px; font-family: "DejaVu Sans Mono";' textLength='75.11px' lengthAdjust='spacingAndGlyphs'>nFeature_RNA</text>
+<text x='486.22' y='230.77' style='font-size: 10.68px; font-family: "DejaVu Sans Mono";' textLength='66.86px' lengthAdjust='spacingAndGlyphs'>percent_ribo</text>
+<text x='486.22' y='214.46' style='font-size: 10.68px; font-family: "DejaVu Sans Mono";' textLength='60.78px' lengthAdjust='spacingAndGlyphs'>percent_mt</text>
+<text x='486.22' y='198.16' style='font-size: 10.68px; font-family: "DejaVu Sans Mono";' textLength='23.84px' lengthAdjust='spacingAndGlyphs'>type</text>
+<text x='486.22' y='181.86' style='font-size: 10.68px; font-family: "DejaVu Sans Mono";' textLength='59.74px' lengthAdjust='spacingAndGlyphs'>percent_hb</text>
+<text x='486.22' y='165.55' style='font-size: 10.68px; font-family: "DejaVu Sans Mono";' textLength='17.49px' lengthAdjust='spacingAndGlyphs'>rep</text>
+<text x='486.22' y='149.25' style='font-size: 10.68px; font-family: "DejaVu Sans Mono";' textLength='66.66px' lengthAdjust='spacingAndGlyphs'>percent_plat</text>
+<text x='486.22' y='132.95' style='font-size: 10.68px; font-family: "DejaVu Sans Mono";' textLength='23.05px' lengthAdjust='spacingAndGlyphs'>diag</text>
+<text x='486.22' y='116.65' style='font-size: 10.68px; font-family: "DejaVu Sans Mono";' textLength='20.55px' lengthAdjust='spacingAndGlyphs'>frac</text>
+<text x='486.22' y='100.34' style='font-size: 10.68px; font-family: "DejaVu Sans Mono";' textLength='51.30px' lengthAdjust='spacingAndGlyphs'>orig.ident</text>
+<text x='486.22' y='84.04' style='font-size: 10.68px; font-family: "DejaVu Sans Mono";' textLength='17.50px' lengthAdjust='spacingAndGlyphs'>pat</text>
 </g>
 <defs>
   <clipPath id='cpMTgwLjAwfDI1Mi4wMHw3Mi4wMHwzMDAuMjQ='>

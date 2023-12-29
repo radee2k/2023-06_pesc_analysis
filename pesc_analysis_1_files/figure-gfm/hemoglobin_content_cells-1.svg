@@ -1954,10 +1954,10 @@
 </g>
 <g clip-path='url(#cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)'>
 <polyline points='98.31,450.08 98.31,5.48 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
-<text x='93.37' y='438.66' text-anchor='end' style='font-size: 20.00px;fill: #4D4D4D; font-family: "Lato";' textLength='12.72px' lengthAdjust='spacingAndGlyphs'>0</text>
-<text x='93.37' y='312.16' text-anchor='end' style='font-size: 20.00px;fill: #4D4D4D; font-family: "Lato";' textLength='50.89px' lengthAdjust='spacingAndGlyphs'>5000</text>
-<text x='93.37' y='185.67' text-anchor='end' style='font-size: 20.00px;fill: #4D4D4D; font-family: "Lato";' textLength='63.61px' lengthAdjust='spacingAndGlyphs'>10000</text>
-<text x='93.37' y='59.17' text-anchor='end' style='font-size: 20.00px;fill: #4D4D4D; font-family: "Lato";' textLength='63.61px' lengthAdjust='spacingAndGlyphs'>15000</text>
+<text x='93.37' y='438.66' text-anchor='end' style='font-size: 20.00px;fill: #4D4D4D; font-family: "DejaVu Sans Mono";' textLength='12.72px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='93.37' y='312.16' text-anchor='end' style='font-size: 20.00px;fill: #4D4D4D; font-family: "DejaVu Sans Mono";' textLength='50.89px' lengthAdjust='spacingAndGlyphs'>5000</text>
+<text x='93.37' y='185.67' text-anchor='end' style='font-size: 20.00px;fill: #4D4D4D; font-family: "DejaVu Sans Mono";' textLength='63.61px' lengthAdjust='spacingAndGlyphs'>10000</text>
+<text x='93.37' y='59.17' text-anchor='end' style='font-size: 20.00px;fill: #4D4D4D; font-family: "DejaVu Sans Mono";' textLength='63.61px' lengthAdjust='spacingAndGlyphs'>15000</text>
 <polyline points='95.57,431.37 98.31,431.37 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='95.57,304.87 98.31,304.87 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='95.57,178.38 98.31,178.38 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
@@ -1979,31 +1979,31 @@
 <polyline points='503.22,452.82 503.22,450.08 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='532.99,452.82 532.99,450.08 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='562.76,452.82 562.76,450.08 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
-<text transform='translate(121.75,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "Lato";' textLength='84.28px' lengthAdjust='spacingAndGlyphs'>PEsc305</text>
-<text transform='translate(151.53,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "Lato";' textLength='103.36px' lengthAdjust='spacingAndGlyphs'>PEsc305.2</text>
-<text transform='translate(181.30,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "Lato";' textLength='103.36px' lengthAdjust='spacingAndGlyphs'>PEsc305.3</text>
-<text transform='translate(211.07,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "Lato";' textLength='97.00px' lengthAdjust='spacingAndGlyphs'>PEsc3133</text>
-<text transform='translate(240.85,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "Lato";' textLength='97.00px' lengthAdjust='spacingAndGlyphs'>PEsc3256</text>
-<text transform='translate(270.62,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "Lato";' textLength='84.28px' lengthAdjust='spacingAndGlyphs'>PEsc420</text>
-<text transform='translate(300.39,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "Lato";' textLength='103.36px' lengthAdjust='spacingAndGlyphs'>PEsc420.2</text>
-<text transform='translate(330.16,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "Lato";' textLength='103.36px' lengthAdjust='spacingAndGlyphs'>PEsc420.3</text>
-<text transform='translate(359.94,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "Lato";' textLength='84.28px' lengthAdjust='spacingAndGlyphs'>PEsc425</text>
-<text transform='translate(389.71,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "Lato";' textLength='103.36px' lengthAdjust='spacingAndGlyphs'>PEsc425.1</text>
-<text transform='translate(419.48,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "Lato";' textLength='103.36px' lengthAdjust='spacingAndGlyphs'>PEsc425.2</text>
-<text transform='translate(449.26,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "Lato";' textLength='84.28px' lengthAdjust='spacingAndGlyphs'>PEsc577</text>
-<text transform='translate(479.03,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "Lato";' textLength='84.28px' lengthAdjust='spacingAndGlyphs'>PEsc604</text>
-<text transform='translate(508.80,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "Lato";' textLength='103.36px' lengthAdjust='spacingAndGlyphs'>PEsc604.2</text>
-<text transform='translate(538.58,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "Lato";' textLength='84.28px' lengthAdjust='spacingAndGlyphs'>PEsc822</text>
-<text transform='translate(568.35,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "Lato";' textLength='103.36px' lengthAdjust='spacingAndGlyphs'>PEsc822.2</text>
-<text x='339.47' y='565.74' text-anchor='middle' style='font-size: 23.00px; font-family: "Lato";' textLength='110.53px' lengthAdjust='spacingAndGlyphs'>orig.ident</text>
-<text transform='translate(22.24,227.78) rotate(-90)' text-anchor='middle' style='font-size: 23.00px; font-family: "Lato";' textLength='161.87px' lengthAdjust='spacingAndGlyphs'>nFeature_RNA</text>
+<text transform='translate(121.75,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "DejaVu Sans Mono";' textLength='84.28px' lengthAdjust='spacingAndGlyphs'>PEsc305</text>
+<text transform='translate(151.53,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "DejaVu Sans Mono";' textLength='103.36px' lengthAdjust='spacingAndGlyphs'>PEsc305.2</text>
+<text transform='translate(181.30,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "DejaVu Sans Mono";' textLength='103.36px' lengthAdjust='spacingAndGlyphs'>PEsc305.3</text>
+<text transform='translate(211.07,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "DejaVu Sans Mono";' textLength='97.00px' lengthAdjust='spacingAndGlyphs'>PEsc3133</text>
+<text transform='translate(240.85,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "DejaVu Sans Mono";' textLength='97.00px' lengthAdjust='spacingAndGlyphs'>PEsc3256</text>
+<text transform='translate(270.62,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "DejaVu Sans Mono";' textLength='84.28px' lengthAdjust='spacingAndGlyphs'>PEsc420</text>
+<text transform='translate(300.39,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "DejaVu Sans Mono";' textLength='103.36px' lengthAdjust='spacingAndGlyphs'>PEsc420.2</text>
+<text transform='translate(330.16,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "DejaVu Sans Mono";' textLength='103.36px' lengthAdjust='spacingAndGlyphs'>PEsc420.3</text>
+<text transform='translate(359.94,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "DejaVu Sans Mono";' textLength='84.28px' lengthAdjust='spacingAndGlyphs'>PEsc425</text>
+<text transform='translate(389.71,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "DejaVu Sans Mono";' textLength='103.36px' lengthAdjust='spacingAndGlyphs'>PEsc425.1</text>
+<text transform='translate(419.48,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "DejaVu Sans Mono";' textLength='103.36px' lengthAdjust='spacingAndGlyphs'>PEsc425.2</text>
+<text transform='translate(449.26,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "DejaVu Sans Mono";' textLength='84.28px' lengthAdjust='spacingAndGlyphs'>PEsc577</text>
+<text transform='translate(479.03,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "DejaVu Sans Mono";' textLength='84.28px' lengthAdjust='spacingAndGlyphs'>PEsc604</text>
+<text transform='translate(508.80,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "DejaVu Sans Mono";' textLength='103.36px' lengthAdjust='spacingAndGlyphs'>PEsc604.2</text>
+<text transform='translate(538.58,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "DejaVu Sans Mono";' textLength='84.28px' lengthAdjust='spacingAndGlyphs'>PEsc822</text>
+<text transform='translate(568.35,505.31) rotate(-50)' text-anchor='middle' style='font-size: 20.00px;fill: #4D4D4D; font-family: "DejaVu Sans Mono";' textLength='103.36px' lengthAdjust='spacingAndGlyphs'>PEsc822.2</text>
+<text x='339.47' y='565.74' text-anchor='middle' style='font-size: 23.00px; font-family: "DejaVu Sans Mono";' textLength='110.53px' lengthAdjust='spacingAndGlyphs'>orig.ident</text>
+<text transform='translate(22.24,227.78) rotate(-90)' text-anchor='middle' style='font-size: 23.00px; font-family: "DejaVu Sans Mono";' textLength='161.87px' lengthAdjust='spacingAndGlyphs'>nFeature_RNA</text>
 <rect x='591.59' y='53.04' width='122.93' height='183.66' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
 <image width='28.80' height='144.00' x='597.07' y='87.22' preserveAspectRatio='none' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAEsCAYAAAACUNnVAAAAoElEQVQ4jb2MSRLCMBAD28pSxf/fy4hLILYTZyNwUUmj1mCwGECMIPqPdKWodJWkVmy6tXiguMjNwunF0VkTuae4ePsJ8vXinviXLx2yHwiPyB4QHpDdI9whu8vdFFU65S4rSC1ECKf1OHFpj7NTATO3a9vq1ojbxeLfJ5Jar5aRut1dnLrF5qs4OKu42OeixUUm5S1Utm+kuj0tFDHHxAvL0f/GDukF6QAAAABJRU5ErkJggg=='/>
-<text x='635.83' y='238.27' style='font-size: 20.00px; font-family: "Lato";' textLength='12.72px' lengthAdjust='spacingAndGlyphs'>0</text>
-<text x='635.83' y='193.67' style='font-size: 20.00px; font-family: "Lato";' textLength='25.44px' lengthAdjust='spacingAndGlyphs'>20</text>
-<text x='635.83' y='149.07' style='font-size: 20.00px; font-family: "Lato";' textLength='25.44px' lengthAdjust='spacingAndGlyphs'>40</text>
-<text x='635.83' y='104.47' style='font-size: 20.00px; font-family: "Lato";' textLength='25.44px' lengthAdjust='spacingAndGlyphs'>60</text>
-<text x='653.05' y='75.18' text-anchor='middle' style='font-size: 20.00px; font-family: "Lato";' textLength='111.97px' lengthAdjust='spacingAndGlyphs'>percent_hb</text>
+<text x='635.83' y='238.27' style='font-size: 20.00px; font-family: "DejaVu Sans Mono";' textLength='12.72px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='635.83' y='193.67' style='font-size: 20.00px; font-family: "DejaVu Sans Mono";' textLength='25.44px' lengthAdjust='spacingAndGlyphs'>20</text>
+<text x='635.83' y='149.07' style='font-size: 20.00px; font-family: "DejaVu Sans Mono";' textLength='25.44px' lengthAdjust='spacingAndGlyphs'>40</text>
+<text x='635.83' y='104.47' style='font-size: 20.00px; font-family: "DejaVu Sans Mono";' textLength='25.44px' lengthAdjust='spacingAndGlyphs'>60</text>
+<text x='653.05' y='75.18' text-anchor='middle' style='font-size: 20.00px; font-family: "DejaVu Sans Mono";' textLength='111.97px' lengthAdjust='spacingAndGlyphs'>percent_hb</text>
 <line x1='597.07' y1='230.98' x2='602.83' y2='230.98' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
 <line x1='597.07' y1='186.38' x2='602.83' y2='186.38' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
 <line x1='597.07' y1='141.78' x2='602.83' y2='141.78' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
@@ -2013,14 +2013,14 @@
 <line x1='620.11' y1='141.78' x2='625.87' y2='141.78' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
 <line x1='620.11' y1='97.18' x2='625.87' y2='97.18' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
 <rect x='591.59' y='247.66' width='122.93' height='154.86' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
-<text x='653.05' y='269.80' text-anchor='middle' style='font-size: 20.00px; font-family: "Lato";' textLength='111.97px' lengthAdjust='spacingAndGlyphs'>percent_hb</text>
+<text x='653.05' y='269.80' text-anchor='middle' style='font-size: 20.00px; font-family: "DejaVu Sans Mono";' textLength='111.97px' lengthAdjust='spacingAndGlyphs'>percent_hb</text>
 <circle cx='611.47' cy='296.25' r='1.42' style='stroke-width: 0.71; fill: #000000;' />
 <circle cx='611.47' cy='325.05' r='4.40' style='stroke-width: 0.71; fill: #000000;' />
 <circle cx='611.47' cy='353.85' r='5.63' style='stroke-width: 0.71; fill: #000000;' />
 <circle cx='611.47' cy='382.65' r='6.57' style='stroke-width: 0.71; fill: #000000;' />
-<text x='635.83' y='303.54' style='font-size: 20.00px; font-family: "Lato";' textLength='12.72px' lengthAdjust='spacingAndGlyphs'>0</text>
-<text x='635.83' y='332.34' style='font-size: 20.00px; font-family: "Lato";' textLength='25.44px' lengthAdjust='spacingAndGlyphs'>20</text>
-<text x='635.83' y='361.14' style='font-size: 20.00px; font-family: "Lato";' textLength='25.44px' lengthAdjust='spacingAndGlyphs'>40</text>
-<text x='635.83' y='389.94' style='font-size: 20.00px; font-family: "Lato";' textLength='25.44px' lengthAdjust='spacingAndGlyphs'>60</text>
+<text x='635.83' y='303.54' style='font-size: 20.00px; font-family: "DejaVu Sans Mono";' textLength='12.72px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='635.83' y='332.34' style='font-size: 20.00px; font-family: "DejaVu Sans Mono";' textLength='25.44px' lengthAdjust='spacingAndGlyphs'>20</text>
+<text x='635.83' y='361.14' style='font-size: 20.00px; font-family: "DejaVu Sans Mono";' textLength='25.44px' lengthAdjust='spacingAndGlyphs'>40</text>
+<text x='635.83' y='389.94' style='font-size: 20.00px; font-family: "DejaVu Sans Mono";' textLength='25.44px' lengthAdjust='spacingAndGlyphs'>60</text>
 </g>
 </svg>

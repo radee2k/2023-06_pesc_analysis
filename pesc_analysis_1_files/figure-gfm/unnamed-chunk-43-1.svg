@@ -51,8 +51,8 @@
 </g>
 <g clip-path='url(#cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=)'>
 <polyline points='45.33,318.71 45.33,6.97 ' style='stroke-width: 1.07; stroke-linecap: square;' />
-<text x='38.85' y='234.81' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>10</text>
-<text x='38.85' y='113.68' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>20</text>
+<text x='38.85' y='234.81' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>10</text>
+<text x='38.85' y='113.68' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>20</text>
 <polyline points='41.84,230.44 45.33,230.44 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='41.84,109.30 45.33,109.30 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='45.33,318.71 497.03,318.71 ' style='stroke-width: 1.07; stroke-linecap: square;' />
@@ -60,11 +60,11 @@
 <polyline points='260.37,322.19 260.37,318.71 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='368.43,322.19 368.43,318.71 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='476.49,322.19 476.49,318.71 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
-<text x='152.31' y='333.93' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>5</text>
-<text x='260.37' y='333.93' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>10</text>
-<text x='368.43' y='333.93' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>15</text>
-<text x='476.49' y='333.93' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>20</text>
-<text x='271.18' y='350.12' text-anchor='middle' style='font-size: 14.00px; font-family: "Lato";' textLength='18.21px' lengthAdjust='spacingAndGlyphs'>PC</text>
-<text transform='translate(17.18,162.84) rotate(-90)' text-anchor='middle' style='font-size: 14.00px; font-family: "Lato";' textLength='135.06px' lengthAdjust='spacingAndGlyphs'>Standard Deviation</text>
+<text x='152.31' y='333.93' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>5</text>
+<text x='260.37' y='333.93' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>10</text>
+<text x='368.43' y='333.93' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>15</text>
+<text x='476.49' y='333.93' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>20</text>
+<text x='271.18' y='350.12' text-anchor='middle' style='font-size: 14.00px; font-family: "DejaVu Sans Mono";' textLength='18.21px' lengthAdjust='spacingAndGlyphs'>PC</text>
+<text transform='translate(17.18,162.84) rotate(-90)' text-anchor='middle' style='font-size: 14.00px; font-family: "DejaVu Sans Mono";' textLength='135.06px' lengthAdjust='spacingAndGlyphs'>Standard Deviation</text>
 </g>
 </svg>

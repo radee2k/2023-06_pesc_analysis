@@ -29173,23 +29173,23 @@
 <line x1='296.23' y1='162.94' x2='280.89' y2='168.41' style='stroke-width: 1.07;' />
 <line x1='271.16' y1='176.11' x2='263.13' y2='172.58' style='stroke-width: 1.07;' />
 <line x1='305.78' y1='192.37' x2='267.28' y2='180.84' style='stroke-width: 1.07;' />
-<text x='326.17' y='25.12' text-anchor='middle' style='font-size: 11.04px; font-family: "Lato";' textLength='44.12px' lengthAdjust='spacingAndGlyphs'>COL1A1</text>
-<text x='306.09' y='54.34' text-anchor='middle' style='font-size: 11.04px; font-family: "Lato";' textLength='44.12px' lengthAdjust='spacingAndGlyphs'>COL1A2</text>
-<text x='287.65' y='120.35' text-anchor='middle' style='font-size: 11.04px; font-family: "Lato";' textLength='34.11px' lengthAdjust='spacingAndGlyphs'>SFTPB</text>
-<text x='310.17' y='150.92' text-anchor='middle' style='font-size: 11.04px; font-family: "Lato";' textLength='35.31px' lengthAdjust='spacingAndGlyphs'>SPARC</text>
-<text x='383.71' y='165.07' text-anchor='middle' style='font-size: 11.04px; font-family: "Lato";' textLength='27.32px' lengthAdjust='spacingAndGlyphs'>SPP1</text>
-<text x='389.83' y='181.37' text-anchor='middle' style='font-size: 11.04px; font-family: "Lato";' textLength='107.99px' lengthAdjust='spacingAndGlyphs'>ENSG00000203396</text>
-<text x='316.12' y='166.12' text-anchor='middle' style='font-size: 11.04px; font-family: "Lato";' textLength='36.18px' lengthAdjust='spacingAndGlyphs'>TAGLN</text>
-<text x='292.65' y='181.49' text-anchor='middle' style='font-size: 11.04px; font-family: "Lato";' textLength='39.38px' lengthAdjust='spacingAndGlyphs'>IGFBP4</text>
-<text x='320.16' y='196.78' text-anchor='middle' style='font-size: 11.04px; font-family: "Lato";' textLength='25.16px' lengthAdjust='spacingAndGlyphs'>IGF2</text>
-<text x='278.28' y='198.38' text-anchor='middle' style='font-size: 11.04px; font-family: "Lato";' textLength='44.12px' lengthAdjust='spacingAndGlyphs'>COL6A1</text>
+<text x='326.17' y='25.12' text-anchor='middle' style='font-size: 11.04px; font-family: "DejaVu Sans Mono";' textLength='44.12px' lengthAdjust='spacingAndGlyphs'>COL1A1</text>
+<text x='306.09' y='54.34' text-anchor='middle' style='font-size: 11.04px; font-family: "DejaVu Sans Mono";' textLength='44.12px' lengthAdjust='spacingAndGlyphs'>COL1A2</text>
+<text x='287.65' y='120.35' text-anchor='middle' style='font-size: 11.04px; font-family: "DejaVu Sans Mono";' textLength='34.11px' lengthAdjust='spacingAndGlyphs'>SFTPB</text>
+<text x='310.17' y='150.92' text-anchor='middle' style='font-size: 11.04px; font-family: "DejaVu Sans Mono";' textLength='35.31px' lengthAdjust='spacingAndGlyphs'>SPARC</text>
+<text x='383.71' y='165.07' text-anchor='middle' style='font-size: 11.04px; font-family: "DejaVu Sans Mono";' textLength='27.32px' lengthAdjust='spacingAndGlyphs'>SPP1</text>
+<text x='389.83' y='181.37' text-anchor='middle' style='font-size: 11.04px; font-family: "DejaVu Sans Mono";' textLength='107.99px' lengthAdjust='spacingAndGlyphs'>ENSG00000203396</text>
+<text x='316.12' y='166.12' text-anchor='middle' style='font-size: 11.04px; font-family: "DejaVu Sans Mono";' textLength='36.18px' lengthAdjust='spacingAndGlyphs'>TAGLN</text>
+<text x='292.65' y='181.49' text-anchor='middle' style='font-size: 11.04px; font-family: "DejaVu Sans Mono";' textLength='39.38px' lengthAdjust='spacingAndGlyphs'>IGFBP4</text>
+<text x='320.16' y='196.78' text-anchor='middle' style='font-size: 11.04px; font-family: "DejaVu Sans Mono";' textLength='25.16px' lengthAdjust='spacingAndGlyphs'>IGF2</text>
+<text x='278.28' y='198.38' text-anchor='middle' style='font-size: 11.04px; font-family: "DejaVu Sans Mono";' textLength='44.12px' lengthAdjust='spacingAndGlyphs'>COL6A1</text>
 </g>
 <g clip-path='url(#cpMC4wMHw3MjAuMDB8MC4wMHwzNjAuMDA=)'>
 <polyline points='45.33,318.71 45.33,6.97 ' style='stroke-width: 1.07; stroke-linecap: square;' />
-<text x='38.85' y='308.92' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
-<text x='38.85' y='220.68' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>20</text>
-<text x='38.85' y='132.45' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>40</text>
-<text x='38.85' y='44.22' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>60</text>
+<text x='38.85' y='308.92' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='38.85' y='220.68' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>20</text>
+<text x='38.85' y='132.45' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>40</text>
+<text x='38.85' y='44.22' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>60</text>
 <polyline points='41.84,304.54 45.33,304.54 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='41.84,216.31 45.33,216.31 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='41.84,128.08 45.33,128.08 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
@@ -29200,16 +29200,16 @@
 <polyline points='278.61,322.19 278.61,318.71 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='361.36,322.19 361.36,318.71 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='444.10,322.19 444.10,318.71 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
-<text x='113.11' y='333.93' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='34.64px' lengthAdjust='spacingAndGlyphs'>1e-02</text>
-<text x='195.86' y='333.93' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='34.64px' lengthAdjust='spacingAndGlyphs'>1e-01</text>
-<text x='278.61' y='333.93' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='40.36px' lengthAdjust='spacingAndGlyphs'>1e+00</text>
-<text x='361.36' y='333.93' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='40.36px' lengthAdjust='spacingAndGlyphs'>1e+01</text>
-<text x='444.10' y='333.93' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='40.36px' lengthAdjust='spacingAndGlyphs'>1e+02</text>
-<text x='280.98' y='350.12' text-anchor='middle' style='font-size: 14.00px; font-family: "Lato";' textLength='214.02px' lengthAdjust='spacingAndGlyphs'>Geometric Mean of Expression</text>
-<text transform='translate(17.18,162.84) rotate(-90)' text-anchor='middle' style='font-size: 14.00px; font-family: "Lato";' textLength='124.02px' lengthAdjust='spacingAndGlyphs'>Residual Variance</text>
+<text x='113.11' y='333.93' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='34.64px' lengthAdjust='spacingAndGlyphs'>1e-02</text>
+<text x='195.86' y='333.93' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='34.64px' lengthAdjust='spacingAndGlyphs'>1e-01</text>
+<text x='278.61' y='333.93' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='40.36px' lengthAdjust='spacingAndGlyphs'>1e+00</text>
+<text x='361.36' y='333.93' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='40.36px' lengthAdjust='spacingAndGlyphs'>1e+01</text>
+<text x='444.10' y='333.93' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='40.36px' lengthAdjust='spacingAndGlyphs'>1e+02</text>
+<text x='280.98' y='350.12' text-anchor='middle' style='font-size: 14.00px; font-family: "DejaVu Sans Mono";' textLength='214.02px' lengthAdjust='spacingAndGlyphs'>Geometric Mean of Expression</text>
+<text transform='translate(17.18,162.84) rotate(-90)' text-anchor='middle' style='font-size: 14.00px; font-family: "DejaVu Sans Mono";' textLength='124.02px' lengthAdjust='spacingAndGlyphs'>Residual Variance</text>
 <circle cx='538.26' cy='158.66' r='1.42' style='stroke-width: 0.71; fill: #000000;' />
 <circle cx='538.26' cy='174.00' r='1.42' style='stroke-width: 0.71; stroke: #FF0000; fill: #FF0000;' />
-<text x='552.91' y='163.03' style='font-size: 12.00px; font-family: "Lato";' textLength='160.12px' lengthAdjust='spacingAndGlyphs'>Non-variable count: 26141</text>
-<text x='552.91' y='178.37' style='font-size: 12.00px; font-family: "Lato";' textLength='124.71px' lengthAdjust='spacingAndGlyphs'>Variable count: 3000</text>
+<text x='552.91' y='163.03' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='160.12px' lengthAdjust='spacingAndGlyphs'>Non-variable count: 26141</text>
+<text x='552.91' y='178.37' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='124.71px' lengthAdjust='spacingAndGlyphs'>Variable count: 3000</text>
 </g>
 </svg>

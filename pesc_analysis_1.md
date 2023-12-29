@@ -13,7 +13,7 @@ samples.
 
 -   install and load packages
 -   set %notin% and %notlike%
-    -   set ggplot’s theme
+-   set ggplot’s theme
 -   set the working directory
 -   set a plan for multithreading
 
@@ -74,7 +74,8 @@ knitr::opts_knit$set(root.dir = wd)
 
 fonts <- list(
   mono = "Consolas",
-  sans = "Lato"
+  sans = "Consolas"
+  # sans = "Lato"
 )
 
 # set svglite as a default for all the plots
@@ -129,7 +130,7 @@ rownames(d_dc) <- gt_sym
 rm(list = c("gt", "gt_s", "gt_sym"))
 ```
 
-# QC and filtering of cells.
+# QC and filtering of cells
 
 ``` r
 ds_c <- CreateSeuratObject(count = d_c, min.cells = 0, min.features = 1, project = "cells")
@@ -147,8 +148,8 @@ suppressMessages(gc())
 ```
 
     ##            used  (Mb) gc trigger   (Mb)  max used   (Mb)
-    ## Ncells  6679317 356.8   12136614  648.2   7478701  399.5
-    ## Vcells 27639360 210.9  242108892 1847.2 299738434 2286.9
+    ## Ncells  8732344 466.4   14797731  790.3  10475863  559.5
+    ## Vcells 31109950 237.4  245440144 1872.6 304890721 2326.2
 
 ``` r
 ds_c <- PercentageFeatureSet(ds_c, pattern = "^MT-", col.name = "percent_mt")
@@ -228,8 +229,8 @@ suppressMessages(gc())
 ```
 
     ##            used  (Mb) gc trigger   (Mb)  max used   (Mb)
-    ## Ncells  6907749 369.0   12136614  648.2  12136614  648.2
-    ## Vcells 34065420 259.9  193687114 1477.8 299738434 2286.9
+    ## Ncells  8957347 478.4   14797731  790.3  14797731  790.3
+    ## Vcells 37530400 286.4  196352116 1498.1 304890721 2326.2
 
 ### Find which genes contribute to the nCount_RNA the most
 
@@ -379,9 +380,9 @@ rm(d_dc)
 suppressMessages(gc())
 ```
 
-    ##            used  (Mb) gc trigger  (Mb) max used  (Mb)
-    ## Ncells  6790216 362.7   12535812 669.5 10082339 538.5
-    ## Vcells 59501028 454.0   98968996 755.1 97846734 746.6
+    ##            used  (Mb) gc trigger   (Mb)  max used   (Mb)
+    ## Ncells  8988728 480.1   14797731  790.3  14797731  790.3
+    ## Vcells 37684562 287.6  229924866 1754.2 304890721 2326.2
 
 ``` r
 ds_dc <- PercentageFeatureSet(ds_dc, pattern = "^MT-", col.name = "percent_mt")
@@ -445,9 +446,9 @@ rm(ds_dc)
 suppressMessages(gc())
 ```
 
-    ##            used  (Mb) gc trigger  (Mb) max used  (Mb)
-    ## Ncells  6837112 365.2   12535812 669.5 12535812 669.5
-    ## Vcells 65730114 501.5   98968996 755.1 98960718 755.1
+    ##            used  (Mb) gc trigger   (Mb)  max used   (Mb)
+    ## Ncells  8990484 480.2   14797731  790.3  14797731  790.3
+    ## Vcells 43821726 334.4  183939893 1403.4 304890721 2326.2
 
 ## Find which genes contribute to the nCount_RNA the most
 
@@ -553,8 +554,8 @@ suppressMessages(gc())
 ```
 
     ##            used  (Mb) gc trigger   (Mb)  max used   (Mb)
-    ## Ncells  6871932 367.1   12535812  669.5  12535812  669.5
-    ## Vcells 65872346 502.6  603832016 4606.9 754772198 5758.5
+    ## Ncells  9021666 481.9   14797731  790.3  14797731  790.3
+    ## Vcells 50032138 381.8  656813231 5011.1 820956640 6263.5
 
 ------------------------------------------------------------------------
 
@@ -663,85 +664,6 @@ update.**
 ds_cf <- SCTransform(ds_cf, vst.flavor = "v2", verbose = FALSE) %>%
   RunPCA(npcs = 30, verbose = FALSE) %>%
   RunUMAP(reduction = "pca", dims = 1:30, verbose = FALSE)
-```
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE
-    ## or useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE
-    ## or useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE
-    ## or useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE
-    ## or useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE
-    ## or useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE
-    ## or useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE
-    ## or useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE
-    ## or useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE
-    ## or useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE
-    ## or useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE
-    ## or useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE
-    ## or useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE
-    ## or useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE
-    ## or useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE
-    ## or useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE
-    ## or useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE
-    ## or useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE
-    ## or useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE
-    ## or useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE
-    ## or useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE
-    ## or useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE
-    ## or useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE
-    ## or useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE
-    ## or useNames = TRUE.
-
-    ## Warning: The default method for RunUMAP has changed from calling Python UMAP via reticulate to the R-native UWOT using the cosine metric
-    ## To use Python UMAP via reticulate, set umap.method to 'umap-learn' and metric to 'correlation'
-    ## This message will be shown once per session
-
-``` r
   # RunUMAP(reduction = "pca", dims = 1:30, verbose = FALSE, n.components = 2)
 # table(ds_cf@meta.data[c("pat", "diag", "type")])
 ```
@@ -978,85 +900,9 @@ ds_cf2 <- SCTransform(ds_cf2, vst.flavor = "v2", verbose = FALSE) %>%
   RunUMAP(reduction = "pca", dims = 1:15, verbose = FALSE)
 ```
 
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
-    ## useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
-    ## useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
-    ## useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
-    ## useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
-    ## useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
-    ## useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
-    ## useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
-    ## useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
-    ## useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
-    ## useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
-    ## useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
-    ## useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
-    ## useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
-    ## useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
-    ## useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
-    ## useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
-    ## useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
-    ## useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
-    ## useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
-    ## useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
-    ## useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
-    ## useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
-    ## useNames = TRUE.
-
-    ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE or
-    ## useNames = TRUE.
-
-    ## Warning: The default method for RunUMAP has changed from calling Python UMAP via reticulate to the R-native UWOT using the cosine metric
-    ## To use Python UMAP via reticulate, set umap.method to 'umap-learn' and metric to 'correlation'
-    ## This message will be shown once per session
-
 ### Elbow Plot
 
-Around 15 top PCAs should be enough to obtain proper clustering.
+Around 15 top PCs should be enough to obtain proper clustering.
 
 ``` r
 ElbowPlot(ds_cf2, ndims = 30)
@@ -1064,9 +910,8 @@ ElbowPlot(ds_cf2, ndims = 30)
 
 ![](pesc_analysis_1_files/figure-gfm/unnamed-chunk-28-1.svg)<!-- -->
 
-**10 PCAs was allowing to obtain lesser separation of cells with regard
-to replicates, however, 15 provided with better resolution of
-clusters.**
+**Top 10 PCs allowed to obtain lesser separation of cells with regard to
+replicates, however, 15 provided with better resolution of clusters.**
 
 ### Umap
 
@@ -2573,10 +2418,6 @@ ds_dcf5 <- SCTransform(ds_dcf5, vst.flavor = "v2", verbose = FALSE) %>%
 
     ## Warning: useNames = NA is deprecated. Instead, specify either useNames = TRUE
     ## or useNames = TRUE.
-
-    ## Warning: The default method for RunUMAP has changed from calling Python UMAP via reticulate to the R-native UWOT using the cosine metric
-    ## To use Python UMAP via reticulate, set umap.method to 'umap-learn' and metric to 'correlation'
-    ## This message will be shown once per session
 
 ### UMAP
 

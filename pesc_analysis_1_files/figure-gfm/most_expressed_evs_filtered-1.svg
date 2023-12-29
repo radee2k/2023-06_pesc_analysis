@@ -699,38 +699,38 @@
 <line x1='144.00' y1='56.20' x2='136.80' y2='56.20' style='stroke-width: 0.75;' />
 <line x1='144.00' y1='43.53' x2='136.80' y2='43.53' style='stroke-width: 0.75;' />
 <line x1='144.00' y1='30.87' x2='136.80' y2='30.87' style='stroke-width: 0.75;' />
-<text x='129.60' y='275.91' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='43.06px' lengthAdjust='spacingAndGlyphs'>SMAD2</text>
-<text x='129.60' y='263.24' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='46.78px' lengthAdjust='spacingAndGlyphs'>MT-ND4</text>
-<text x='129.60' y='250.57' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='117.51px' lengthAdjust='spacingAndGlyphs'>ENSG00000279217</text>
-<text x='129.60' y='237.91' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='39.45px' lengthAdjust='spacingAndGlyphs'>ATXN3</text>
-<text x='129.60' y='225.24' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='117.51px' lengthAdjust='spacingAndGlyphs'>ENSG00000278920</text>
-<text x='129.60' y='212.57' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='46.38px' lengthAdjust='spacingAndGlyphs'>MT-CO2</text>
-<text x='129.60' y='199.91' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='53.19px' lengthAdjust='spacingAndGlyphs'>SLC35E3</text>
-<text x='129.60' y='187.24' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='38.32px' lengthAdjust='spacingAndGlyphs'>PEX26</text>
-<text x='129.60' y='174.57' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='66.26px' lengthAdjust='spacingAndGlyphs'>PCBP1-AS1</text>
-<text x='129.60' y='161.91' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='54.34px' lengthAdjust='spacingAndGlyphs'>RPS6KA5</text>
-<text x='129.60' y='149.24' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='117.51px' lengthAdjust='spacingAndGlyphs'>ENSG00000279159</text>
-<text x='129.60' y='136.57' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='30.40px' lengthAdjust='spacingAndGlyphs'>SBF2</text>
-<text x='129.60' y='123.91' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='117.51px' lengthAdjust='spacingAndGlyphs'>ENSG00000279738</text>
-<text x='129.60' y='111.24' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='54.21px' lengthAdjust='spacingAndGlyphs'>MT-RNR1</text>
-<text x='129.60' y='98.57' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='117.51px' lengthAdjust='spacingAndGlyphs'>ENSG00000279080</text>
-<text x='129.60' y='85.91' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='117.51px' lengthAdjust='spacingAndGlyphs'>ENSG00000280156</text>
-<text x='129.60' y='73.24' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='117.51px' lengthAdjust='spacingAndGlyphs'>ENSG00000279184</text>
-<text x='129.60' y='60.57' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='53.00px' lengthAdjust='spacingAndGlyphs'>HELLPAR</text>
-<text x='129.60' y='47.91' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='117.51px' lengthAdjust='spacingAndGlyphs'>ENSG00000279010</text>
-<text x='129.60' y='35.24' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='54.21px' lengthAdjust='spacingAndGlyphs'>MT-RNR2</text>
+<text x='129.60' y='275.91' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='43.06px' lengthAdjust='spacingAndGlyphs'>SMAD2</text>
+<text x='129.60' y='263.24' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='46.78px' lengthAdjust='spacingAndGlyphs'>MT-ND4</text>
+<text x='129.60' y='250.57' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='117.51px' lengthAdjust='spacingAndGlyphs'>ENSG00000279217</text>
+<text x='129.60' y='237.91' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='39.45px' lengthAdjust='spacingAndGlyphs'>ATXN3</text>
+<text x='129.60' y='225.24' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='117.51px' lengthAdjust='spacingAndGlyphs'>ENSG00000278920</text>
+<text x='129.60' y='212.57' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='46.38px' lengthAdjust='spacingAndGlyphs'>MT-CO2</text>
+<text x='129.60' y='199.91' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='53.19px' lengthAdjust='spacingAndGlyphs'>SLC35E3</text>
+<text x='129.60' y='187.24' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.32px' lengthAdjust='spacingAndGlyphs'>PEX26</text>
+<text x='129.60' y='174.57' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='66.26px' lengthAdjust='spacingAndGlyphs'>PCBP1-AS1</text>
+<text x='129.60' y='161.91' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='54.34px' lengthAdjust='spacingAndGlyphs'>RPS6KA5</text>
+<text x='129.60' y='149.24' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='117.51px' lengthAdjust='spacingAndGlyphs'>ENSG00000279159</text>
+<text x='129.60' y='136.57' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='30.40px' lengthAdjust='spacingAndGlyphs'>SBF2</text>
+<text x='129.60' y='123.91' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='117.51px' lengthAdjust='spacingAndGlyphs'>ENSG00000279738</text>
+<text x='129.60' y='111.24' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='54.21px' lengthAdjust='spacingAndGlyphs'>MT-RNR1</text>
+<text x='129.60' y='98.57' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='117.51px' lengthAdjust='spacingAndGlyphs'>ENSG00000279080</text>
+<text x='129.60' y='85.91' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='117.51px' lengthAdjust='spacingAndGlyphs'>ENSG00000280156</text>
+<text x='129.60' y='73.24' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='117.51px' lengthAdjust='spacingAndGlyphs'>ENSG00000279184</text>
+<text x='129.60' y='60.57' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='53.00px' lengthAdjust='spacingAndGlyphs'>HELLPAR</text>
+<text x='129.60' y='47.91' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='117.51px' lengthAdjust='spacingAndGlyphs'>ENSG00000279010</text>
+<text x='129.60' y='35.24' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='54.21px' lengthAdjust='spacingAndGlyphs'>MT-RNR2</text>
 <line x1='164.80' y1='288.00' x2='642.47' y2='288.00' style='stroke-width: 0.75;' />
 <line x1='164.80' y1='288.00' x2='164.80' y2='295.20' style='stroke-width: 0.75;' />
 <line x1='284.22' y1='288.00' x2='284.22' y2='295.20' style='stroke-width: 0.75;' />
 <line x1='403.63' y1='288.00' x2='403.63' y2='295.20' style='stroke-width: 0.75;' />
 <line x1='523.05' y1='288.00' x2='523.05' y2='295.20' style='stroke-width: 0.75;' />
 <line x1='642.47' y1='288.00' x2='642.47' y2='295.20' style='stroke-width: 0.75;' />
-<text x='164.80' y='313.92' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
-<text x='284.22' y='313.92' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>2</text>
-<text x='403.63' y='313.92' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>4</text>
-<text x='523.05' y='313.92' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>6</text>
-<text x='642.47' y='313.92' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>8</text>
-<text x='424.80' y='342.72' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='154.05px' lengthAdjust='spacingAndGlyphs'>% total count per fraction</text>
+<text x='164.80' y='313.92' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='284.22' y='313.92' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>2</text>
+<text x='403.63' y='313.92' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>4</text>
+<text x='523.05' y='313.92' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>6</text>
+<text x='642.47' y='313.92' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>8</text>
+<text x='424.80' y='342.72' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='154.05px' lengthAdjust='spacingAndGlyphs'>% total count per fraction</text>
 <polygon points='144.00,288.00 705.60,288.00 705.60,14.40 144.00,14.40 ' style='stroke-width: 0.75;' />
 </g>
 </svg>

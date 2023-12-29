@@ -690,9 +690,9 @@
 </g>
 <g clip-path='url(#cpMC4wMHw3MjAuMDB8MC4wMHwzNjAuMDA=)'>
 <polyline points='70.41,318.71 70.41,28.94 ' style='stroke-width: 1.07; stroke-linecap: square;' />
-<text x='63.94' y='309.92' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='40.36px' lengthAdjust='spacingAndGlyphs'>0e+00</text>
-<text x='63.94' y='217.05' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='40.36px' lengthAdjust='spacingAndGlyphs'>1e+04</text>
-<text x='63.94' y='124.19' text-anchor='end' style='font-size: 12.00px; font-family: "Lato";' textLength='40.36px' lengthAdjust='spacingAndGlyphs'>2e+04</text>
+<text x='63.94' y='309.92' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='40.36px' lengthAdjust='spacingAndGlyphs'>0e+00</text>
+<text x='63.94' y='217.05' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='40.36px' lengthAdjust='spacingAndGlyphs'>1e+04</text>
+<text x='63.94' y='124.19' text-anchor='end' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='40.36px' lengthAdjust='spacingAndGlyphs'>2e+04</text>
 <polyline points='66.92,305.54 70.41,305.54 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='66.92,212.68 70.41,212.68 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='66.92,119.82 70.41,119.82 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
@@ -700,12 +700,12 @@
 <polyline points='90.02,322.19 90.02,318.71 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='242.43,322.19 242.43,318.71 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='394.84,322.19 394.84,318.71 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
-<text x='90.02' y='333.93' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='40.36px' lengthAdjust='spacingAndGlyphs'>0e+00</text>
-<text x='242.43' y='333.93' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='40.36px' lengthAdjust='spacingAndGlyphs'>1e+05</text>
-<text x='394.84' y='333.93' text-anchor='middle' style='font-size: 12.00px; font-family: "Lato";' textLength='40.36px' lengthAdjust='spacingAndGlyphs'>2e+05</text>
-<text x='286.13' y='350.12' text-anchor='middle' style='font-size: 14.00px; font-family: "Lato";' textLength='87.20px' lengthAdjust='spacingAndGlyphs'>nCount_RNA</text>
-<text transform='translate(17.18,173.82) rotate(-90)' text-anchor='middle' style='font-size: 14.00px; font-family: "Lato";' textLength='98.52px' lengthAdjust='spacingAndGlyphs'>nFeature_RNA</text>
-<text x='515.79' y='29.68' style='font-size: 14.00px; font-family: "Lato";' textLength='53.63px' lengthAdjust='spacingAndGlyphs'>Identity</text>
+<text x='90.02' y='333.93' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='40.36px' lengthAdjust='spacingAndGlyphs'>0e+00</text>
+<text x='242.43' y='333.93' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='40.36px' lengthAdjust='spacingAndGlyphs'>1e+05</text>
+<text x='394.84' y='333.93' text-anchor='middle' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='40.36px' lengthAdjust='spacingAndGlyphs'>2e+05</text>
+<text x='286.13' y='350.12' text-anchor='middle' style='font-size: 14.00px; font-family: "DejaVu Sans Mono";' textLength='87.20px' lengthAdjust='spacingAndGlyphs'>nCount_RNA</text>
+<text transform='translate(17.18,173.82) rotate(-90)' text-anchor='middle' style='font-size: 14.00px; font-family: "DejaVu Sans Mono";' textLength='98.52px' lengthAdjust='spacingAndGlyphs'>nFeature_RNA</text>
+<text x='515.79' y='29.68' style='font-size: 14.00px; font-family: "DejaVu Sans Mono";' textLength='53.63px' lengthAdjust='spacingAndGlyphs'>Identity</text>
 <circle cx='523.46' cy='45.78' r='1.42' style='stroke-width: 0.71; stroke: #F8766D; fill: #F8766D;' />
 <circle cx='523.46' cy='61.12' r='1.42' style='stroke-width: 0.71; stroke: #F47B5B; fill: #F47B5B;' />
 <circle cx='523.46' cy='76.47' r='1.42' style='stroke-width: 0.71; stroke: #EE8045; fill: #EE8045;' />
@@ -761,61 +761,61 @@
 <circle cx='659.60' cy='260.58' r='1.42' style='stroke-width: 0.71; stroke: #FF699B; fill: #FF699B;' />
 <circle cx='659.60' cy='275.92' r='1.42' style='stroke-width: 0.71; stroke: #FE6D8D; fill: #FE6D8D;' />
 <circle cx='659.60' cy='291.26' r='1.42' style='stroke-width: 0.71; stroke: #FB727D; fill: #FB727D;' />
-<text x='538.11' y='50.16' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X1543</text>
-<text x='538.11' y='65.50' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X1638</text>
-<text x='538.11' y='80.84' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X1653</text>
-<text x='538.11' y='96.18' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X1784</text>
-<text x='538.11' y='111.53' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X1827</text>
-<text x='538.11' y='126.87' style='font-size: 12.00px; font-family: "Lato";' textLength='31.14px' lengthAdjust='spacingAndGlyphs'>X226</text>
-<text x='538.11' y='142.21' style='font-size: 12.00px; font-family: "Lato";' textLength='31.14px' lengthAdjust='spacingAndGlyphs'>X232</text>
-<text x='538.11' y='157.55' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X2934</text>
-<text x='538.11' y='172.90' style='font-size: 12.00px; font-family: "Lato";' textLength='31.14px' lengthAdjust='spacingAndGlyphs'>X305</text>
-<text x='538.11' y='188.24' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X3133</text>
-<text x='538.11' y='203.58' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X3157</text>
-<text x='538.11' y='218.92' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X3256</text>
-<text x='538.11' y='234.27' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X3416</text>
-<text x='538.11' y='249.61' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X3517</text>
-<text x='538.11' y='264.95' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X3543</text>
-<text x='538.11' y='280.29' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X3554</text>
-<text x='538.11' y='295.64' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X3560</text>
-<text x='538.11' y='310.98' style='font-size: 12.00px; font-family: "Lato";' textLength='31.14px' lengthAdjust='spacingAndGlyphs'>X358</text>
-<text x='538.11' y='326.32' style='font-size: 12.00px; font-family: "Lato";' textLength='31.14px' lengthAdjust='spacingAndGlyphs'>X371</text>
-<text x='606.18' y='50.16' style='font-size: 12.00px; font-family: "Lato";' textLength='31.14px' lengthAdjust='spacingAndGlyphs'>X399</text>
-<text x='606.18' y='65.50' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X4110</text>
-<text x='606.18' y='80.84' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X4168</text>
-<text x='606.18' y='96.18' style='font-size: 12.00px; font-family: "Lato";' textLength='31.14px' lengthAdjust='spacingAndGlyphs'>X425</text>
-<text x='606.18' y='111.53' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X4310</text>
-<text x='606.18' y='126.87' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X4311</text>
-<text x='606.18' y='142.21' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X4343</text>
-<text x='606.18' y='157.55' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X4449</text>
-<text x='606.18' y='172.90' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X4455</text>
-<text x='606.18' y='188.24' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X4456</text>
-<text x='606.18' y='203.58' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X4462</text>
-<text x='606.18' y='218.92' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X4498</text>
-<text x='606.18' y='234.27' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X4664</text>
-<text x='606.18' y='249.61' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X4860</text>
-<text x='606.18' y='264.95' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X4921</text>
-<text x='606.18' y='280.29' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X4948</text>
-<text x='606.18' y='295.64' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X5068</text>
-<text x='606.18' y='310.98' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X5073</text>
-<text x='606.18' y='326.32' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X5168</text>
-<text x='674.25' y='50.16' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X5462</text>
-<text x='674.25' y='65.50' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X5470</text>
-<text x='674.25' y='80.84' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X5476</text>
-<text x='674.25' y='96.18' style='font-size: 12.00px; font-family: "Lato";' textLength='31.14px' lengthAdjust='spacingAndGlyphs'>X577</text>
-<text x='674.25' y='111.53' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X5824</text>
-<text x='674.25' y='126.87' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X5835</text>
-<text x='674.25' y='142.21' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X5841</text>
-<text x='674.25' y='157.55' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X5921</text>
-<text x='674.25' y='172.90' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X5960</text>
-<text x='674.25' y='188.24' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X6008</text>
-<text x='674.25' y='203.58' style='font-size: 12.00px; font-family: "Lato";' textLength='31.14px' lengthAdjust='spacingAndGlyphs'>X804</text>
-<text x='674.25' y='218.92' style='font-size: 12.00px; font-family: "Lato";' textLength='31.14px' lengthAdjust='spacingAndGlyphs'>X822</text>
-<text x='674.25' y='234.27' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X8522</text>
-<text x='674.25' y='249.61' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X8613</text>
-<text x='674.25' y='264.95' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X8844</text>
-<text x='674.25' y='280.29' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X9053</text>
-<text x='674.25' y='295.64' style='font-size: 12.00px; font-family: "Lato";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X9082</text>
-<text x='286.13' y='18.64' text-anchor='middle' style='font-size: 16.00px; font-weight: bold; font-family: "Lato";' textLength='39.47px' lengthAdjust='spacingAndGlyphs'>0.92</text>
+<text x='538.11' y='50.16' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X1543</text>
+<text x='538.11' y='65.50' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X1638</text>
+<text x='538.11' y='80.84' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X1653</text>
+<text x='538.11' y='96.18' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X1784</text>
+<text x='538.11' y='111.53' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X1827</text>
+<text x='538.11' y='126.87' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='31.14px' lengthAdjust='spacingAndGlyphs'>X226</text>
+<text x='538.11' y='142.21' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='31.14px' lengthAdjust='spacingAndGlyphs'>X232</text>
+<text x='538.11' y='157.55' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X2934</text>
+<text x='538.11' y='172.90' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='31.14px' lengthAdjust='spacingAndGlyphs'>X305</text>
+<text x='538.11' y='188.24' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X3133</text>
+<text x='538.11' y='203.58' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X3157</text>
+<text x='538.11' y='218.92' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X3256</text>
+<text x='538.11' y='234.27' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X3416</text>
+<text x='538.11' y='249.61' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X3517</text>
+<text x='538.11' y='264.95' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X3543</text>
+<text x='538.11' y='280.29' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X3554</text>
+<text x='538.11' y='295.64' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X3560</text>
+<text x='538.11' y='310.98' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='31.14px' lengthAdjust='spacingAndGlyphs'>X358</text>
+<text x='538.11' y='326.32' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='31.14px' lengthAdjust='spacingAndGlyphs'>X371</text>
+<text x='606.18' y='50.16' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='31.14px' lengthAdjust='spacingAndGlyphs'>X399</text>
+<text x='606.18' y='65.50' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X4110</text>
+<text x='606.18' y='80.84' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X4168</text>
+<text x='606.18' y='96.18' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='31.14px' lengthAdjust='spacingAndGlyphs'>X425</text>
+<text x='606.18' y='111.53' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X4310</text>
+<text x='606.18' y='126.87' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X4311</text>
+<text x='606.18' y='142.21' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X4343</text>
+<text x='606.18' y='157.55' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X4449</text>
+<text x='606.18' y='172.90' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X4455</text>
+<text x='606.18' y='188.24' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X4456</text>
+<text x='606.18' y='203.58' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X4462</text>
+<text x='606.18' y='218.92' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X4498</text>
+<text x='606.18' y='234.27' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X4664</text>
+<text x='606.18' y='249.61' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X4860</text>
+<text x='606.18' y='264.95' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X4921</text>
+<text x='606.18' y='280.29' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X4948</text>
+<text x='606.18' y='295.64' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X5068</text>
+<text x='606.18' y='310.98' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X5073</text>
+<text x='606.18' y='326.32' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X5168</text>
+<text x='674.25' y='50.16' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X5462</text>
+<text x='674.25' y='65.50' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X5470</text>
+<text x='674.25' y='80.84' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X5476</text>
+<text x='674.25' y='96.18' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='31.14px' lengthAdjust='spacingAndGlyphs'>X577</text>
+<text x='674.25' y='111.53' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X5824</text>
+<text x='674.25' y='126.87' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X5835</text>
+<text x='674.25' y='142.21' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X5841</text>
+<text x='674.25' y='157.55' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X5921</text>
+<text x='674.25' y='172.90' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X5960</text>
+<text x='674.25' y='188.24' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X6008</text>
+<text x='674.25' y='203.58' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='31.14px' lengthAdjust='spacingAndGlyphs'>X804</text>
+<text x='674.25' y='218.92' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='31.14px' lengthAdjust='spacingAndGlyphs'>X822</text>
+<text x='674.25' y='234.27' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X8522</text>
+<text x='674.25' y='249.61' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X8613</text>
+<text x='674.25' y='264.95' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X8844</text>
+<text x='674.25' y='280.29' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X9053</text>
+<text x='674.25' y='295.64' style='font-size: 12.00px; font-family: "DejaVu Sans Mono";' textLength='38.78px' lengthAdjust='spacingAndGlyphs'>X9082</text>
+<text x='286.13' y='18.64' text-anchor='middle' style='font-size: 16.00px; font-weight: bold; font-family: "DejaVu Sans Mono";' textLength='39.47px' lengthAdjust='spacingAndGlyphs'>0.92</text>
 </g>
 </svg>

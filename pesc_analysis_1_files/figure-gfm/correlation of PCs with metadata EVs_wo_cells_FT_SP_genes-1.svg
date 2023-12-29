@@ -337,31 +337,31 @@
 <rect x='472.63' y='72.00' width='7.61' height='22.82' style='stroke-width: 0.75; stroke: none; fill: #F7BA3C;' />
 </g>
 <g clip-path='url(#cpMC4wMHw3MjAuMDB8MC4wMHwzNjAuMDA=)'>
-<text transform='translate(259.43,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "Lato";' textLength='24.25px' lengthAdjust='spacingAndGlyphs'>PC_2</text>
-<text transform='translate(274.65,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "Lato";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_29</text>
-<text transform='translate(289.86,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "Lato";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_28</text>
-<text transform='translate(305.08,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "Lato";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_22</text>
-<text transform='translate(320.29,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "Lato";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_18</text>
-<text transform='translate(335.51,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "Lato";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_16</text>
-<text transform='translate(350.73,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "Lato";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_23</text>
-<text transform='translate(365.94,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "Lato";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_12</text>
-<text transform='translate(381.16,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "Lato";' textLength='24.25px' lengthAdjust='spacingAndGlyphs'>PC_9</text>
-<text transform='translate(396.37,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "Lato";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_19</text>
-<text transform='translate(411.59,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "Lato";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_13</text>
-<text transform='translate(426.81,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "Lato";' textLength='24.25px' lengthAdjust='spacingAndGlyphs'>PC_1</text>
-<text transform='translate(442.02,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "Lato";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_21</text>
-<text transform='translate(457.24,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "Lato";' textLength='24.25px' lengthAdjust='spacingAndGlyphs'>PC_4</text>
-<text transform='translate(472.45,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "Lato";' textLength='24.25px' lengthAdjust='spacingAndGlyphs'>PC_5</text>
-<text x='486.22' y='293.18' style='font-size: 11.95px; font-family: "Lato";' textLength='19.57px' lengthAdjust='spacingAndGlyphs'>rep</text>
-<text x='486.22' y='270.36' style='font-size: 11.95px; font-family: "Lato";' textLength='23.00px' lengthAdjust='spacingAndGlyphs'>frac</text>
-<text x='486.22' y='247.53' style='font-size: 11.95px; font-family: "Lato";' textLength='25.78px' lengthAdjust='spacingAndGlyphs'>diag</text>
-<text x='486.22' y='224.71' style='font-size: 11.95px; font-family: "Lato";' textLength='26.66px' lengthAdjust='spacingAndGlyphs'>type</text>
-<text x='486.22' y='201.88' style='font-size: 11.95px; font-family: "Lato";' textLength='81.86px' lengthAdjust='spacingAndGlyphs'>nFeature_SCT</text>
-<text x='486.22' y='179.06' style='font-size: 11.95px; font-family: "Lato";' textLength='72.19px' lengthAdjust='spacingAndGlyphs'>nCount_SCT</text>
-<text x='486.22' y='156.24' style='font-size: 11.95px; font-family: "Lato";' textLength='74.38px' lengthAdjust='spacingAndGlyphs'>nCount_RNA</text>
-<text x='486.22' y='133.41' style='font-size: 11.95px; font-family: "Lato";' textLength='84.04px' lengthAdjust='spacingAndGlyphs'>nFeature_RNA</text>
-<text x='486.22' y='110.59' style='font-size: 11.95px; font-family: "Lato";' textLength='57.38px' lengthAdjust='spacingAndGlyphs'>orig.ident</text>
-<text x='486.22' y='87.76' style='font-size: 11.95px; font-family: "Lato";' textLength='19.57px' lengthAdjust='spacingAndGlyphs'>pat</text>
+<text transform='translate(259.43,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "DejaVu Sans Mono";' textLength='24.25px' lengthAdjust='spacingAndGlyphs'>PC_2</text>
+<text transform='translate(274.65,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "DejaVu Sans Mono";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_29</text>
+<text transform='translate(289.86,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "DejaVu Sans Mono";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_28</text>
+<text transform='translate(305.08,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "DejaVu Sans Mono";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_22</text>
+<text transform='translate(320.29,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "DejaVu Sans Mono";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_18</text>
+<text transform='translate(335.51,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "DejaVu Sans Mono";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_16</text>
+<text transform='translate(350.73,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "DejaVu Sans Mono";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_23</text>
+<text transform='translate(365.94,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "DejaVu Sans Mono";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_12</text>
+<text transform='translate(381.16,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "DejaVu Sans Mono";' textLength='24.25px' lengthAdjust='spacingAndGlyphs'>PC_9</text>
+<text transform='translate(396.37,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "DejaVu Sans Mono";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_19</text>
+<text transform='translate(411.59,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "DejaVu Sans Mono";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_13</text>
+<text transform='translate(426.81,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "DejaVu Sans Mono";' textLength='24.25px' lengthAdjust='spacingAndGlyphs'>PC_1</text>
+<text transform='translate(442.02,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "DejaVu Sans Mono";' textLength='30.58px' lengthAdjust='spacingAndGlyphs'>PC_21</text>
+<text transform='translate(457.24,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "DejaVu Sans Mono";' textLength='24.25px' lengthAdjust='spacingAndGlyphs'>PC_4</text>
+<text transform='translate(472.45,306.22) rotate(-90)' text-anchor='end' style='font-size: 9.96px; font-family: "DejaVu Sans Mono";' textLength='24.25px' lengthAdjust='spacingAndGlyphs'>PC_5</text>
+<text x='486.22' y='293.18' style='font-size: 11.95px; font-family: "DejaVu Sans Mono";' textLength='19.57px' lengthAdjust='spacingAndGlyphs'>rep</text>
+<text x='486.22' y='270.36' style='font-size: 11.95px; font-family: "DejaVu Sans Mono";' textLength='23.00px' lengthAdjust='spacingAndGlyphs'>frac</text>
+<text x='486.22' y='247.53' style='font-size: 11.95px; font-family: "DejaVu Sans Mono";' textLength='25.78px' lengthAdjust='spacingAndGlyphs'>diag</text>
+<text x='486.22' y='224.71' style='font-size: 11.95px; font-family: "DejaVu Sans Mono";' textLength='26.66px' lengthAdjust='spacingAndGlyphs'>type</text>
+<text x='486.22' y='201.88' style='font-size: 11.95px; font-family: "DejaVu Sans Mono";' textLength='81.86px' lengthAdjust='spacingAndGlyphs'>nFeature_SCT</text>
+<text x='486.22' y='179.06' style='font-size: 11.95px; font-family: "DejaVu Sans Mono";' textLength='72.19px' lengthAdjust='spacingAndGlyphs'>nCount_SCT</text>
+<text x='486.22' y='156.24' style='font-size: 11.95px; font-family: "DejaVu Sans Mono";' textLength='74.38px' lengthAdjust='spacingAndGlyphs'>nCount_RNA</text>
+<text x='486.22' y='133.41' style='font-size: 11.95px; font-family: "DejaVu Sans Mono";' textLength='84.04px' lengthAdjust='spacingAndGlyphs'>nFeature_RNA</text>
+<text x='486.22' y='110.59' style='font-size: 11.95px; font-family: "DejaVu Sans Mono";' textLength='57.38px' lengthAdjust='spacingAndGlyphs'>orig.ident</text>
+<text x='486.22' y='87.76' style='font-size: 11.95px; font-family: "DejaVu Sans Mono";' textLength='19.57px' lengthAdjust='spacingAndGlyphs'>pat</text>
 </g>
 <defs>
   <clipPath id='cpMTgwLjAwfDI1Mi4wMHw3Mi4wMHwzMDAuMjQ='>
